@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1405C4AB1614528B0098BFC4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1405C4AA1614528B0098BFC4 /* Security.framework */; };
 		1435EDB11613B31D008BF105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB01613B31D008BF105 /* UIKit.framework */; };
 		1435EDB31613B31D008BF105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB21613B31D008BF105 /* Foundation.framework */; };
 		1435EDB51613B31D008BF105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB41613B31D008BF105 /* CoreGraphics.framework */; };
@@ -18,13 +19,19 @@
 		1435EDC71613B31E008BF105 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC61613B31E008BF105 /* Default-568h@2x.png */; };
 		1435EDCA1613B31E008BF105 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC81613B31E008BF105 /* MainStoryboard.storyboard */; };
 		1435EDCD1613B31E008BF105 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1435EDCC1613B31E008BF105 /* ViewController.m */; };
+		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
+		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
+		147590A81613D4440013CF70 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A71613D4440013CF70 /* Task.m */; };
+		751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004521F44D504A1C93BB1CE7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		004521F44D504A1C93BB1CE7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1405C4AA1614528B0098BFC4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1435EDAC1613B31D008BF105 /* MrTickTock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrTickTock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1435EDB01613B31D008BF105 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1435EDB21613B31D008BF105 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1435EDB41613B31D008BF105 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1435EDB01613B31D008BF105 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1435EDB21613B31D008BF105 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1435EDB41613B31D008BF105 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1435EDB81613B31D008BF105 /* MrTickTock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MrTickTock-Info.plist"; sourceTree = "<group>"; };
 		1435EDBA1613B31D008BF105 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1435EDBC1613B31D008BF105 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,6 +44,13 @@
 		1435EDC91613B31E008BF105 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1435EDCB1613B31E008BF105 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1435EDCC1613B31E008BF105 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1475909F1613B4C40013CF70 /* AFMrTickTockAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMrTickTockAPIClient.h; sourceTree = "<group>"; };
+		147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMrTickTockAPIClient.m; sourceTree = "<group>"; };
+		147590A31613D08E0013CF70 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
+		147590A41613D08E0013CF70 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
+		147590A61613D4440013CF70 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		147590A71613D4440013CF70 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +58,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1405C4AB1614528B0098BFC4 /* Security.framework in Frameworks */,
 				1435EDB11613B31D008BF105 /* UIKit.framework in Frameworks */,
 				1435EDB31613B31D008BF105 /* Foundation.framework in Frameworks */,
 				1435EDB51613B31D008BF105 /* CoreGraphics.framework in Frameworks */,
+				751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +75,7 @@
 				1435EDB61613B31D008BF105 /* MrTickTock */,
 				1435EDAF1613B31D008BF105 /* Frameworks */,
 				1435EDAD1613B31D008BF105 /* Products */,
+				D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,9 +90,11 @@
 		1435EDAF1613B31D008BF105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1405C4AA1614528B0098BFC4 /* Security.framework */,
 				1435EDB01613B31D008BF105 /* UIKit.framework */,
 				1435EDB21613B31D008BF105 /* Foundation.framework */,
 				1435EDB41613B31D008BF105 /* CoreGraphics.framework */,
+				004521F44D504A1C93BB1CE7 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,11 +102,10 @@
 		1435EDB61613B31D008BF105 /* MrTickTock */ = {
 			isa = PBXGroup;
 			children = (
-				1435EDBF1613B31D008BF105 /* AppDelegate.h */,
-				1435EDC01613B31D008BF105 /* AppDelegate.m */,
-				1435EDC81613B31E008BF105 /* MainStoryboard.storyboard */,
-				1435EDCB1613B31E008BF105 /* ViewController.h */,
-				1435EDCC1613B31E008BF105 /* ViewController.m */,
+				14CAAEEE16144DB50013E039 /* API */,
+				14CAAEED16144D9F0013E039 /* Model */,
+				14CAAEEC16144D720013E039 /* View */,
+				14CAAEEA16144D2A0013E039 /* Controller */,
 				1435EDB71613B31D008BF105 /* Supporting Files */,
 			);
 			path = MrTickTock;
@@ -107,6 +125,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		14CAAEEA16144D2A0013E039 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1435EDBF1613B31D008BF105 /* AppDelegate.h */,
+				1435EDC01613B31D008BF105 /* AppDelegate.m */,
+				1435EDCB1613B31E008BF105 /* ViewController.h */,
+				1435EDCC1613B31E008BF105 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		14CAAEEC16144D720013E039 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1435EDC81613B31E008BF105 /* MainStoryboard.storyboard */,
+				147590A31613D08E0013CF70 /* TaskCell.h */,
+				147590A41613D08E0013CF70 /* TaskCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		14CAAEED16144D9F0013E039 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				147590A61613D4440013CF70 /* Task.h */,
+				147590A71613D4440013CF70 /* Task.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		14CAAEEE16144DB50013E039 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1475909F1613B4C40013CF70 /* AFMrTickTockAPIClient.h */,
+				147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,6 +174,7 @@
 				1435EDA81613B31D008BF105 /* Sources */,
 				1435EDA91613B31D008BF105 /* Frameworks */,
 				1435EDAA1613B31D008BF105 /* Resources */,
+				850AD20F876E4767BA774953 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,7 +192,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "André Neves";
+				ORGANIZATIONNAME = "Andr√© Neves";
 			};
 			buildConfigurationList = 1435EDA61613B31D008BF105 /* Build configuration list for PBXProject "MrTickTock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -168,6 +226,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		850AD20F876E4767BA774953 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1435EDA81613B31D008BF105 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,6 +251,9 @@
 				1435EDBD1613B31D008BF105 /* main.m in Sources */,
 				1435EDC11613B31D008BF105 /* AppDelegate.m in Sources */,
 				1435EDCD1613B31E008BF105 /* ViewController.m in Sources */,
+				147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */,
+				147590A51613D08E0013CF70 /* TaskCell.m in Sources */,
+				147590A81613D4440013CF70 /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +330,7 @@
 		};
 		1435EDD11613B31E008BF105 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MrTickTock/MrTickTock-Prefix.pch";
@@ -263,6 +342,7 @@
 		};
 		1435EDD21613B31E008BF105 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MrTickTock/MrTickTock-Prefix.pch";
@@ -291,6 +371,7 @@
 				1435EDD21613B31E008BF105 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
