@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TasksViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) IBOutlet UIViewController *loginViewController;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
+
+- (IBAction)logout:(id)sender;
 
 @end

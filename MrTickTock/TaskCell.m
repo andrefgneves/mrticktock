@@ -10,8 +10,6 @@
 
 @implementation TaskCell
 
-@synthesize label = _label;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

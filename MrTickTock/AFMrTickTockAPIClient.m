@@ -8,6 +8,7 @@
 
 #import "AFMrTickTockAPIClient.h"
 #import "AFJSONRequestOperation.h"
+#import "ACSimpleKeychain.h"
 
 static NSString * const kAFMrTickTockAPIBaseURLString = @"https://mrticktock.com/app/api/";
 
@@ -38,7 +39,16 @@ static NSString * const kAFMrTickTockAPIBaseURLString = @"https://mrticktock.com
 }
 
 - (NSDictionary *)authParams {
-    return [[NSDictionary alloc] initWithObjectsAndKeys:@"afn@seegno.com", @"email", @"65QLJd3a&uvdH", @"password", nil];
+    NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithCapacity:2];
+    ACSimpleKeychain * keychain = [ACSimpleKeychain defaultKeychain];
+    NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];
+
+    if (credentials) {
+        [params setObject:[credentials objectForKey:@"username"] forKey:@"email"];
+        [params setObject:[credentials objectForKey:@"password"] forKey:@"password"];
+    }
+
+    return params;
 }
 
 @end

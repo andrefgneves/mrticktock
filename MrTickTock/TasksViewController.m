@@ -6,13 +6,15 @@
 //  Copyright (c) 2012 André Neves. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TasksViewController.h"
 #import "AFMrTickTockAPIClient.h"
 #import "Task.h"
 #import "TaskCell.h"
 #import "ACSimpleKeychain.h"
+#import "SVProgressHUD.h"
+#import <SystemConfiguration/CaptiveNetwork.h>
 
-@interface ViewController ()
+@interface TasksViewController ()
 {
     NSMutableArray * _tasks;
     NSInteger runningTaskIndex;
@@ -21,14 +23,9 @@
     ACSimpleKeychain * keychain;
 }
 
-- (void)checkCredentials;
-- (void)setRunningTask:(NSInteger)index;
-- (void)stopRunningTask;
-- (void)refreshTasks;
-
 @end
 
-@implementation ViewController
+@implementation TasksViewController
 
 @synthesize table = _table;
 
@@ -36,21 +33,81 @@
 {
     [super viewDidLoad];
 
+    self.navigationController.delegate = self;
+
+    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+
+    [self showLogoutButton:NO];
+
     keychain = [ACSimpleKeychain defaultKeychain];
 
-    [self getActiveTimer];
+//    [self listNetworks];
 
     _tasks = [[NSMutableArray alloc] init];
     runningTaskIndex = -1;
     runningTaskId = -1;
 }
 
+- (void)showLogoutButton:(BOOL)visible {
+    self.navigationItem.rightBarButtonItem = visible ? self.logoutButton : nil;
+}
+
+- (void)listNetworks {
+    NSArray * interfaces = (__bridge NSArray *)CNCopySupportedInterfaces();
+    if (!interfaces.count) return;
+
+    CFStringRef interface = (__bridge CFStringRef)[interfaces objectAtIndex:0];
+    CFDictionaryRef myDict = CNCopyCurrentNetworkInfo(interface);
+    NSDictionary * dict = (__bridge NSDictionary *)myDict;
+
+    LOG_EXPR(dict);
+}
+
+-(void) refreshInvoked:(id)sender forState:(UIControlState)state {
+    [self.refreshControl endRefreshing];
+
+    [self checkCredentials];
+}
+
 - (void)checkCredentials {
-    //NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];
+    NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];
+
+    if (credentials) {
+        [self getActiveTimer];
+    } else {
+        [self showLogin];
+    }
+}
+
+- (void)showLogin {
+    UIViewController * loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+
+    [self.navigationController pushViewController:loginViewController animated:YES];
+}
+
+- (IBAction)logout:(id)sender {
+    [keychain deleteAllCredentialsForService:@"MrTickTock"];
+
+    [self showLogoutButton:NO];
+    [_tasks removeAllObjects];
+    [_table reloadData];
+
+    [self showLogin];
 }
 
 - (void)getActiveTimer {
+    [SVProgressHUD show];
+
     [[AFMrTickTockAPIClient sharedClient] postPath:@"is_timer_active" parameters:[[AFMrTickTockAPIClient sharedClient] authParams] success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+
+        NSArray * errors = [JSON objectForKey:@"errors"];
+        if (errors.count) {
+            [self showError:errors[0]];
+
+            [self logout:nil];
+
+            return;
+        }
 
         NSDictionary * response = [[JSON objectForKey:@"content"] objectAtIndex:0];
 
@@ -58,14 +115,17 @@
             runningTaskId = [[response objectForKey:@"task_id"] integerValue];
         }
 
+        [self showLogoutButton:YES];
+
         [self refreshTasks];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error.debugDescription);
+        [self showError:error.description];
     }];
 }
 
 - (void)refreshTasks {
     [_tasks removeAllObjects];
+    [_table reloadData];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
     [params setObject:@"false" forKey:@"closed"];
@@ -73,6 +133,15 @@
     [params setObject:@"true" forKey:@"get_hidden_timer"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"get_tasks" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+
+        NSArray * errors = [JSON objectForKey:@"errors"];
+        if (errors.count) {
+            [self showError:errors[0]];
+
+            return;
+        }
+
+        LOG_EXPR(JSON);
 
         int i = 0;
         for (NSDictionary * attributes in [JSON objectForKey:@"content"]) {
@@ -87,20 +156,30 @@
 
             i++;
         }
-        
+
+        [SVProgressHUD dismiss];
         [_table reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error.debugDescription);
+        [self showError:error.description];
     }];
 }
 
 - (void)setRunningTask:(NSInteger)index {
     Task * task = [_tasks objectAtIndex:index];
 
+    [SVProgressHUD show];
+
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
     [params setObject:[NSNumber numberWithInteger:task.id] forKey:@"task_id"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"start_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+        NSArray * errors = [JSON objectForKey:@"errors"];
+        if (errors.count) {
+            [self showError:errors[0]];
+            
+            return;
+        }
+
         if (runningTaskIndex != -1) {
             Task * runningTask = [_tasks objectAtIndex:runningTaskIndex];
             runningTask.isRunning = NO;
@@ -111,9 +190,10 @@
         runningTaskIndex = index;
         runningTaskId = task.id;
 
+        [SVProgressHUD dismiss];
         [_table reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error.debugDescription);
+        [self showError:error.description];
     }];
 }
 
@@ -122,20 +202,30 @@
         return;
     }
 
+    [SVProgressHUD show];
+
     Task * task = [_tasks objectAtIndex:runningTaskIndex];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
     [params setObject:[NSNumber numberWithInteger:task.id] forKey:@"task_id"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"stop_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+        NSArray * errors = [JSON objectForKey:@"errors"];
+        if (errors.count) {
+            [self showError:errors[0]];
+            
+            return;
+        }
+
         task.isRunning = NO;
 
         runningTaskIndex = -1;
         runningTaskId = -1;
 
+        [SVProgressHUD dismiss];
         [_table reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error.debugDescription);
+        [self showError:error.description];
     }];
 }
 
@@ -147,7 +237,8 @@
     TaskCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
     Task * task = [_tasks objectAtIndex:indexPath.row];
 
-    cell.label.text = task.projectName;
+    cell.projectName.text = task.projectName;
+    cell.taskName.text = task.taskName;
 
     return cell;
 }
@@ -166,5 +257,22 @@
     }
 }
 
+- (void)showError:(NSString *)error {
+    [SVProgressHUD dismiss];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:error
+                                                   delegate:self
+                                          cancelButtonTitle: @"OK"
+                                          otherButtonTitles: nil];
+
+    [alert show];
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (viewController == self) {
+        [self checkCredentials];
+    }
+}
 
 @end
