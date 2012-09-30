@@ -12,7 +12,6 @@
 #import "TaskCell.h"
 #import "ACSimpleKeychain.h"
 #import "SVProgressHUD.h"
-#import <SystemConfiguration/CaptiveNetwork.h>
 
 @interface TasksViewController ()
 {
@@ -41,8 +40,6 @@
 
     keychain = [ACSimpleKeychain defaultKeychain];
 
-//    [self listNetworks];
-
     _tasks = [[NSMutableArray alloc] init];
     runningTaskIndex = -1;
     runningTaskId = -1;
@@ -50,17 +47,6 @@
 
 - (void)showLogoutButton:(BOOL)visible {
     self.navigationItem.rightBarButtonItem = visible ? self.logoutButton : nil;
-}
-
-- (void)listNetworks {
-    NSArray * interfaces = (__bridge NSArray *)CNCopySupportedInterfaces();
-    if (!interfaces.count) return;
-
-    CFStringRef interface = (__bridge CFStringRef)[interfaces objectAtIndex:0];
-    CFDictionaryRef myDict = CNCopyCurrentNetworkInfo(interface);
-    NSDictionary * dict = (__bridge NSDictionary *)myDict;
-
-    LOG_EXPR(dict);
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
@@ -115,6 +101,8 @@
             runningTaskId = [[response objectForKey:@"task_id"] integerValue];
         }
 
+        [TestFlight passCheckpoint:@"USER_LOGGED_IN"];
+        
         [self showLogoutButton:YES];
 
         [self refreshTasks];
@@ -140,8 +128,6 @@
 
             return;
         }
-
-        LOG_EXPR(JSON);
 
         int i = 0;
         for (NSDictionary * attributes in [JSON objectForKey:@"content"]) {

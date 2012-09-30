@@ -23,7 +23,6 @@
 		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
 		147590A81613D4440013CF70 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A71613D4440013CF70 /* Task.m */; };
 		14D7A0E816150160004BF0AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D7A0E716150160004BF0AB /* SystemConfiguration.framework */; };
-		14D7A0ED161507F8004BF0AB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14D7A0EC161507F8004BF0AB /* Settings.bundle */; };
 		14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A0F316151710004BF0AB /* LoginViewController.m */; };
 		751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004521F44D504A1C93BB1CE7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -233,7 +232,6 @@
 				1435EDC51613B31E008BF105 /* Default@2x.png in Resources */,
 				1435EDC71613B31E008BF105 /* Default-568h@2x.png in Resources */,
 				1435EDCA1613B31E008BF105 /* MainStoryboard.storyboard in Resources */,
-				14D7A0ED161507F8004BF0AB /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
