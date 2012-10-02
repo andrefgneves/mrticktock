@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8jh-Wb-q17">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8jh-Wb-q17">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
@@ -20,18 +21,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4na-CP-R7x">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="260" id="joE-jW-42k"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4na-CP-R7x">
+                                            <rect key="frame" x="20" y="11" width="260" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-5p-3pg">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="kfL-U8-Idj"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fcj-5p-3pg">
+                                            <rect key="frame" x="20" y="28" width="260" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,13 +36,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="fcj-5p-3pg" firstAttribute="top" secondItem="aMf-fd-V5u" secondAttribute="top" constant="28" id="6mm-Jn-hGh"/>
-                                    <constraint firstItem="fcj-5p-3pg" firstAttribute="trailing" secondItem="4na-CP-R7x" secondAttribute="trailing" type="default" id="Oqr-HD-X0q"/>
-                                    <constraint firstItem="4na-CP-R7x" firstAttribute="top" secondItem="aMf-fd-V5u" secondAttribute="top" constant="11" id="S39-fE-9WM"/>
-                                    <constraint firstItem="4na-CP-R7x" firstAttribute="leading" secondItem="aMf-fd-V5u" secondAttribute="leading" constant="20" type="default" id="eUI-wy-M0K"/>
-                                    <constraint firstItem="fcj-5p-3pg" firstAttribute="leading" secondItem="aMf-fd-V5u" secondAttribute="leading" constant="20" type="default" id="yVU-Uf-kGN"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="projectName" destination="4na-CP-R7x" id="AIk-Ra-gua"/>
                                     <outlet property="taskName" destination="fcj-5p-3pg" id="oUs-cR-Z2Y"/>
@@ -58,15 +48,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Tasks" id="sUS-4D-Ni0">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Cva-OH-iUi">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Cva-OH-iUi">
                             <connections>
                                 <action selector="logout:" destination="dPk-6F-65K" id="5TT-m1-LWf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="F0M-J3-rd9">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </refreshControl>
                     <connections>
                         <outlet property="logoutButton" destination="Cva-OH-iUi" id="SMW-mi-uO4"/>
                         <outlet property="table" destination="zKb-rA-mK1" id="pHN-dM-vQg"/>
@@ -84,26 +71,20 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="awa-V6-FGX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" id="awa-V6-FGX">
+                                <rect key="frame" x="20" y="20" width="280" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g0y-wz-k2n">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" id="g0y-wz-k2n">
+                                <rect key="frame" x="20" y="68" width="280" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="awa-V6-FGX" firstAttribute="leading" secondItem="mhm-we-0up" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Orf-Qg-Gc2"/>
-                            <constraint firstItem="awa-V6-FGX" firstAttribute="top" secondItem="mhm-we-0up" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ROX-Ei-25S"/>
-                            <constraint firstAttribute="trailing" secondItem="awa-V6-FGX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Rx8-rz-Imj"/>
-                            <constraint firstItem="g0y-wz-k2n" firstAttribute="leading" secondItem="mhm-we-0up" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eYo-Ip-oSd"/>
-                            <constraint firstAttribute="trailing" secondItem="g0y-wz-k2n" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="iwj-gS-akS"/>
-                            <constraint firstItem="g0y-wz-k2n" firstAttribute="top" secondItem="mhm-we-0up" secondAttribute="top" constant="68" id="pdm-gX-X2U"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="awa-V6-FGX" id="uWz-kC-1MR"/>
@@ -139,9 +120,6 @@
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
         <class className="TaskCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskCell.h"/>
             <relationships>
@@ -156,9 +134,6 @@
                 <relationship kind="outlet" name="logoutButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="table" candidateClass="UITableView"/>
             </relationships>
-        </class>
-        <class className="UIRefreshControl" superclassName="UIControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

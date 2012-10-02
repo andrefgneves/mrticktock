@@ -18,6 +18,7 @@
     NSMutableArray * _tasks;
     NSInteger runningTaskIndex;
     NSInteger runningTaskId;
+    BOOL isIOS6;
 
     ACSimpleKeychain * keychain;
 }
@@ -32,9 +33,19 @@
 {
     [super viewDidLoad];
 
+    isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
+
     self.navigationController.delegate = self;
 
-    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+    if (isIOS6) {
+        self.refreshControl = [[UIRefreshControl alloc] init];
+        [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+    } else {
+        UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                        target:self
+                                                                                        action:@selector(refreshInvoked:forState:)];
+        self.navigationItem.rightBarButtonItem = refreshButton;
+    }
 
     [self showLogoutButton:NO];
 
@@ -46,11 +57,13 @@
 }
 
 - (void)showLogoutButton:(BOOL)visible {
-    self.navigationItem.rightBarButtonItem = visible ? self.logoutButton : nil;
+    self.navigationItem.leftBarButtonItem = visible ? self.logoutButton : nil;
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
-    [self.refreshControl endRefreshing];
+    if (isIOS6) {
+        [self.refreshControl endRefreshing];
+    }
 
     [self checkCredentials];
 }
@@ -88,7 +101,7 @@
 
         NSArray * errors = [JSON objectForKey:@"errors"];
         if (errors.count) {
-            [self showError:errors[0]];
+            [self showError:[errors objectAtIndex:0]];
 
             [self logout:nil];
 
@@ -124,7 +137,7 @@
 
         NSArray * errors = [JSON objectForKey:@"errors"];
         if (errors.count) {
-            [self showError:errors[0]];
+            [self showError:[errors objectAtIndex:0]];
 
             return;
         }
@@ -161,7 +174,7 @@
     [[AFMrTickTockAPIClient sharedClient] postPath:@"start_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
         NSArray * errors = [JSON objectForKey:@"errors"];
         if (errors.count) {
-            [self showError:errors[0]];
+            [self showError:[errors objectAtIndex:0]];
             
             return;
         }
@@ -198,7 +211,7 @@
     [[AFMrTickTockAPIClient sharedClient] postPath:@"stop_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
         NSArray * errors = [JSON objectForKey:@"errors"];
         if (errors.count) {
-            [self showError:errors[0]];
+            [self showError:[errors objectAtIndex:0]];
             
             return;
         }
@@ -220,7 +233,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TaskCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
+    TaskCell * cell;
+
+    if (isIOS6) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
+    }
+
     Task * task = [_tasks objectAtIndex:indexPath.row];
 
     cell.projectName.text = task.projectName;
