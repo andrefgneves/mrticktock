@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1405C4AB1614528B0098BFC4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1405C4AA1614528B0098BFC4 /* Security.framework */; };
+		141F3C15161D8DB40098D478 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C0D161D8DB40098D478 /* Icon-72.png */; };
+		141F3C16161D8DB40098D478 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C0E161D8DB40098D478 /* Icon-72@2x.png */; };
+		141F3C17161D8DB40098D478 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C0F161D8DB40098D478 /* Icon-Small-50.png */; };
+		141F3C18161D8DB40098D478 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C10161D8DB40098D478 /* Icon-Small-50@2x.png */; };
+		141F3C19161D8DB40098D478 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C11161D8DB40098D478 /* Icon-Small.png */; };
+		141F3C1A161D8DB40098D478 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C12161D8DB40098D478 /* Icon-Small@2x.png */; };
+		141F3C1B161D8DB40098D478 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C13161D8DB40098D478 /* Icon.png */; };
+		141F3C1C161D8DB40098D478 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C14161D8DB40098D478 /* Icon@2x.png */; };
 		1435EDB11613B31D008BF105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB01613B31D008BF105 /* UIKit.framework */; };
 		1435EDB31613B31D008BF105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB21613B31D008BF105 /* Foundation.framework */; };
 		1435EDB51613B31D008BF105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB41613B31D008BF105 /* CoreGraphics.framework */; };
@@ -30,6 +38,14 @@
 /* Begin PBXFileReference section */
 		004521F44D504A1C93BB1CE7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1405C4AA1614528B0098BFC4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		141F3C0D161D8DB40098D478 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		141F3C0E161D8DB40098D478 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		141F3C0F161D8DB40098D478 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		141F3C10161D8DB40098D478 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		141F3C11161D8DB40098D478 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		141F3C12161D8DB40098D478 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		141F3C13161D8DB40098D478 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		141F3C14161D8DB40098D478 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		1435EDAC1613B31D008BF105 /* MrTickTock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrTickTock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1435EDB01613B31D008BF105 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1435EDB21613B31D008BF105 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,7 +69,6 @@
 		147590A61613D4440013CF70 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		147590A71613D4440013CF70 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		14D7A0E716150160004BF0AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		14D7A0EC161507F8004BF0AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		14D7A0F216151710004BF0AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		14D7A0F316151710004BF0AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -122,7 +137,14 @@
 		1435EDB71613B31D008BF105 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				14D7A0EC161507F8004BF0AB /* Settings.bundle */,
+				141F3C0D161D8DB40098D478 /* Icon-72.png */,
+				141F3C0E161D8DB40098D478 /* Icon-72@2x.png */,
+				141F3C0F161D8DB40098D478 /* Icon-Small-50.png */,
+				141F3C10161D8DB40098D478 /* Icon-Small-50@2x.png */,
+				141F3C11161D8DB40098D478 /* Icon-Small.png */,
+				141F3C12161D8DB40098D478 /* Icon-Small@2x.png */,
+				141F3C13161D8DB40098D478 /* Icon.png */,
+				141F3C14161D8DB40098D478 /* Icon@2x.png */,
 				1435EDB81613B31D008BF105 /* MrTickTock-Info.plist */,
 				1435EDB91613B31D008BF105 /* InfoPlist.strings */,
 				1435EDBC1613B31D008BF105 /* main.m */,
@@ -232,6 +254,14 @@
 				1435EDC51613B31E008BF105 /* Default@2x.png in Resources */,
 				1435EDC71613B31E008BF105 /* Default-568h@2x.png in Resources */,
 				1435EDCA1613B31E008BF105 /* MainStoryboard.storyboard in Resources */,
+				141F3C15161D8DB40098D478 /* Icon-72.png in Resources */,
+				141F3C16161D8DB40098D478 /* Icon-72@2x.png in Resources */,
+				141F3C17161D8DB40098D478 /* Icon-Small-50.png in Resources */,
+				141F3C18161D8DB40098D478 /* Icon-Small-50@2x.png in Resources */,
+				141F3C19161D8DB40098D478 /* Icon-Small.png in Resources */,
+				141F3C1A161D8DB40098D478 /* Icon-Small@2x.png in Resources */,
+				141F3C1B161D8DB40098D478 /* Icon.png in Resources */,
+				141F3C1C161D8DB40098D478 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
