@@ -25,8 +25,8 @@
 		1435EDC31613B31E008BF105 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC21613B31D008BF105 /* Default.png */; };
 		1435EDC51613B31E008BF105 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC41613B31E008BF105 /* Default@2x.png */; };
 		1435EDC71613B31E008BF105 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC61613B31E008BF105 /* Default-568h@2x.png */; };
-		1435EDCA1613B31E008BF105 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC81613B31E008BF105 /* MainStoryboard.storyboard */; };
 		1435EDCD1613B31E008BF105 /* TasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1435EDCC1613B31E008BF105 /* TasksViewController.m */; };
+		14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14626026161F5B0900C766A8 /* MainStoryboard.storyboard */; };
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
 		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
 		147590A81613D4440013CF70 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A71613D4440013CF70 /* Task.m */; };
@@ -59,9 +59,9 @@
 		1435EDC21613B31D008BF105 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1435EDC41613B31E008BF105 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1435EDC61613B31E008BF105 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1435EDC91613B31E008BF105 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1435EDCB1613B31E008BF105 /* TasksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TasksViewController.h; sourceTree = "<group>"; };
 		1435EDCC1613B31E008BF105 /* TasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TasksViewController.m; sourceTree = "<group>"; };
+		14626027161F5B0900C766A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1475909F1613B4C40013CF70 /* AFMrTickTockAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMrTickTockAPIClient.h; sourceTree = "<group>"; };
 		147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMrTickTockAPIClient.m; sourceTree = "<group>"; };
 		147590A31613D08E0013CF70 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		14CAAEEC16144D720013E039 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1435EDC81613B31E008BF105 /* MainStoryboard.storyboard */,
+				14626026161F5B0900C766A8 /* MainStoryboard.storyboard */,
 				147590A31613D08E0013CF70 /* TaskCell.h */,
 				147590A41613D08E0013CF70 /* TaskCell.m */,
 			);
@@ -225,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Andr√© Neves";
+				ORGANIZATIONNAME = "André Neves";
 			};
 			buildConfigurationList = 1435EDA61613B31D008BF105 /* Build configuration list for PBXProject "MrTickTock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -253,7 +253,6 @@
 				1435EDC31613B31E008BF105 /* Default.png in Resources */,
 				1435EDC51613B31E008BF105 /* Default@2x.png in Resources */,
 				1435EDC71613B31E008BF105 /* Default-568h@2x.png in Resources */,
-				1435EDCA1613B31E008BF105 /* MainStoryboard.storyboard in Resources */,
 				141F3C15161D8DB40098D478 /* Icon-72.png in Resources */,
 				141F3C16161D8DB40098D478 /* Icon-72@2x.png in Resources */,
 				141F3C17161D8DB40098D478 /* Icon-Small-50.png in Resources */,
@@ -262,6 +261,7 @@
 				141F3C1A161D8DB40098D478 /* Icon-Small@2x.png in Resources */,
 				141F3C1B161D8DB40098D478 /* Icon.png in Resources */,
 				141F3C1C161D8DB40098D478 /* Icon@2x.png in Resources */,
+				14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,10 +310,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		1435EDC81613B31E008BF105 /* MainStoryboard.storyboard */ = {
+		14626026161F5B0900C766A8 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1435EDC91613B31E008BF105 /* en */,
+				14626027161F5B0900C766A8 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = armv7;
 			};
@@ -364,7 +364,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -379,7 +379,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MrTickTock/MrTickTock-Prefix.pch";
 				INFOPLIST_FILE = "MrTickTock/MrTickTock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -393,7 +393,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MrTickTock/MrTickTock-Prefix.pch";
 				INFOPLIST_FILE = "MrTickTock/MrTickTock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

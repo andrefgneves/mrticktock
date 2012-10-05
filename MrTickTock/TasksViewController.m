@@ -36,6 +36,7 @@
     isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
 
     self.navigationController.delegate = self;
+    self.navigationItem.hidesBackButton = YES;
 
     if (isIOS6) {
         self.refreshControl = [[UIRefreshControl alloc] init];
@@ -65,26 +66,22 @@
         [self.refreshControl endRefreshing];
     }
 
-    [self checkCredentials];
-}
-
-- (void)checkCredentials {
-    NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];
-
-    if (credentials) {
-        [self getActiveTimer];
-    } else {
-        [self showLogin];
-    }
+    [self getActiveTimer];
 }
 
 - (void)showLogin {
-    UIViewController * loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-
-    [self.navigationController pushViewController:loginViewController animated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)logout:(id)sender {
+- (IBAction)confirmLogout:(id)sender {
+    [[[UIActionSheet alloc] initWithTitle:@"Really logout?"
+                                 delegate:self
+                        cancelButtonTitle:@"Cancel"
+                   destructiveButtonTitle:@"Logout"
+                        otherButtonTitles: nil] showInView:self.view];
+}
+
+- (void)logout {
     [keychain deleteAllCredentialsForService:@"MrTickTock"];
 
     [self showLogoutButton:NO];
@@ -103,7 +100,7 @@
         if (errors.count) {
             [self showError:[errors objectAtIndex:0]];
 
-            [self logout:nil];
+            [self logout];
 
             return;
         }
@@ -249,7 +246,7 @@
     return cell;
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath NS_DEPRECATED_IOS(2_0, 3_0) {
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
     Task * task = [_tasks objectAtIndex:indexPath.row];
 
     return task.isRunning ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
@@ -266,18 +263,22 @@
 - (void)showError:(NSString *)error {
     [SVProgressHUD dismiss];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:error
-                                                   delegate:self
-                                          cancelButtonTitle: @"OK"
-                                          otherButtonTitles: nil];
-
-    [alert show];
+    [[[UIAlertView alloc] initWithTitle:@"Error"
+                               message:error
+                              delegate:self
+                     cancelButtonTitle: @"OK"
+                     otherButtonTitles: nil] show];
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (viewController == self) {
-        [self checkCredentials];
+        [self getActiveTimer];
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self logout];
     }
 }
 
