@@ -2,7 +2,6 @@
 PODS:
 - ACSimpleKeychain (0.0.1)
 - AFNetworking (1.0)
-- KSReachability (1.0)
 - LOG_EXPR (1.2)
 - SVProgressHUD (0.8)
 - TestFlightSDK (1.1)
@@ -10,17 +9,15 @@ PODS:
 DEPENDENCIES:
 - ACSimpleKeychain (~> 0.0.1)
 - AFNetworking (~> 1.0)
-- KSReachability (~> 1.0)
 - LOG_EXPR (~> 1.2)
 - SVProgressHUD (~> 0.8)
 - TestFlightSDK (~> 1.1)
 
 SPEC CHECKSUMS:
   ACSimpleKeychain: bd3dc5db0df1da0b44c15e6e997d8b802682ac18
-  AFNetworking: e9e0911a6afd846691672a4d832fb531e8bae72f
-  KSReachability: b8a98603f325aa5d0276e0f821cc087417e02e2d
+  AFNetworking: 8ebc0d45f8753337f280a427c6b9b707e2eecc94
   LOG_EXPR: 98b4a79dcbac62529ea7d0c5fcb82e7727970233
   SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
   TestFlightSDK: a62347405c04307e2953eda4b8cc465ee51a6c90
 
-COCOAPODS: 0.14.0
+COCOAPODS: 0.15.1

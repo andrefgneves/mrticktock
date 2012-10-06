@@ -7,37 +7,31 @@
 //
 
 #import "AppDelegate.h"
-#import "KSReachability.h"
-#import <SystemConfiguration/CaptiveNetwork.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setStyle];
+    
     [TestFlight takeOff:@"e9f2e39c8bff04f2885aa45c506b0e3c_MTM3NzgyMjAxMi0wOS0zMCAwODozNzozNS4zNTQ3ODk"];
-
-    [KSReachableOperation operationWithHost:@"google.com"
-                                  allowWWAN:NO
-                                      block:^ {
-                                          [self listNetworks];
-                                      }];
 
     return YES;
 }
 
-- (void)listNetworks {
-    NSArray * interfaces = (__bridge NSArray *)CNCopySupportedInterfaces();
-    if (!interfaces.count) return;
+- (void)setStyle {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar.png"] forBarMetrics:UIBarMetricsDefault];
 
-    CFStringRef interface = (__bridge CFStringRef)[interfaces objectAtIndex:0];
-    CFDictionaryRef myDict = CNCopyCurrentNetworkInfo(interface);
-    NSDictionary * dict = (__bridge NSDictionary *)myDict;
+    UIImage * buttonImage = [[UIImage imageNamed:@"nav-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    UIImage * buttonImageSelected = [[UIImage imageNamed:@"nav-button-selected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
 
-//    BSSID = "94:44:52:b3:d9:6d";
-//    SSID = seven;
-//    SSIDDATA = <73657665 6e>;
+    [[UIBarButtonItem appearance] setBackgroundImage:buttonImage
+                                  forState:UIControlStateNormal
+                                          barMetrics:UIBarMetricsDefault];
 
-    LOG_EXPR(dict);
+    [[UIBarButtonItem appearance] setBackgroundImage:buttonImageSelected
+                                            forState:UIControlStateSelected
+                                          barMetrics:UIBarMetricsDefault];
 }
 
 @end

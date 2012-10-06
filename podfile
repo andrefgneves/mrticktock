@@ -1,8 +1,7 @@
-platform :ios
+platform :ios, '5.1'
 
 pod 'AFNetworking', '~> 1.0'
 pod 'ACSimpleKeychain', '~> 0.0.1'
 pod 'LOG_EXPR', '~> 1.2'
 pod 'SVProgressHUD', '~> 0.8'
 pod 'TestFlightSDK', '~> 1.1'
-pod 'KSReachability', '~> 1.0'

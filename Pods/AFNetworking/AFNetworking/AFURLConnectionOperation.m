@@ -25,6 +25,11 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#if !__has_feature(objc_arc)
+#error AFNetworking must be built with ARC.
+// You can turn on ARC for only AFNetworking files by adding -fobjc-arc to the build phase for each of its files.
+#endif
+
 typedef enum {
     AFOperationPausedState      = -1,
     AFOperationReadyState       = 1,
@@ -145,7 +150,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 @synthesize redirectResponse = _redirectResponse;
 @synthesize lock = _lock;
 
-+ (void)networkRequestThreadEntryPoint:(id)__unused object {
++ (void) __attribute__((noreturn)) networkRequestThreadEntryPoint:(id)__unused object {
     do {
         @autoreleasepool {
             [[NSRunLoop currentRunLoop] run];

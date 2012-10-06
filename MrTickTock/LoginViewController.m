@@ -23,8 +23,14 @@
 {
     [super viewDidLoad];
 
+    self.emailTextField.delegate = self;
+    self.passwordTextField.delegate = self;
+
     keychain = [ACSimpleKeychain defaultKeychain];
 
+    loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStylePlain
+                                                  target:self
+                                                  action:@selector(login)];
     [self checkCredentials];
 }
 
@@ -33,6 +39,8 @@
                                              selector:@selector(textChanged:)
                                                  name:UITextFieldTextDidChangeNotification
                                                object:nil];
+
+    [self.emailTextField becomeFirstResponder];
 }
 
 - (void)checkCredentials {
@@ -41,9 +49,6 @@
     if (credentials) {
         [self performSegueWithIdentifier:@"showTasks" sender:self];
     } else {
-        loginButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(login)];
         self.navigationItem.rightBarButtonItem = nil;
 
         [self.emailTextField becomeFirstResponder];
@@ -70,6 +75,16 @@
     } else {
         self.navigationItem.rightBarButtonItem = nil;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.emailTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    } else {
+        [self login];
+    }
+
+    return YES;
 }
 
 @end

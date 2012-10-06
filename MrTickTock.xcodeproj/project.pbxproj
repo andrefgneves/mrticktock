@@ -30,6 +30,9 @@
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
 		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
 		147590A81613D4440013CF70 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A71613D4440013CF70 /* Task.m */; };
+		14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD6161F8A19004A7380 /* bar@2x.png */; };
+		14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD9161F91D1004A7380 /* nav-button@2x.png */; };
+		14C0FFDD161F9518004A7380 /* nav-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */; };
 		14D7A0E816150160004BF0AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D7A0E716150160004BF0AB /* SystemConfiguration.framework */; };
 		14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A0F316151710004BF0AB /* LoginViewController.m */; };
 		751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004521F44D504A1C93BB1CE7 /* libPods.a */; };
@@ -68,6 +71,9 @@
 		147590A41613D08E0013CF70 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
 		147590A61613D4440013CF70 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		147590A71613D4440013CF70 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		14C0FFD6161F8A19004A7380 /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
+		14C0FFD9161F91D1004A7380 /* nav-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-button@2x.png"; sourceTree = "<group>"; };
+		14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-button-selected@2x.png"; sourceTree = "<group>"; };
 		14D7A0E716150160004BF0AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14D7A0F216151710004BF0AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		14D7A0F316151710004BF0AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 		1435EDB71613B31D008BF105 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14C0FFD3161F873F004A7380 /* Images */,
 				141F3C0D161D8DB40098D478 /* Icon-72.png */,
 				141F3C0E161D8DB40098D478 /* Icon-72@2x.png */,
 				141F3C0F161D8DB40098D478 /* Icon-Small-50.png */,
@@ -154,6 +161,16 @@
 				1435EDC61613B31E008BF105 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14C0FFD3161F873F004A7380 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				14C0FFD6161F8A19004A7380 /* bar@2x.png */,
+				14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */,
+				14C0FFD9161F91D1004A7380 /* nav-button@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		14CAAEEA16144D2A0013E039 /* Controller */ = {
@@ -262,6 +279,9 @@
 				141F3C1B161D8DB40098D478 /* Icon.png in Resources */,
 				141F3C1C161D8DB40098D478 /* Icon@2x.png in Resources */,
 				14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */,
+				14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */,
+				14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */,
+				14C0FFDD161F9518004A7380 /* nav-button-selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

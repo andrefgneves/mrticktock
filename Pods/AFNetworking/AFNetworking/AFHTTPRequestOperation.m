@@ -30,47 +30,28 @@
 #define AF_CAST_TO_BLOCK __bridge void *
 #endif
 
-// Workaround for management of dispatch_retain() / dispatch_release() by ARC with iOS 6 / Mac OS X 10.8
-#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (!defined(__IPHONE_6_0) || __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0)) || \
-    (defined(__MAC_OS_X_VERSION_MIN_REQUIRED) && (!defined(__MAC_10_8) || __MAC_OS_X_VERSION_MIN_REQUIRED < __MAC_10_8))
-#define AF_DISPATCH_RETAIN_RELEASE 1
-#endif
-
 NSSet * AFContentTypesFromHTTPHeader(NSString *string) {
-    static NSCharacterSet *_skippedCharacterSet = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _skippedCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@" ,"];
-    });
-    
     if (!string) {
         return nil;
     }
-    
-    NSScanner *scanner = [NSScanner scannerWithString:string];
-    scanner.charactersToBeSkipped = _skippedCharacterSet;
-    
-    NSMutableSet *mutableContentTypes = [NSMutableSet set];
-    while (![scanner isAtEnd]) {
-        NSString *contentType = nil;
-        if ([scanner scanUpToString:@";" intoString:&contentType]) {
-            [scanner scanUpToString:@"," intoString:nil];
-        } else {
-            [scanner scanUpToCharactersFromSet:_skippedCharacterSet intoString:&contentType];
+
+    NSArray *mediaRanges = [string componentsSeparatedByString:@","];
+    NSMutableSet *mutableContentTypes = [NSMutableSet setWithCapacity:mediaRanges.count];
+
+    [mediaRanges enumerateObjectsUsingBlock:^(NSString *mediaRange, NSUInteger idx, BOOL *stop) {
+        NSRange parametersRange = [mediaRange rangeOfString:@";"];
+        if (parametersRange.location != NSNotFound) {
+            mediaRange = [mediaRange substringToIndex:parametersRange.location];
         }
         
-        if (contentType) {
-            [mutableContentTypes addObject:contentType];
+        mediaRange = [mediaRange stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if (mediaRange.length > 0) {
+            [mutableContentTypes addObject:mediaRange];
         }
-    }
-    
-    return [NSSet setWithSet:mutableContentTypes];
-}
+    }];
 
-static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL selector, id block) {
-    Method originalMethod = class_getClassMethod(klass, selector);
-    IMP implementation = imp_implementationWithBlock((AF_CAST_TO_BLOCK)block);
-    class_replaceMethod(objc_getMetaClass([NSStringFromClass(klass) UTF8String]), selector, implementation, method_getTypeEncoding(originalMethod));
+    return [NSSet setWithSet:mutableContentTypes];
 }
 
 static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
@@ -103,6 +84,12 @@ static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
     return string;
 }
 
+static void AFSwizzleClassMethodWithClassAndSelectorUsingBlock(Class klass, SEL selector, id block) {
+    Method originalMethod = class_getClassMethod(klass, selector);
+    IMP implementation = imp_implementationWithBlock((AF_CAST_TO_BLOCK)block);
+    class_replaceMethod(objc_getMetaClass([NSStringFromClass(klass) UTF8String]), selector, implementation, method_getTypeEncoding(originalMethod));
+}
+
 #pragma mark -
 
 @interface AFHTTPRequestOperation ()
@@ -124,14 +111,14 @@ static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
 
 - (void)dealloc {
     if (_successCallbackQueue) {
-#if AF_DISPATCH_RETAIN_RELEASE
+#if !OS_OBJECT_USE_OBJC
         dispatch_release(_successCallbackQueue);
 #endif
         _successCallbackQueue = NULL;
     }
     
     if (_failureCallbackQueue) {
-#if AF_DISPATCH_RETAIN_RELEASE
+#if !OS_OBJECT_USE_OBJC
         dispatch_release(_failureCallbackQueue);
 #endif
         _failureCallbackQueue = NULL;
@@ -214,14 +201,14 @@ static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
 - (void)setSuccessCallbackQueue:(dispatch_queue_t)successCallbackQueue {
     if (successCallbackQueue != _successCallbackQueue) {
         if (_successCallbackQueue) {
-#if AF_DISPATCH_RETAIN_RELEASE
+#if !OS_OBJECT_USE_OBJC
             dispatch_release(_successCallbackQueue);
 #endif
             _successCallbackQueue = NULL;
         }
 
         if (successCallbackQueue) {
-#if AF_DISPATCH_RETAIN_RELEASE
+#if !OS_OBJECT_USE_OBJC
             dispatch_retain(successCallbackQueue);
 #endif
             _successCallbackQueue = successCallbackQueue;
@@ -232,14 +219,14 @@ static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
 - (void)setFailureCallbackQueue:(dispatch_queue_t)failureCallbackQueue {
     if (failureCallbackQueue != _failureCallbackQueue) {
         if (_failureCallbackQueue) {
-#if AF_DISPATCH_RETAIN_RELEASE
+#if !OS_OBJECT_USE_OBJC
             dispatch_release(_failureCallbackQueue);
 #endif
             _failureCallbackQueue = NULL;
         }
         
         if (failureCallbackQueue) {
-#if AF_DISPATCH_RETAIN_RELEASE
+#if !OS_OBJECT_USE_OBJC
             dispatch_retain(failureCallbackQueue);
 #endif
             _failureCallbackQueue = failureCallbackQueue;
@@ -250,10 +237,10 @@ static NSString * AFStringFromIndexSet(NSIndexSet *indexSet) {
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
-    // completion block is manually nilled out in AFURLConnectionOperation to break the retain cycle.
+    // completionBlock is manually nilled out in AFURLConnectionOperation to break the retain cycle.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
-    self.completionBlock = ^ {
+    self.completionBlock = ^{
         if ([self isCancelled]) {
             return;
         }
