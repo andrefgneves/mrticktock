@@ -155,9 +155,40 @@
 
         [SVProgressHUD dismiss];
         [_table reloadData];
+
+        [self getTasksTime];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showError:error.description];
     }];
+}
+
+- (void)getTasksTime {
+    for (NSUInteger i = 0; i < _tasks.count; i++) {
+        Task * task = [_tasks objectAtIndex:i];
+
+        NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
+        [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
+
+        [[AFMrTickTockAPIClient sharedClient] postPath:@"get_task_details" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+            NSArray * errors = [JSON objectForKey:@"errors"];
+            if (errors.count) {
+                [self showError:[errors objectAtIndex:0]];
+                
+                return;
+            }
+
+            NSDictionary * attributes = [JSON objectForKey:@"content"];
+
+            task.time = [attributes objectForKey:@"timer_time"];
+            task.totalTime = [attributes objectForKey:@"total_time"];
+
+            [_tasks replaceObjectAtIndex:i withObject:task];
+            [_table reloadData];
+
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self showError:error.description];
+        }];
+    }
 }
 
 - (void)setRunningTask:(NSInteger)index {
@@ -240,8 +271,8 @@
 
     Task * task = [_tasks objectAtIndex:indexPath.row];
 
-    cell.projectName.text = task.projectName;
-    cell.taskName.text = task.taskName;
+    cell.projectName.text = [NSString stringWithFormat:@"%@ (%@)", task.projectName, task.taskName];
+    cell.taskName.text = task.totalTime != @"" ? [NSString stringWithFormat:@"%@ (%@ total)", task.time, task.totalTime] : @"";
 
     return cell;
 }

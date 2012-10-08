@@ -31,6 +31,9 @@
     self.projectId = [[attributes valueForKey:@"project_id"] integerValue];
     self.projectName = [attributes objectForKey:@"project_name"];
 
+    self.time = @"";
+    self.totalTime = @"";
+
     return self;
 }
 

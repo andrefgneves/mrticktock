@@ -23,6 +23,9 @@
 @property (nonatomic) NSUInteger projectId;
 @property (strong, nonatomic) NSString * projectName;
 
+@property (strong, nonatomic) NSString * time;
+@property (strong, nonatomic) NSString * totalTime;
+
 - (id)initWithAttributes:(NSDictionary *)attributes;
 
 @end
