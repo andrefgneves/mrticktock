@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TaskCell : UITableViewCell
-{
-}
 
 @property (strong, nonatomic) IBOutlet UILabel * projectName;
 @property (strong, nonatomic) IBOutlet UILabel * taskName;

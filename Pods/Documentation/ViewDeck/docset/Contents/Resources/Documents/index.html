@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>ViewDeck 1.4.2 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">ViewDeck 1.4.2 </a></h1>
+				<a id="developerHome" href="index.html">Tom Adriaenssen</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">ViewDeck 1.4.2 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">ViewDeck 1.4.2 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/IIViewDeckController.html">IIViewDeckController</a></h1>
+
+<p>When I saw the new UI in the Path 2.0 app, extending the sliding views UI found in the Facebook app, I wanted to recreate this effect and controller for myself. Mostly as an exercise, but it might come in handy later.
+A quick prototype was built in one evening, but the finetuning took a few more evenings.</p>
+
+<p>The ViewDeckController supports both a left and a right sideview (in any combination: you can leave one of them <code>nil</code> for example). You can pan the center view to the left or to the right. There&rsquo;s also a bunch of messages defined to open or close each side appropriately.</p>
+
+<p>The class is built so that it augments current navigation technologies found in IOS.</p>
+
+<h1>Requirements</h1>
+
+<p>The library supports both ARC and non-ARC projects (the ARC mode is detected automagically, and the code is modified where necessary according to the ARC mode in use).</p>
+
+<h1>Demo video &amp; Screenshots</h1>
+
+<p>You&rsquo;re probably curious how it looks. Here&rsquo;s some shots from the example app:</p>
+
+<p>!<a href="http://cl.ly/063X412a1i2U2e3f3D02/Image%202012.01.26%2023:26:55.png">Left opened</a> !<a href="http://cl.ly/381S0i1c2c1Z2l2U3303/Image%202012.01.26%2023:29:31.png">Right opened</a></p>
+
+<p>See the controller in action: <a href="http://vimeo.com/34538429">http://vimeo.com/34538429</a> (general demo) and <a href="http://vimeo.com/35716738">http://vimeo.com/35716738</a> (elasticity).
+These are demos of the included <code>ViewDeckExample</code> app.</p>
+
+<h1>Installation</h1>
+
+<p>Easy as pie: you just add <code></code>IIViewDeckController<code>.h</code> and <code></code>IIViewDeckController<code>.m</code> to your project.
+Just add <a href="Classes/IIViewDeckController.html">IIViewDeckController</a>.m/h into your project.</p>
+
+<h1>How to use it?</h1>
+
+<h2>Factories</h2>
+
+<p>The class currently supports a left and a right side controller. Each of these can be nil (if it is, no panning or opening to that side will work).</p>
+
+<pre><code>#import "IIViewDeckController.h"
+
+// prepare view controllers
+UIViewController* leftController = [[UIViewController alloc] init]; 
+UIViewController* rightController = [[UIViewController alloc] init]; 
+
+IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController leftViewController:leftController
+                                                  rightViewController:rightController];
+</code></pre>
+
+<p>There&rsquo;s also two convenience factory methods for just a left or right view controller.</p>
+
+<h2>Switching controllers</h2>
+
+<p>You can also switch view controllers in mid flight. Just assign a viewcontroller to the appropriate property and the view deck controller will do the rest:</p>
+
+<pre><code>// prepare view controllers
+UIViewController* newController = [[UIViewController alloc] init]; 
+self.viewDeckController.leftViewController = newController;
+</code></pre>
+
+<p>You can also use this to remove a side controller: just set it to <code>nil</code>.</p>
+
+<h2>viewDeckController property</h2>
+
+<p>Like <code>UINavigationViewController</code> the <a href="Classes/IIViewDeckController.html"><code>IIViewDeckController</code></a> assigns itself to its childviews. You can use the <code>viewDeckController</code> property to get access to the enclosing view deck controller:</p>
+
+<pre><code>[self.viewDeckController toggleLeftViewAnimated:YES]
+</code></pre>
+
+<p>If the controller is not enclosed by a <a href="Classes/IIViewDeckController.html">IIViewDeckController</a>, this property returns <code>nil</code>.</p>
+
+<h2>ledges</h2>
+
+<p>You cannot close the centerview completely, since it would block the user from panning it back. You can set the ledge sizes yourself by assigning a value to the <code>leftLedge</code> property for the left side and the <code>rightLedge</code> property for the right side. It is possible to set a ledge size of 0.</p>
+
+<h3>maximum ledge, or gap-mode</h3>
+
+<p>It is possible to have the viewController always show a side controller. You do this by setting the <code>maxLedge</code> value to any (positive) nonzero value. This will force the centerview to be always opened, exposing a side controller permanently. <strong>This only works when you have ONE sidecontroller specified</strong> (this means either a left side controller or a right side controller), because this scenario does not make sense if you would be able to slide the center view in both directions. When you have 2 side controllers, this property is ignored.</p>
+
+<h2>bouncing close</h2>
+
+<p>The controller also allows you to close the side views with a bouncing animation like Path does. To achieve this, use the <code>closeLeftViewBouncing:</code> and <code>closeRightViewBouncing:</code> methods. These take a block as their only parameter: this block is executed while the animation is running, on the exact moment where the center view is completely hidden from the view (the animation first fully opens the side view, and then closes it). This block allows you to change the centerview controller, for example (since it&rsquo;s obscured). You can pass <code>nil</code> if you don&rsquo;t need to execute something in the middle of the animation.</p>
+
+<pre><code>[self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
+    controller.centerViewController = [UIViewController alloc] init];
+    // ...
+}];
+</code></pre>
+
+<h2>shadow</h2>
+
+<p>The center controller view receives a shadow to give it an <em>on-top</em> appearance. The shadow is defined by the view deck controller.
+You can override the shadow (or leave it out alltogether) by assigning a delegate that implements the <code>viewDeckController:applyShadow:withBounds:</code> selector. You&rsquo;ll be passed the layer of the view on which the shadow should be set.  If you override said selector, setting the shadow is up to you, and the view deck controller will not apply any shadow itself.</p>
+
+<p>For example:</p>
+
+<pre><code>// applies a small, red shadow
+- (void)viewDeckController:(IIViewDeckController *)viewDeckController applyShadow:(CALayer *)shadowLayer withBounds:(CGRect)rect {
+    shadowLayer.masksToBounds = NO;
+    shadowLayer.shadowRadius = 5;
+    shadowLayer.shadowOpacity = 0.9;
+    shadowLayer.shadowColor = [[UIColor redColor] CGColor];
+    shadowLayer.shadowOffset = CGSizeZero;
+    shadowLayer.shadowPath = [[UIBezierPath bezierPathWithRect:rect] CGPath];
+}
+</code></pre>
+
+<p>The bounds passed in through <code>rect</code> can be used for setting the shadow path to the layer, for performance reasons. It will be set to the bounds of the center view.</p>
+
+<h2>elasticity</h2>
+
+<p>The controller supports &ldquo;elasticity&rdquo;: when you pan the center view &ldquo;over&rdquo; one of the ledges, you&rsquo;ll see that it gets pulled a bit further, but you can&rsquo;t pull it all the way to the edge. When you let go, it jumps back to the set ledge size. This gives the controller behavior are a more lifelike feel.</p>
+
+<p>Of course, you can turn this behavior off. Just set <code>elasticity = NO</code> when loading the controller and you&rsquo;re set.</p>
+
+<h2>rotation</h2>
+
+<p>The controller fully supports view rotation. If the center controller is set, it will control the possible interface rotation. If no center controller is set, all interface rotations are allowed.
+When rotating, the controller will move the open center views to the correct location: the ledge will be the same before and after rotation (this means a different part of the underlying side view will be exposed). You can control this behavior through the <code>rotationBehavior</code> property. You can use one of the following values:</p>
+
+<pre><code>typedef enum {
+    IIViewDeckRotationKeepsLedgeSizes, // when rotating, the ledge sizes are kept (side views are more/less visible)
+    IIViewDeckRotationKeepsViewSizes  // when rotating, the size view sizes are kept (ledges change)
+} IIViewDeckRotationBehavior;
+</code></pre>
+
+<p>The default is <code>IIViewDeckRotationKeepsLedgeSizes</code>, which keeps the sizes of the defined ledges the same when rotating.</p>
+
+<h2>panning</h2>
+
+<p>It is possible to control the panning behavior a bit. Set the <code>panningMode</code> on the controller to achieve 3 different modes:</p>
+
+<pre><code>typedef enum {
+    IIViewDeckNoPanning,              // no panning allowed
+    IIViewDeckFullViewPanning,        // the default: touch anywhere in the center view to drag the center view around
+    IIViewDeckNavigationBarPanning,   // panning only occurs when you start touching in the navigation bar (when the center controller is a UINavigationController with a visible navigation bar). Otherwise it will behave as IIViewDeckNoPanning. 
+    IIViewDeckPanningViewPanning      // panning only occurs when you start touching in a UIView set in panningView property
+} IIViewDeckPanningMode;
+</code></pre>
+
+<p>When you specify <code>IIViewDeckPanningViewPanning</code>, you have to set the <code>panningView</code> property on the controller. This view will react to pan motions that will pan the view deck.</p>
+
+<h2>disabling the center view</h2>
+
+<p>The center view can be disabled if it is slided out of the way. You do this by setting the <code>centerhiddenInteractivity</code> property on the controller.</p>
+
+<pre><code>typedef enum {
+    IIViewDeckCenterHiddenUserInteractive,         // the center view stays interactive
+    IIViewDeckCenterHiddenNotUserInteractive,      // the center view will become nonresponsive to useractions
+    IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose, // the center view will become nonresponsive to useractions, but will allow the user to tap it so that it closes
+    IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing, // same as IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose, but closes the center view bouncing
+} IIViewDeckCenterHiddenInteractivity;
+</code></pre>
+
+<p>When you need to change the centercontroller (or something else) when the center view is bounced away, use the following message to react:</p>
+
+<pre><code> - (void)viewDeckController:(IIViewDeckController *)viewDeckController didBounceWithClosingController:(UIViewController*)openController;
+</code></pre>
+
+<h1>UINavigationController</h1>
+
+<p>The view deck controller has two integration modes to deal with <code>UINavigationController</code>. The first mode <code>IIViewDeckNavigationControllerContained</code> will have the navigation controller act as a normal &ldquo;contained&rdquo; view controller. All pushes and pops will remain in the centerview.</p>
+
+<p>The other mode <code>IIViewDeckNavigationControllerIntegrated</code> has different behavoir: it allows you to &ldquo;inject&rdquo; the viewdeck controller into an existing navigation controller hierarchy. The feature example (see below) has the simple scenario: the center view is a navigation controller. Any action in that navigation controller stays in the centerview.</p>
+
+<p>But if you push a <code>IIViewDeckController</code> onto a navigation controller, the sideviews will nestly themselves <em>below</em> the navigation view. This means that the animations regarding the navigation controller will be applied only to the center view controller and not to the side view controllers.
+There&rsquo;s currently no way to disable this behavior, but it will be added later.</p>
+
+<h1>ViewDeckExample</h1>
+
+<p>This is a simple example mimicing the Path 2.0 UI to a certain extent.</p>
+
+<h1>FeatureExample</h1>
+
+<p>This is a more extensive example. You can specify the different choices for the settable behavioral property and test them out live.</p>
+
+<h1>SizingEample</h1>
+
+<p>This is a test program to test out sizing behavior. It presents a view with a viewdeck controller in, and a zoom button. The zoom button enlarges/shrinks the view. The view deck controller should resize along.</p>
+
+<h1>Credits</h1>
+
+<p>I&rsquo;d appreciate it to mention the use of this code somewhere if you use it in an app. On a website, in an about page, in the app itself, whatever. Or let me know by email or through github. It&rsquo;s nice to know where one&rsquo;s code is used.</p>
+
+<h1>License</h1>
+
+<p><strong><a href="Classes/IIViewDeckController.html">IIViewDeckController</a></strong> published under the MIT license:</p>
+
+<p><em>Copyright &copy; 2011, Tom Adriaenssen</em></p>
+
+<p><em>Permission is hereby granted, free of charge, to any person obtaining a copy of</em>
+<em>this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in</em>
+<em>the Software without restriction, including without limitation the rights to</em>
+<em>use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies</em>
+<em>of the Software, and to permit persons to whom the Software is furnished to do</em>
+<em>so, subject to the following conditions:</em></p>
+
+<p><em>The above copyright notice and this permission notice shall be included in all</em>
+<em>copies or substantial portions of the Software.</em></p>
+
+<p><em>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</em>
+<em>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</em>
+<em>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</em>
+<em>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</em>
+<em>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</em>
+<em>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</em>
+<em>SOFTWARE.</em></p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/IIViewDeckController.html">IIViewDeckController</a></li>
+							
+							<li><a href="Classes/WrapController.html">WrapController</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/IIViewDeckControllerDelegate.html">IIViewDeckControllerDelegate</a></li>
+							
+						</ul>
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/UIViewController+UIViewDeckItem.html">UIViewController(UIViewDeckItem)</a></li>
+							
+							<li><a href="Categories/UIViewController+WrapControllerItem.html">UIViewController(WrapControllerItem)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Tom Adriaenssen. All rights reserved. (Last updated: 2012-10-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

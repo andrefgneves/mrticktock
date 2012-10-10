@@ -12,10 +12,12 @@
 #import "TaskCell.h"
 #import "ACSimpleKeychain.h"
 #import "SVProgressHUD.h"
+#import "IIViewDeckController.h"
+#import "Task.h"
 
 @interface TasksViewController ()
 {
-    NSMutableArray * _tasks;
+    NSArray * _tasks;
     NSInteger runningTaskIndex;
     NSInteger runningTaskId;
     BOOL isIOS6;
@@ -52,9 +54,15 @@
 
     keychain = [ACSimpleKeychain defaultKeychain];
 
-    _tasks = [[NSMutableArray alloc] init];
+    _tasks = [Task findAll];
+
     runningTaskIndex = -1;
     runningTaskId = -1;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    self.viewDeckController.panningMode = IIViewDeckNavigationBarPanning;
 }
 
 - (void)showLogoutButton:(BOOL)visible {
@@ -85,7 +93,8 @@
     [keychain deleteAllCredentialsForService:@"MrTickTock"];
 
     [self showLogoutButton:NO];
-    [_tasks removeAllObjects];
+
+    _tasks = nil;
     [_table reloadData];
 
     [self showLogin];
@@ -122,7 +131,9 @@
 }
 
 - (void)refreshTasks {
-    [_tasks removeAllObjects];
+    [Task truncateAll];
+
+    _tasks = nil;
     [_table reloadData];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
@@ -139,41 +150,54 @@
             return;
         }
 
+        NSArray * fetchedTasks = [JSON objectForKey:@"content"];
         int i = 0;
-        for (NSDictionary * attributes in [JSON objectForKey:@"content"]) {
-            Task * task = [[Task alloc] initWithAttributes:attributes];
 
-            if (task.id == runningTaskId) {
-                runningTaskIndex = i;
-                task.isRunning = YES;
-            }
+        for (NSDictionary * attributes in fetchedTasks) {
+            Task * localTask = [Task createEntity];
 
-            [_tasks addObject:task];
+                localTask.id = [NSNumber numberWithInteger:[[attributes valueForKey:@"id"] integerValue]];
+                localTask.name = [attributes objectForKey:@"task_name"];
+                localTask.isClosed = [NSNumber numberWithBool:[[attributes valueForKey:@"closed"] boolValue]];
+                localTask.isVisible = [NSNumber numberWithBool:[[attributes valueForKey:@"visibility"] isEqualToString:@"visible"]];
+                localTask.isRunning = NO;
 
+                localTask.projectId = [NSNumber numberWithInteger:[[attributes valueForKey:@"project_id"] integerValue]];
+                localTask.projectName = [attributes valueForKey:@"project_name"];
+
+                localTask.customerId = [NSNumber numberWithInteger:[[attributes valueForKey:@"customer_id"] integerValue]];
+                localTask.customerName = [attributes valueForKey:@"customer_name"];
+
+                if ([localTask.id integerValue] == runningTaskId) {
+                    runningTaskIndex = i;
+                    localTask.isRunning = @YES;
+                }
             i++;
         }
 
         [SVProgressHUD dismiss];
+        
+        _tasks = [Task findAll];
         [_table reloadData];
-
+        
         [self getTasksTime];
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self showError:error.description];
     }];
 }
 
 - (void)getTasksTime {
+    return;
     for (NSUInteger i = 0; i < _tasks.count; i++) {
         Task * task = [_tasks objectAtIndex:i];
 
         NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-        [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
+        [params setObject:task.id forKey:@"task_id"];
 
         [[AFMrTickTockAPIClient sharedClient] postPath:@"get_task_details" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
             NSArray * errors = [JSON objectForKey:@"errors"];
             if (errors.count) {
-                [self showError:[errors objectAtIndex:0]];
-                
                 return;
             }
 
@@ -182,12 +206,12 @@
             task.time = [attributes objectForKey:@"timer_time"];
             task.totalTime = [attributes objectForKey:@"total_time"];
 
-            [_tasks replaceObjectAtIndex:i withObject:task];
+//            [task save];
+//
+//            _tasks = [Task all];
             [_table reloadData];
 
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [self showError:error.description];
-        }];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
     }
 }
 
@@ -197,7 +221,7 @@
     [SVProgressHUD show];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-    [params setObject:[NSNumber numberWithInteger:task.id] forKey:@"task_id"];
+    [params setObject:task.id forKey:@"task_id"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"start_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
         NSArray * errors = [JSON objectForKey:@"errors"];
@@ -212,10 +236,10 @@
             runningTask.isRunning = NO;
         }
 
-        task.isRunning = YES;
+        task.isRunning = @YES;
 
         runningTaskIndex = index;
-        runningTaskId = task.id;
+        runningTaskId = [task.id integerValue];
 
         [SVProgressHUD dismiss];
         [_table reloadData];
@@ -234,7 +258,7 @@
     Task * task = [_tasks objectAtIndex:runningTaskIndex];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-    [params setObject:[NSNumber numberWithInteger:task.id] forKey:@"task_id"];
+    [params setObject:task.id forKey:@"task_id"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"stop_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
         NSArray * errors = [JSON objectForKey:@"errors"];
@@ -271,8 +295,8 @@
 
     Task * task = [_tasks objectAtIndex:indexPath.row];
 
-    cell.projectName.text = [NSString stringWithFormat:@"%@ (%@)", task.projectName, task.taskName];
-    cell.taskName.text = task.totalTime != @"" ? [NSString stringWithFormat:@"%@ (%@ total)", task.time, task.totalTime] : @"";
+    cell.projectName.text = [NSString stringWithFormat:@"%@ (%@)", task.projectName, task.name];
+//    cell.taskName.text = task.totalTime != @"" ? [NSString stringWithFormat:@"%@ (%@ total)", task.time, task.totalTime] : @"";
 
     return cell;
 }

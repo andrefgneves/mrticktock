@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/seven/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.ZUUIRevealController-0.9.6.docset
+Time: 2012-10-08 21:51:00 +0000

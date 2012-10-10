@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/WrapController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/WrapController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setWrappedController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, retain) UIViewController *wrappedController</Declaration>
+			
+			
+			<Anchor>//api/name/wrappedController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/WrapController/wrappedController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, retain) UIViewController *wrappedController</Declaration>
+			
+			
+			<Anchor>//api/name/wrappedController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewDidLoad:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller ) onViewDidLoad</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidLoad</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewDidLoad</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller ) onViewDidLoad</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidLoad</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewWillAppear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewWillAppear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewDidAppear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewDidAppear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewWillDisappear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewWillDisappear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewDidDisappear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewDidDisappear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/WrapController/initWithViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>WrapController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithViewController:(UIViewController *)controller</Declaration>
+			
+			
+			<Anchor>//api/name/initWithViewController:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/IIViewDeckControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/IIViewDeckControllerDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckController:applyShadow:withBounds:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckController:(IIViewDeckController *)viewDeckController applyShadow:(CALayer *)shadowLayer withBounds:(CGRect)rect</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckController:applyShadow:withBounds:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckController:didPanToOffset:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckController:(IIViewDeckController *)viewDeckController didPanToOffset:(CGFloat)offset</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckController:didPanToOffset:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckController:slideOffsetChanged:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckController:(IIViewDeckController *)viewDeckController slideOffsetChanged:(CGFloat)offset</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckController:slideOffsetChanged:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckController:didBounceWithClosingController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckController:(IIViewDeckController *)viewDeckController didBounceWithClosingController:(UIViewController *)openController</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckController:didBounceWithClosingController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerWillOpenLeftView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)viewDeckControllerWillOpenLeftView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerWillOpenLeftView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerDidOpenLeftView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckControllerDidOpenLeftView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerDidOpenLeftView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerWillCloseLeftView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)viewDeckControllerWillCloseLeftView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerWillCloseLeftView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerDidCloseLeftView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckControllerDidCloseLeftView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerDidCloseLeftView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerWillOpenRightView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)viewDeckControllerWillOpenRightView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerWillOpenRightView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerDidOpenRightView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckControllerDidOpenRightView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerDidOpenRightView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerWillCloseRightView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)viewDeckControllerWillCloseRightView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerWillCloseRightView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerDidCloseRightView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckControllerDidCloseRightView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerDidCloseRightView:animated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/IIViewDeckControllerDelegate/viewDeckControllerDidShowCenterView:animated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDeckControllerDidShowCenterView:(IIViewDeckController *)viewDeckController animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/viewDeckControllerDidShowCenterView:animated:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

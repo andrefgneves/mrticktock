@@ -7,14 +7,38 @@
 //
 
 #import "AppDelegate.h"
+#import "IIViewDeckController.h"
+#import "LoginViewController.h"
+#import "Task.h"
 
 @implementation AppDelegate
+
+@synthesize window           = _window;
+@synthesize centerController = _viewController;
+@synthesize leftController   = _leftController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setStyle];
-    
+
     [TestFlight takeOff:@"e9f2e39c8bff04f2885aa45c506b0e3c_MTM3NzgyMjAxMi0wOS0zMCAwODozNzozNS4zNTQ3ODk"];
+
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"MrTickTock"];
+
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+
+    self.leftController = [storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+
+    LoginViewController * centerController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+
+    self.centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
+
+    IIViewDeckController * deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController
+                                                                                    leftViewController:self.leftController];
+    deckController.rightLedge = 200;
+    self.window.rootViewController = deckController;
+
+    [self.window makeKeyAndVisible];
 
     return YES;
 }
@@ -32,6 +56,11 @@
     [[UIBarButtonItem appearance] setBackgroundImage:buttonImageSelected
                                             forState:UIControlStateSelected
                                           barMetrics:UIBarMetricsDefault];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    [MagicalRecord cleanUp];
 }
 
 @end

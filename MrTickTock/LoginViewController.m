@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "ACSimpleKeychain.h"
 #import "TasksViewController.h"
+#import "IIViewDeckController.h"
 
 @interface LoginViewController ()
 {
@@ -41,7 +42,10 @@
                                                object:nil];
 
     [self.emailTextField becomeFirstResponder];
+
+    self.viewDeckController.panningMode = IIViewDeckNoPanning;
 }
+
 
 - (void)checkCredentials {
     NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];

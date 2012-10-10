@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/seven/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.ViewDeck-1.4.2.docset
+Time: 2012-10-08 23:36:28 +0000

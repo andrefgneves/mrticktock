@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>IIViewDeckControllerDelegate Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">ViewDeck 1.4.2 </a></h1>
+				<a id="developerHome" href="../index.html">Tom Adriaenssen</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">IIViewDeckControllerDelegate Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/viewDeckController:applyShadow:withBounds:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckController:applyShadow:withBounds:</option>
+	
+	<option value="//api/name/viewDeckController:didBounceWithClosingController:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckController:didBounceWithClosingController:</option>
+	
+	<option value="//api/name/viewDeckController:didPanToOffset:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckController:didPanToOffset:</option>
+	
+	<option value="//api/name/viewDeckController:slideOffsetChanged:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckController:slideOffsetChanged:</option>
+	
+	<option value="//api/name/viewDeckControllerDidCloseLeftView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerDidCloseLeftView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerDidCloseRightView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerDidCloseRightView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerDidOpenLeftView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerDidOpenLeftView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerDidOpenRightView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerDidOpenRightView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerDidShowCenterView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerDidShowCenterView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerWillCloseLeftView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerWillCloseLeftView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerWillCloseRightView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerWillCloseRightView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerWillOpenLeftView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerWillOpenLeftView:animated:</option>
+	
+	<option value="//api/name/viewDeckControllerWillOpenRightView:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDeckControllerWillOpenRightView:animated:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckController:applyShadow:withBounds:">viewDeckController:applyShadow:withBounds:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckController:didBounceWithClosingController:">viewDeckController:didBounceWithClosingController:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckController:didPanToOffset:">viewDeckController:didPanToOffset:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckController:slideOffsetChanged:">viewDeckController:slideOffsetChanged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerDidCloseLeftView:animated:">viewDeckControllerDidCloseLeftView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerDidCloseRightView:animated:">viewDeckControllerDidCloseRightView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerDidOpenLeftView:animated:">viewDeckControllerDidOpenLeftView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerDidOpenRightView:animated:">viewDeckControllerDidOpenRightView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerDidShowCenterView:animated:">viewDeckControllerDidShowCenterView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerWillCloseLeftView:animated:">viewDeckControllerWillCloseLeftView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerWillCloseRightView:animated:">viewDeckControllerWillCloseRightView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerWillOpenLeftView:animated:">viewDeckControllerWillOpenLeftView:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDeckControllerWillOpenRightView:animated:">viewDeckControllerWillOpenRightView:animated:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="IIViewDeckControllerDelegate Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">IIViewDeckControllerDelegate Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">IIViewDeckController.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckController:applyShadow:withBounds:">&ndash;&nbsp;viewDeckController:applyShadow:withBounds:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckController:didPanToOffset:">&ndash;&nbsp;viewDeckController:didPanToOffset:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckController:slideOffsetChanged:">&ndash;&nbsp;viewDeckController:slideOffsetChanged:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckController:didBounceWithClosingController:">&ndash;&nbsp;viewDeckController:didBounceWithClosingController:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerWillOpenLeftView:animated:">&ndash;&nbsp;viewDeckControllerWillOpenLeftView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerDidOpenLeftView:animated:">&ndash;&nbsp;viewDeckControllerDidOpenLeftView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerWillCloseLeftView:animated:">&ndash;&nbsp;viewDeckControllerWillCloseLeftView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerDidCloseLeftView:animated:">&ndash;&nbsp;viewDeckControllerDidCloseLeftView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerWillOpenRightView:animated:">&ndash;&nbsp;viewDeckControllerWillOpenRightView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerDidOpenRightView:animated:">&ndash;&nbsp;viewDeckControllerDidOpenRightView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerWillCloseRightView:animated:">&ndash;&nbsp;viewDeckControllerWillCloseRightView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerDidCloseRightView:animated:">&ndash;&nbsp;viewDeckControllerDidCloseRightView:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewDeckControllerDidShowCenterView:animated:">&ndash;&nbsp;viewDeckControllerDidShowCenterView:animated:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckController:applyShadow:withBounds:" title="viewDeckController:applyShadow:withBounds:"></a>
+	<h3 class="subsubtitle method-title">viewDeckController:applyShadow:withBounds:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckController:(IIViewDeckController *)<em>viewDeckController</em> applyShadow:(CALayer *)<em>shadowLayer</em> withBounds:(CGRect)<em>rect</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckController:didBounceWithClosingController:" title="viewDeckController:didBounceWithClosingController:"></a>
+	<h3 class="subsubtitle method-title">viewDeckController:didBounceWithClosingController:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckController:(IIViewDeckController *)<em>viewDeckController</em> didBounceWithClosingController:(UIViewController *)<em>openController</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckController:didPanToOffset:" title="viewDeckController:didPanToOffset:"></a>
+	<h3 class="subsubtitle method-title">viewDeckController:didPanToOffset:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckController:(IIViewDeckController *)<em>viewDeckController</em> didPanToOffset:(CGFloat)<em>offset</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckController:slideOffsetChanged:" title="viewDeckController:slideOffsetChanged:"></a>
+	<h3 class="subsubtitle method-title">viewDeckController:slideOffsetChanged:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckController:(IIViewDeckController *)<em>viewDeckController</em> slideOffsetChanged:(CGFloat)<em>offset</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerDidCloseLeftView:animated:" title="viewDeckControllerDidCloseLeftView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerDidCloseLeftView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckControllerDidCloseLeftView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerDidCloseRightView:animated:" title="viewDeckControllerDidCloseRightView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerDidCloseRightView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckControllerDidCloseRightView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerDidOpenLeftView:animated:" title="viewDeckControllerDidOpenLeftView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerDidOpenLeftView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckControllerDidOpenLeftView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerDidOpenRightView:animated:" title="viewDeckControllerDidOpenRightView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerDidOpenRightView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckControllerDidOpenRightView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerDidShowCenterView:animated:" title="viewDeckControllerDidShowCenterView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerDidShowCenterView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDeckControllerDidShowCenterView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerWillCloseLeftView:animated:" title="viewDeckControllerWillCloseLeftView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerWillCloseLeftView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)viewDeckControllerWillCloseLeftView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerWillCloseRightView:animated:" title="viewDeckControllerWillCloseRightView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerWillCloseRightView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)viewDeckControllerWillCloseRightView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerWillOpenLeftView:animated:" title="viewDeckControllerWillOpenLeftView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerWillOpenLeftView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)viewDeckControllerWillOpenLeftView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewDeckControllerWillOpenRightView:animated:" title="viewDeckControllerWillOpenRightView:animated:"></a>
+	<h3 class="subsubtitle method-title">viewDeckControllerWillOpenRightView:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)viewDeckControllerWillOpenRightView:(IIViewDeckController *)<em>viewDeckController</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Tom Adriaenssen. All rights reserved. (Last updated: 2012-10-09)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

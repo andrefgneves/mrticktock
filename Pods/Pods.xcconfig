@@ -1,8 +1,8 @@
 PODS_ROOT = ${SRCROOT}/Pods
 PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
 ALWAYS_SEARCH_USER_PATHS = YES
-OTHER_LDFLAGS = -ObjC -lTestFlight -lz -framework MobileCoreServices -framework QuartzCore -framework SystemConfiguration -framework UIKit
+OTHER_LDFLAGS = -ObjC -lTestFlight -lz -framework CoreData -framework MobileCoreServices -framework QuartzCore -framework SystemConfiguration -framework UIKit
 LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/TestFlightSDK"
 HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/ACSimpleKeychain" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/LOG_EXPR" "${PODS_ROOT}/BuildHeaders/SVProgressHUD" "${PODS_ROOT}/BuildHeaders/TestFlightSDK"
-PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/ACSimpleKeychain" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/LOG_EXPR" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/TestFlightSDK"
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/ACSimpleKeychain" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/LOG_EXPR" "${PODS_ROOT}/BuildHeaders/MagicalRecord" "${PODS_ROOT}/BuildHeaders/SVProgressHUD" "${PODS_ROOT}/BuildHeaders/TestFlightSDK" "${PODS_ROOT}/BuildHeaders/ViewDeck"
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/ACSimpleKeychain" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/LOG_EXPR" "${PODS_ROOT}/Headers/MagicalRecord" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/TestFlightSDK" "${PODS_ROOT}/Headers/ViewDeck"
