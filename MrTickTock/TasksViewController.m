@@ -14,15 +14,17 @@
 #import "SVProgressHUD.h"
 #import "IIViewDeckController.h"
 #import "Task.h"
+#import "TasksManager.h"
 
 @interface TasksViewController ()
 {
-    NSArray * _tasks;
-    NSInteger runningTaskIndex;
-    NSInteger runningTaskId;
-    BOOL isIOS6;
-
-    ACSimpleKeychain * keychain;
+    NSMutableArray * _tasks;
+    NSMutableArray * _searchResults;
+    NSMutableArray * _taskNames;
+    ACSimpleKeychain * _keychain;
+    TasksManager * _taskManager;
+    BOOL _isIOS6;
+    BOOL _isSearching;
 }
 
 @end
@@ -30,17 +32,18 @@
 @implementation TasksViewController
 
 @synthesize table = _table;
+@synthesize searchBar = _searchBar;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
+    _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
 
     self.navigationController.delegate = self;
     self.navigationItem.hidesBackButton = YES;
 
-    if (isIOS6) {
+    if (_isIOS6) {
         self.refreshControl = [[UIRefreshControl alloc] init];
         [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
     } else {
@@ -50,14 +53,17 @@
         self.navigationItem.rightBarButtonItem = refreshButton;
     }
 
+    CGRect bounds = self.tableView.bounds;
+    bounds.origin.y = self.tableView.bounds.origin.y + _searchBar.bounds.size.height;
+    self.tableView.bounds = bounds;
+
     [self showLogoutButton:NO];
 
-    keychain = [ACSimpleKeychain defaultKeychain];
-
-    _tasks = [Task findAll];
-
-    runningTaskIndex = -1;
-    runningTaskId = -1;
+    _keychain = [ACSimpleKeychain defaultKeychain];
+    _taskManager = [TasksManager sharedTasksManager];
+    _tasks = [NSMutableArray array];
+    _searchResults = [NSMutableArray array];
+    _isSearching = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -65,23 +71,27 @@
     self.viewDeckController.panningMode = IIViewDeckNavigationBarPanning;
 }
 
-- (void)showLogoutButton:(BOOL)visible {
+- (void)showLogoutButton:(BOOL)visible
+{
     self.navigationItem.leftBarButtonItem = visible ? self.logoutButton : nil;
 }
 
--(void) refreshInvoked:(id)sender forState:(UIControlState)state {
-    if (isIOS6) {
+-(void) refreshInvoked:(id)sender forState:(UIControlState)state
+{
+    if (_isIOS6) {
         [self.refreshControl endRefreshing];
     }
 
     [self getActiveTimer];
 }
 
-- (void)showLogin {
+- (void)showLogin
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)confirmLogout:(id)sender {
+- (IBAction)confirmLogout:(id)sender
+{
     [[[UIActionSheet alloc] initWithTitle:@"Really logout?"
                                  delegate:self
                         cancelButtonTitle:@"Cancel"
@@ -89,8 +99,9 @@
                         otherButtonTitles: nil] showInView:self.view];
 }
 
-- (void)logout {
-    [keychain deleteAllCredentialsForService:@"MrTickTock"];
+- (void)logout
+{
+    [_keychain deleteAllCredentialsForService:@"MrTickTock"];
 
     [self showLogoutButton:NO];
 
@@ -100,7 +111,8 @@
     [self showLogin];
 }
 
-- (void)getActiveTimer {
+- (void)getActiveTimer
+{
     [SVProgressHUD show];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"is_timer_active" parameters:[[AFMrTickTockAPIClient sharedClient] authParams] success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
@@ -117,11 +129,15 @@
         NSDictionary * response = [[JSON objectForKey:@"content"] objectAtIndex:0];
 
         if ([[response objectForKey:@"is_timer"] intValue] == 1) {
-            runningTaskId = [[response objectForKey:@"task_id"] integerValue];
+            _taskManager.runningTaskId = [[response objectForKey:@"task_id"] integerValue];
+        } else {
+            _taskManager.hasRunningTask = NO;
+            _taskManager.runningTaskId = -1;
+            _taskManager.runningTaskIndex = -1;
         }
 
         [TestFlight passCheckpoint:@"USER_LOGGED_IN"];
-        
+
         [self showLogoutButton:YES];
 
         [self refreshTasks];
@@ -130,10 +146,9 @@
     }];
 }
 
-- (void)refreshTasks {
-    [Task truncateAll];
-
-    _tasks = nil;
+- (void)refreshTasks
+{
+    [_tasks removeAllObjects];
     [_table reloadData];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
@@ -150,36 +165,25 @@
             return;
         }
 
-        NSArray * fetchedTasks = [JSON objectForKey:@"content"];
         int i = 0;
+        for (NSDictionary * attributes in [JSON objectForKey:@"content"]) {
+            Task * task = [[Task alloc] initWithAttributes:attributes];
 
-        for (NSDictionary * attributes in fetchedTasks) {
-            Task * localTask = [Task createEntity];
+            if (task.id == _taskManager.runningTaskId) {
+                _taskManager.runningTaskIndex = i;
+                _taskManager.hasRunningTask = YES;
+                task.isRunning = YES;
+            }
 
-                localTask.id = [NSNumber numberWithInteger:[[attributes valueForKey:@"id"] integerValue]];
-                localTask.name = [attributes objectForKey:@"task_name"];
-                localTask.isClosed = [NSNumber numberWithBool:[[attributes valueForKey:@"closed"] boolValue]];
-                localTask.isVisible = [NSNumber numberWithBool:[[attributes valueForKey:@"visibility"] isEqualToString:@"visible"]];
-                localTask.isRunning = NO;
+            [_tasks addObject:task];
 
-                localTask.projectId = [NSNumber numberWithInteger:[[attributes valueForKey:@"project_id"] integerValue]];
-                localTask.projectName = [attributes valueForKey:@"project_name"];
-
-                localTask.customerId = [NSNumber numberWithInteger:[[attributes valueForKey:@"customer_id"] integerValue]];
-                localTask.customerName = [attributes valueForKey:@"customer_name"];
-
-                if ([localTask.id integerValue] == runningTaskId) {
-                    runningTaskIndex = i;
-                    localTask.isRunning = @YES;
-                }
             i++;
         }
 
         [SVProgressHUD dismiss];
-        
-        _tasks = [Task findAll];
+
         [_table reloadData];
-        
+
         [self getTasksTime];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -187,13 +191,13 @@
     }];
 }
 
-- (void)getTasksTime {
-    return;
+- (void)getTasksTime
+{
     for (NSUInteger i = 0; i < _tasks.count; i++) {
         Task * task = [_tasks objectAtIndex:i];
 
         NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-        [params setObject:task.id forKey:@"task_id"];
+        [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
 
         [[AFMrTickTockAPIClient sharedClient] postPath:@"get_task_details" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
             NSArray * errors = [JSON objectForKey:@"errors"];
@@ -206,22 +210,22 @@
             task.time = [attributes objectForKey:@"timer_time"];
             task.totalTime = [attributes objectForKey:@"total_time"];
 
-//            [task save];
-//
-//            _tasks = [Task all];
+            [_tasks replaceObjectAtIndex:i withObject:task];
+
             [_table reloadData];
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
     }
 }
 
-- (void)setRunningTask:(NSInteger)index {
+- (void)setRunningTask:(NSInteger)index
+{
     Task * task = [_tasks objectAtIndex:index];
 
     [SVProgressHUD show];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-    [params setObject:task.id forKey:@"task_id"];
+    [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"start_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
         NSArray * errors = [JSON objectForKey:@"errors"];
@@ -231,15 +235,16 @@
             return;
         }
 
-        if (runningTaskIndex != -1) {
-            Task * runningTask = [_tasks objectAtIndex:runningTaskIndex];
+        if (_taskManager.runningTaskIndex != -1) {
+            Task * runningTask = [_tasks objectAtIndex:_taskManager.runningTaskIndex];
             runningTask.isRunning = NO;
         }
 
-        task.isRunning = @YES;
+        task.isRunning = YES;
 
-        runningTaskIndex = index;
-        runningTaskId = [task.id integerValue];
+        _taskManager.hasRunningTask = YES;
+        _taskManager.runningTaskIndex = index;
+        _taskManager.runningTaskId = task.id;
 
         [SVProgressHUD dismiss];
         [_table reloadData];
@@ -248,30 +253,32 @@
     }];
 }
 
-- (void)stopRunningTask {
-    if (runningTaskIndex == -1) {
+- (void)stopRunningTask
+{
+    if (_taskManager.runningTaskIndex == -1) {
         return;
     }
 
     [SVProgressHUD show];
 
-    Task * task = [_tasks objectAtIndex:runningTaskIndex];
+    Task * task = [_tasks objectAtIndex:_taskManager.runningTaskIndex];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-    [params setObject:task.id forKey:@"task_id"];
+    [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"stop_timer" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
         NSArray * errors = [JSON objectForKey:@"errors"];
         if (errors.count) {
             [self showError:[errors objectAtIndex:0]];
-            
+
             return;
         }
 
         task.isRunning = NO;
 
-        runningTaskIndex = -1;
-        runningTaskId = -1;
+        _taskManager.hasRunningTask = NO;
+        _taskManager.runningTaskIndex = -1;
+        _taskManager.runningTaskId = -1;
 
         [SVProgressHUD dismiss];
         [_table reloadData];
@@ -280,42 +287,8 @@
     }];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _tasks.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TaskCell * cell;
-
-    if (isIOS6) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
-    }
-
-    Task * task = [_tasks objectAtIndex:indexPath.row];
-
-    cell.projectName.text = [NSString stringWithFormat:@"%@ (%@)", task.projectName, task.name];
-//    cell.taskName.text = task.totalTime != @"" ? [NSString stringWithFormat:@"%@ (%@ total)", task.time, task.totalTime] : @"";
-
-    return cell;
-}
-
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
-    Task * task = [_tasks objectAtIndex:indexPath.row];
-
-    return task.isRunning ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == runningTaskIndex) {
-        [self stopRunningTask];
-    } else {
-        [self setRunningTask:indexPath.row];
-    }
-}
-
-- (void)showError:(NSString *)error {
+- (void)showError:(NSString *)error
+{
     [SVProgressHUD dismiss];
 
     [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -325,16 +298,126 @@
                      otherButtonTitles: nil] show];
 }
 
-- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+#pragma mark -
+#pragma mark TableView
+#pragma mark -
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _isSearching ? _searchResults.count : _tasks.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TaskCell * cell;
+
+    if (_isIOS6) {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
+    } else {
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
+    }
+
+    Task * task = [_isSearching ? _searchResults : _tasks objectAtIndex:indexPath.row];
+
+    cell.projectName.text = [NSString stringWithFormat:@"%@ (%@)", task.projectName, task.name];
+    cell.taskName.text = task.totalTime != @"" ? [NSString stringWithFormat:@"%@ (%@ total)", task.time, task.totalTime] : @"";
+
+    return cell;
+}
+
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    Task * task = [_isSearching ? _searchResults : _tasks objectAtIndex:indexPath.row];
+
+    return task.isRunning ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == _taskManager.runningTaskIndex) {
+        [self stopRunningTask];
+    } else {
+        [self setRunningTask:indexPath.row];
+    }
+}
+
+#pragma mark -
+#pragma mark UINavigation
+#pragma mark -
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
     if (viewController == self) {
         [self getActiveTimer];
     }
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+#pragma mark -
+#pragma mark UIActionSheet
+#pragma mark -
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == 0) {
         [self logout];
     }
+}
+
+#pragma mark -
+#pragma mark UISearchBar
+#pragma mark -
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    _searchResults = [NSMutableArray arrayWithArray:_tasks];
+    _isSearching = YES;
+
+    _taskNames = [NSMutableArray array];
+
+    for (Task * task in _tasks) {
+        [_taskNames addObject:[NSString stringWithFormat:@"%@ %@", [task.projectName lowercaseString], [task.name lowercaseString]]];
+    }
+
+    _table.allowsSelection = NO;
+    _table.scrollEnabled = NO;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.text = @"";
+
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+
+    _isSearching = NO;
+
+    _table.allowsSelection = YES;
+    _table.scrollEnabled = YES;
+
+    [_table reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSMutableArray * results = [NSMutableArray array];
+    searchText = [searchText lowercaseString];
+
+    int i = 0;
+    for (NSString * name in _taskNames) {
+        if (([searchText isEqualToString:@""]) ||[name rangeOfString:searchText].length > 0) {
+            [results addObject:[_tasks objectAtIndex:i]];
+        }
+
+        i++;
+    }
+
+    _searchResults = results;
+    [_table reloadData];
 }
 
 @end

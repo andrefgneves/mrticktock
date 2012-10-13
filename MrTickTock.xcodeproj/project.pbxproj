@@ -33,6 +33,7 @@
 		148BD3521624E90A00FF4CFE /* MrTickTock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 143ED8DD1624C92E00F7EA62 /* MrTickTock.xcdatamodeld */; };
 		148BD3541624E99D00FF4CFE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BD3531624E99D00FF4CFE /* MobileCoreServices.framework */; };
 		148BD3591624EAF600FF4CFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BD3571624EAE400FF4CFE /* CoreData.framework */; };
+		14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA7C8A1629D6F800DA9597 /* TasksManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD6161F8A19004A7380 /* bar@2x.png */; };
 		14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD9161F91D1004A7380 /* nav-button@2x.png */; };
 		14C0FFDD161F9518004A7380 /* nav-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */; };
@@ -77,6 +78,9 @@
 		147590A41613D08E0013CF70 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
 		148BD3531624E99D00FF4CFE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		148BD3571624EAE400FF4CFE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		14AA7C891629D6F800DA9597 /* TasksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksManager.h; sourceTree = "<group>"; };
+		14AA7C8A1629D6F800DA9597 /* TasksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksManager.m; sourceTree = "<group>"; };
+		14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		14C0FFD6161F8A19004A7380 /* bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar@2x.png"; sourceTree = "<group>"; };
 		14C0FFD9161F91D1004A7380 /* nav-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-button@2x.png"; sourceTree = "<group>"; };
 		14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-button-selected@2x.png"; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		1435EDB61613B31D008BF105 /* MrTickTock */ = {
 			isa = PBXGroup;
 			children = (
+				14AA7C881629D6DF00DA9597 /* Manager */,
 				14CAAEEE16144DB50013E039 /* API */,
 				14CAAEED16144D9F0013E039 /* Model */,
 				14CAAEEC16144D720013E039 /* View */,
@@ -154,6 +159,7 @@
 		1435EDB71613B31D008BF105 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */,
 				14C0FFD3161F873F004A7380 /* Images */,
 				141F3C0D161D8DB40098D478 /* Icon-72.png */,
 				141F3C0E161D8DB40098D478 /* Icon-72@2x.png */,
@@ -180,6 +186,15 @@
 				143ED8DD1624C92E00F7EA62 /* MrTickTock.xcdatamodeld */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		14AA7C881629D6DF00DA9597 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				14AA7C891629D6F800DA9597 /* TasksManager.h */,
+				14AA7C8A1629D6F800DA9597 /* TasksManager.m */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 		14C0FFD3161F873F004A7380 /* Images */ = {
@@ -336,6 +351,7 @@
 				14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */,
 				143ED8F31624E43B00F7EA62 /* Task.m in Sources */,
 				148BD3521624E90A00FF4CFE /* MrTickTock.xcdatamodeld in Sources */,
+				14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,19 +10,24 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Task : NSManagedObject
+@interface Task : NSObject
 
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * isClosed;
-@property (nonatomic, retain) NSNumber * isVisible;
-@property (nonatomic, retain) NSNumber * isRunning;
-@property (nonatomic, retain) NSNumber * customerId;
-@property (nonatomic, retain) NSString * customerName;
-@property (nonatomic, retain) NSNumber * projectId;
-@property (nonatomic, retain) NSDate * time;
-@property (nonatomic, retain) NSDate * totalTime;
-@property (nonatomic, retain) NSNumber * order;
-@property (nonatomic, retain) NSString * projectName;
+@property (nonatomic) NSUInteger id;
+
+@property (strong, nonatomic) NSString * name;
+@property (nonatomic) BOOL isClosed;
+@property (nonatomic) BOOL isVisible;
+@property (nonatomic) BOOL isRunning;
+
+@property (nonatomic) NSUInteger customerId;
+@property (strong, nonatomic) NSString * customerName;
+
+@property (nonatomic) NSUInteger projectId;
+@property (strong, nonatomic) NSString * projectName;
+
+@property (strong, nonatomic) NSString * time;
+@property (strong, nonatomic) NSString * totalTime;
+
+- (id)initWithAttributes:(NSDictionary *)attributes;
 
 @end

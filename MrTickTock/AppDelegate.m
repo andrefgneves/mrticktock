@@ -23,8 +23,6 @@
 
     [TestFlight takeOff:@"e9f2e39c8bff04f2885aa45c506b0e3c_MTM3NzgyMjAxMi0wOS0zMCAwODozNzozNS4zNTQ3ODk"];
 
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"MrTickTock"];
-
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
     self.leftController = [storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
@@ -43,7 +41,8 @@
     return YES;
 }
 
-- (void)setStyle {
+- (void)setStyle
+{
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar.png"] forBarMetrics:UIBarMetricsDefault];
 
     UIImage * buttonImage = [[UIImage imageNamed:@"nav-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
@@ -56,11 +55,6 @@
     [[UIBarButtonItem appearance] setBackgroundImage:buttonImageSelected
                                             forState:UIControlStateSelected
                                           barMetrics:UIBarMetricsDefault];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [MagicalRecord cleanUp];
 }
 
 @end

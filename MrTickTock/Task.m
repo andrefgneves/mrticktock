@@ -8,20 +8,33 @@
 
 #import "Task.h"
 
-
 @implementation Task
 
-@dynamic id;
-@dynamic name;
-@dynamic isClosed;
-@dynamic isVisible;
-@dynamic isRunning;
-@dynamic customerId;
-@dynamic customerName;
-@dynamic projectId;
-@dynamic time;
-@dynamic totalTime;
-@dynamic order;
-@dynamic projectName;
+- (id)initWithAttributes:(NSDictionary *)attributes {
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+
+    self.id = [[attributes valueForKey:@"id"] integerValue];
+
+    self.name = [attributes objectForKey:@"task_name"];
+    self.isClosed = [[attributes valueForKey:@"closed"] boolValue];
+
+    self.isVisible = [[attributes valueForKey:@"visibility"] isEqualToString:@"visible"];
+    self.isRunning = NO;
+
+    self.customerId = [[attributes valueForKey:@"customer_id"] integerValue];
+    self.customerName = [attributes objectForKey:@"customer_name"];
+
+    self.projectId = [[attributes valueForKey:@"project_id"] integerValue];
+    self.projectName = [attributes objectForKey:@"project_name"];
+
+    self.time = @"";
+    self.totalTime = @"";
+
+    return self;
+}
 
 @end
