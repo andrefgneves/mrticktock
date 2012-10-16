@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FTAssetRenderer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FTAssetRenderer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/setURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) NSURL *URL</Declaration>
+			
+			
+			<Anchor>//api/name/URL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTAssetRenderer/URL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) NSURL *URL</Declaration>
+			
+			
+			<Anchor>//api/name/URL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/setTargetColor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) UIColor *targetColor</Declaration>
+			
+			
+			<Anchor>//api/name/targetColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTAssetRenderer/targetColor</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) UIColor *targetColor</Declaration>
+			
+			
+			<Anchor>//api/name/targetColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/setCache:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) BOOL cache</Declaration>
+			
+			
+			<Anchor>//api/name/cache</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTAssetRenderer/cache</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) BOOL cache</Declaration>
+			
+			
+			<Anchor>//api/name/cache</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/FTAssetRenderer/cacheDirectory</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)cacheDirectory</Declaration>
+			
+			
+			<Anchor>//api/name/cacheDirectory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/initWithURL:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithURL:(NSURL *)URL</Declaration>
+			
+			
+			<Anchor>//api/name/initWithURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/targetSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (CGSize)targetSize</Declaration>
+			
+			
+			<Anchor>//api/name/targetSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/image</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/imageWithCacheIdentifier:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageWithCacheIdentifier:(NSString *)identifier</Declaration>
+			
+			
+			<Anchor>//api/name/imageWithCacheIdentifier:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/drawImageInContext:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (void)drawImageInContext:(CGContextRef)context</Declaration>
+			
+			
+			<Anchor>//api/name/drawImageInContext:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/drawTargetColorInContext:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (void)drawTargetColorInContext:(CGContextRef)context</Declaration>
+			
+			
+			<Anchor>//api/name/drawTargetColorInContext:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/cachePathWithIdentifier:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)cachePathWithIdentifier:(NSString *)identifier</Declaration>
+			
+			
+			<Anchor>//api/name/cachePathWithIdentifier:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/canCacheWithIdentifier:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (void)canCacheWithIdentifier:(NSString *)identifier</Declaration>
+			
+			
+			<Anchor>//api/name/canCacheWithIdentifier:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTAssetRenderer/cacheRawFilenameWithIdentifier:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)cacheRawFilenameWithIdentifier:(NSString *)identifier</Declaration>
+			
+			
+			<Anchor>//api/name/cacheRawFilenameWithIdentifier:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/FTAssetRenderer/rendererForImageNamed:withExtension:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTImageAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>+ (FTImageAssetRenderer *)rendererForImageNamed:(NSString *)imageName withExtension:(NSString *)extName</Declaration>
+			
+			
+			<Anchor>//api/name/rendererForImageNamed:withExtension:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/FTAssetRenderer/rendererForPDFNamed:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>+ (FTPDFAssetRenderer *)rendererForPDFNamed:(NSString *)pdfName</Declaration>
+			
+			
+			<Anchor>//api/name/rendererForPDFNamed:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

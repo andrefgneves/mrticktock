@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/UIImage+MGProportionalFill.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/UIImage(MGProportionalFill)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+ProportionalFill.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImage(MGProportionalFill)/imageToFitSize:method:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+ProportionalFill.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageToFitSize:(CGSize)size method:(MGImageResizingMethod)resizeMethod</Declaration>
+			
+			
+			<Anchor>//api/name/imageToFitSize:method:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImage(MGProportionalFill)/imageCroppedToFitSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+ProportionalFill.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageCroppedToFitSize:(CGSize)size</Declaration>
+			
+			
+			<Anchor>//api/name/imageCroppedToFitSize:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImage(MGProportionalFill)/imageScaledToFitSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+ProportionalFill.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageScaledToFitSize:(CGSize)size</Declaration>
+			
+			
+			<Anchor>//api/name/imageScaledToFitSize:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

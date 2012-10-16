@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FTImageAssetRenderer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FTImageAssetRenderer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTImageAssetRenderer.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTImageAssetRenderer/setSourceImage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTImageAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) UIImage *sourceImage</Declaration>
+			
+			
+			<Anchor>//api/name/sourceImage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTImageAssetRenderer/sourceImage</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTImageAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) UIImage *sourceImage</Declaration>
+			
+			
+			<Anchor>//api/name/sourceImage</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

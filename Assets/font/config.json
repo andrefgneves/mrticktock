@@ -1,0 +1,53 @@
+{
+  "name": "mrticktock",
+  "glyphs": [
+    {
+      "uid": "2cfb3f2b46b34a1790aec0aa846297b6",
+      "orig_css": "th-list",
+      "orig_code": 98,
+      "css": "th-list",
+      "code": 98,
+      "src": "entypo"
+    },
+    {
+      "uid": "70370693ada58ef0a60fa0984fe8d52a",
+      "orig_css": "plus",
+      "orig_code": 43,
+      "css": "plus",
+      "code": 43,
+      "src": "entypo"
+    },
+    {
+      "uid": "1256e3054823e304d7e452a589cf8bb8",
+      "orig_css": "minus",
+      "orig_code": 45,
+      "css": "minus",
+      "code": 45,
+      "src": "entypo"
+    },
+    {
+      "uid": "8663320a860b00f26e94d3d15c9ba99a",
+      "orig_css": "clock",
+      "orig_code": 99,
+      "css": "clock",
+      "code": 99,
+      "src": "entypo"
+    },
+    {
+      "uid": "bb46b15cb78cc4cc05d3d715d522ac4d",
+      "orig_css": "cw",
+      "orig_code": 100,
+      "css": "cw",
+      "code": 100,
+      "src": "entypo"
+    },
+    {
+      "uid": "221947bea81f49a11b863c686a7bd235",
+      "orig_css": "search",
+      "orig_code": 97,
+      "css": "search",
+      "code": 97,
+      "src": "websymbols"
+    }
+  ]
+}

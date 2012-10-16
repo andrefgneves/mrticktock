@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>FTAssetRenderer 0.1.0 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">FTAssetRenderer 0.1.0 </a></h1>
+				<a id="developerHome" href="index.html">Eloy Durán</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">FTAssetRenderer 0.1.0 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">FTAssetRenderer 0.1.0 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1><a href="Classes/FTAssetRenderer.html">FTAssetRenderer</a></h1>
+
+<p>Create image assets, at runtime, in <em>any</em> color when used as mask and/or at <em>any</em> resolution when it’s a PDF.</p>
+
+<h3>Install</h3>
+
+<p>If you’re using <a href="https://github.com/CocoaPods/CocoaPods">CocoaPods</a>, add the following to your Podfile:</p>
+
+<p><code>ruby
+pod 'FTAssetRenderer'
+</code></p>
+
+<p>Otherwise, simply add the files from the <code>Source</code> dir to your project.</p>
+
+<h3>Usage</h3>
+
+<p>If you have a bitmap image that’s used as a mask to generate images in different colors, then you can use it like so:</p>
+
+<p><code>objc
+FTImageAssetRenderer *renderer = [FTAssetRenderer rendererForImageNamed:@"my-icon" withExtension:@"png"];
+renderer.targetColor = [UIColor redColor];
+UIImage *result = [renderer imageWithCacheIdentifier:@"red"];
+</code></p>
+
+<p>If, on the other hand, you have a vector based PDF image, you should generally indicate the size at which it should be rendered as well:</p>
+
+<p><code>objc
+FTPDFAssetRenderer *renderer = [FTAssetRenderer rendererForPDFNamed:@"my-scalable-icon"];
+renderer.targetColor = [UIColor blueColor];
+renderer.targetSize = CGSizeMake(123, 456);
+UIImage *result = [renderer imageWithCacheIdentifier:@"without-preserving-aspect-ratio"];
+</code></p>
+
+<p>In the above example, an explicit width and height is given for the result image, which might lead to the image not preserving its original aspect ratio. To ensure the ratio is preserved, a few convience methods are available:</p>
+
+<ul>
+<li><code>[FTPDFAssetRenderer fitWidth:]</code> will make the result image as wide as the given width, while the height is based on it.</li>
+<li><a href="Classes/FTPDFAssetRenderer.html#//api/name/fitHeight:"><code>[FTPDFAssetRenderer fitHeight:]</code></a> will make the result image as high as the given height, while the width is based on it.</li>
+<li><code>[FTPDFAssetRenderer fitSize:]</code> will make the image as large as possible, inside the bounding size, but without cropping any part of the image, thus only fully covering one of the two sides.</li>
+</ul>
+
+
+<p>By default, the resulting image is cached on disk. For each different target color, a different cache identifier should be used. For instance, for controls you might use identifiers such as <code>normal</code>, <code>highlighted</code>, and <code>selected</code>.</p>
+
+<h3>Acknowledgements</h3>
+
+<p>Based on work by:
+* <a href="https://github.com/Cocoanetics">Oliver Drobnik</a> &ndash; <a href="http://www.cocoanetics.com/2010/06/rendering-pdf-is-easier-than-you-thought">http://www.cocoanetics.com/2010/06/rendering-pdf-is-easier-than-you-thought</a>
+* <a href="https://github.com/mindbrix">Nigel Timothy Barber</a> &ndash; <a href="https://github.com/mindbrix/UIImage-PDF">https://github.com/mindbrix/UIImage-PDF</a>
+* <a href="https://github.com/iamamused">Jeffrey Sambells</a> &ndash; <a href="http://jeffreysambells.com/2012/03/02/beating-the-20mb-size-limit-ipad-retina-displays">http://jeffreysambells.com/2012/03/02/beating-the-20mb-size-limit-ipad-retina-displays</a>
+* <a href="https://github.com/omz">Ole Zorn</a> &ndash; <a href="https://gist.github.com/1102091">https://gist.github.com/1102091</a></p>
+
+<p>Thanks to <a href="https://github.com/steipete">Peter Steinberger</a> (of <a href="http://pspdfkit.com">PSPDFKit</a> fame) for his invaluable advice during the creation of this library.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/FTAssetRenderer.html">FTAssetRenderer</a></li>
+							
+							<li><a href="Classes/FTImageAssetRenderer.html">FTImageAssetRenderer</a></li>
+							
+							<li><a href="Classes/FTPDFAssetRenderer.html">FTPDFAssetRenderer</a></li>
+							
+						</ul>
+					</div>
+					
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Eloy Durán. All rights reserved. (Last updated: 2012-10-15)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

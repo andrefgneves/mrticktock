@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/seven/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.FTAssetRenderer-0.1.0.docset
+Time: 2012-10-15 17:25:37 +0000

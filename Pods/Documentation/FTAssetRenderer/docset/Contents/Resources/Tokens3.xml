@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FTPDFAssetRenderer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FTPDFAssetRenderer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/setSourcePageIndex:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) size_t sourcePageIndex</Declaration>
+			
+			
+			<Anchor>//api/name/sourcePageIndex</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTPDFAssetRenderer/sourcePageIndex</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) size_t sourcePageIndex</Declaration>
+			
+			
+			<Anchor>//api/name/sourcePageIndex</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/setSourcePage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) CGPDFPageRef sourcePage</Declaration>
+			
+			
+			<Anchor>//api/name/sourcePage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTPDFAssetRenderer/sourcePage</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) CGPDFPageRef sourcePage</Declaration>
+			
+			
+			<Anchor>//api/name/sourcePage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/setTargetSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) CGSize targetSize</Declaration>
+			
+			
+			<Anchor>//api/name/targetSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTPDFAssetRenderer/targetSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (assign, nonatomic) CGSize targetSize</Declaration>
+			
+			
+			<Anchor>//api/name/targetSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/setIsMask:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) BOOL isMask</Declaration>
+			
+			
+			<Anchor>//api/name/isMask</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FTPDFAssetRenderer/isMask</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>@property (readonly, nonatomic) BOOL isMask</Declaration>
+			
+			
+			<Anchor>//api/name/isMask</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/fitSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (void)fitSize:(CGSize)maxSize</Declaration>
+			
+			
+			<Anchor>//api/name/fitSize:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/fitWidth:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (void)fitWidth:(CGFloat)targetWidth</Declaration>
+			
+			
+			<Anchor>//api/name/fitWidth:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FTPDFAssetRenderer/fitHeight:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FTPDFAssetRenderer.h</DeclaredIn>			
+			
+			<Declaration>- (void)fitHeight:(CGFloat)targetHeight</Declaration>
+			
+			
+			<Anchor>//api/name/fitHeight:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

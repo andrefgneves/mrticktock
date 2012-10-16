@@ -10,6 +10,7 @@
 #import "IIViewDeckController.h"
 #import "LoginViewController.h"
 #import "Task.h"
+#import "UIImage+Utils.h"
 
 @implementation AppDelegate
 
@@ -33,7 +34,7 @@
 
     IIViewDeckController * deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController
                                                                                     leftViewController:self.leftController];
-    deckController.rightLedge = 200;
+    deckController.leftLedge = 100;
     self.window.rootViewController = deckController;
 
     [self.window makeKeyAndVisible];
@@ -43,18 +44,31 @@
 
 - (void)setStyle
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"bar.png"] forBarMetrics:UIBarMetricsDefault];
+    UIColor * barColor = [UIColor colorWithRed:0.475 green:0.725 blue:0.929 alpha:1.000];
+    UIImage * nav = [UIImage imageWithColor:barColor andSize:CGSizeMake(1, 1)];
 
-    UIImage * buttonImage = [[UIImage imageNamed:@"nav-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    UIImage * buttonImageSelected = [[UIImage imageNamed:@"nav-button-selected.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UINavigationBar appearance] setBackgroundImage:nav forBarMetrics:UIBarMetricsDefault];
 
-    [[UIBarButtonItem appearance] setBackgroundImage:buttonImage
+    NSDictionary * textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     [UIFont fontWithName:@"mrticktock" size:25],
+                                     UITextAttributeFont,
+                                     [UIColor whiteColor],
+                                     UITextAttributeTextColor,
+                                     barColor,
+                                     UITextAttributeTextShadowColor,
+                                     nil];
+
+    [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes forState:UIBarMetricsDefault];
+
+    [[UIBarButtonItem appearance] setBackgroundImage:nav
                                   forState:UIControlStateNormal
                                           barMetrics:UIBarMetricsDefault];
 
-    [[UIBarButtonItem appearance] setBackgroundImage:buttonImageSelected
+    [[UIBarButtonItem appearance] setBackgroundImage:nav
                                             forState:UIControlStateSelected
                                           barMetrics:UIBarMetricsDefault];
+
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] andSize:CGSizeMake(200, 44)] forState:UIControlStateNormal];
 }
 
 @end

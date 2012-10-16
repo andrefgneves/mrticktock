@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/UIImage+MGTint.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/UIImage(MGTint)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+Tint.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImage(MGTint)/imageTintedWithColor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+Tint.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageTintedWithColor:(UIColor *)color</Declaration>
+			
+			
+			<Anchor>//api/name/imageTintedWithColor:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIImage(MGTint)/imageTintedWithColor:fraction:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>UIImage+Tint.h</DeclaredIn>			
+			
+			<Declaration>- (UIImage *)imageTintedWithColor:(UIColor *)color fraction:(CGFloat)fraction</Declaration>
+			
+			
+			<Anchor>//api/name/imageTintedWithColor:fraction:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

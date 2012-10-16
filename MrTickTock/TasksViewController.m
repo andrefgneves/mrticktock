@@ -53,12 +53,6 @@
         self.navigationItem.rightBarButtonItem = refreshButton;
     }
 
-    CGRect bounds = self.tableView.bounds;
-    bounds.origin.y = self.tableView.bounds.origin.y + _searchBar.bounds.size.height;
-    self.tableView.bounds = bounds;
-
-    [self showLogoutButton:NO];
-
     _keychain = [ACSimpleKeychain defaultKeychain];
     _taskManager = [TasksManager sharedTasksManager];
     _tasks = [NSMutableArray array];
@@ -71,11 +65,6 @@
     self.viewDeckController.panningMode = IIViewDeckNavigationBarPanning;
 }
 
-- (void)showLogoutButton:(BOOL)visible
-{
-    self.navigationItem.leftBarButtonItem = visible ? self.logoutButton : nil;
-}
-
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state
 {
     if (_isIOS6) {
@@ -83,6 +72,11 @@
     }
 
     [self getActiveTimer];
+}
+
+- (void)showMenu:(id)sender
+{
+
 }
 
 - (void)showLogin
@@ -102,8 +96,6 @@
 - (void)logout
 {
     [_keychain deleteAllCredentialsForService:@"MrTickTock"];
-
-    [self showLogoutButton:NO];
 
     _tasks = nil;
     [_table reloadData];
@@ -137,8 +129,6 @@
         }
 
         [TestFlight passCheckpoint:@"USER_LOGGED_IN"];
-
-        [self showLogoutButton:YES];
 
         [self refreshTasks];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -309,7 +299,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 70;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

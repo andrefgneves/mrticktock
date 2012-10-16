@@ -16,6 +16,8 @@
 		141F3C1A161D8DB40098D478 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C12161D8DB40098D478 /* Icon-Small@2x.png */; };
 		141F3C1B161D8DB40098D478 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C13161D8DB40098D478 /* Icon.png */; };
 		141F3C1C161D8DB40098D478 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 141F3C14161D8DB40098D478 /* Icon@2x.png */; };
+		142A594B162A14D800257605 /* ToggleTaskButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 142A594A162A14D800257605 /* ToggleTaskButton.m */; };
+		142A594F162A156000257605 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 142A594D162A155700257605 /* QuartzCore.framework */; };
 		1435EDB11613B31D008BF105 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB01613B31D008BF105 /* UIKit.framework */; };
 		1435EDB31613B31D008BF105 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB21613B31D008BF105 /* Foundation.framework */; };
 		1435EDB51613B31D008BF105 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1435EDB41613B31D008BF105 /* CoreGraphics.framework */; };
@@ -33,12 +35,17 @@
 		148BD3521624E90A00FF4CFE /* MrTickTock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 143ED8DD1624C92E00F7EA62 /* MrTickTock.xcdatamodeld */; };
 		148BD3541624E99D00FF4CFE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BD3531624E99D00FF4CFE /* MobileCoreServices.framework */; };
 		148BD3591624EAF600FF4CFE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BD3571624EAE400FF4CFE /* CoreData.framework */; };
+		148BF380162DF4A000B68C62 /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 148BF37E162DF4A000B68C62 /* pause.pdf */; };
+		148BF381162DF4A000B68C62 /* start.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 148BF37F162DF4A000B68C62 /* start.pdf */; };
+		148BF385162DFD8A00B68C62 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BF384162DFD8A00B68C62 /* NavigationBar.m */; };
+		148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BF388162E045000B68C62 /* UIImage+Utils.m */; };
 		14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA7C8A1629D6F800DA9597 /* TasksManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD6161F8A19004A7380 /* bar@2x.png */; };
 		14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD9161F91D1004A7380 /* nav-button@2x.png */; };
 		14C0FFDD161F9518004A7380 /* nav-button-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */; };
 		14D7A0E816150160004BF0AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D7A0E716150160004BF0AB /* SystemConfiguration.framework */; };
 		14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A0F316151710004BF0AB /* LoginViewController.m */; };
+		14FC3870162E14DA0021EBA0 /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14FC386F162E14DA0021EBA0 /* mrticktock.ttf */; };
 		751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004521F44D504A1C93BB1CE7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +60,9 @@
 		141F3C12161D8DB40098D478 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		141F3C13161D8DB40098D478 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		141F3C14161D8DB40098D478 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		142A5949162A14D800257605 /* ToggleTaskButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleTaskButton.h; sourceTree = "<group>"; };
+		142A594A162A14D800257605 /* ToggleTaskButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleTaskButton.m; sourceTree = "<group>"; };
+		142A594D162A155700257605 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1435EDAC1613B31D008BF105 /* MrTickTock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrTickTock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1435EDB01613B31D008BF105 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1435EDB21613B31D008BF105 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,6 +88,12 @@
 		147590A41613D08E0013CF70 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
 		148BD3531624E99D00FF4CFE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		148BD3571624EAE400FF4CFE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		148BF37E162DF4A000B68C62 /* pause.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pause.pdf; sourceTree = "<group>"; };
+		148BF37F162DF4A000B68C62 /* start.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = start.pdf; sourceTree = "<group>"; };
+		148BF383162DFD8A00B68C62 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
+		148BF384162DFD8A00B68C62 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
+		148BF387162E045000B68C62 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		148BF388162E045000B68C62 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		14AA7C891629D6F800DA9597 /* TasksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksManager.h; sourceTree = "<group>"; };
 		14AA7C8A1629D6F800DA9597 /* TasksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksManager.m; sourceTree = "<group>"; };
 		14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -87,6 +103,7 @@
 		14D7A0E716150160004BF0AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14D7A0F216151710004BF0AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		14D7A0F316151710004BF0AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		14FC386F162E14DA0021EBA0 /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
 		D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -95,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142A594F162A156000257605 /* QuartzCore.framework in Frameworks */,
 				148BD3591624EAF600FF4CFE /* CoreData.framework in Frameworks */,
 				148BD3541624E99D00FF4CFE /* MobileCoreServices.framework in Frameworks */,
 				14D7A0E816150160004BF0AB /* SystemConfiguration.framework in Frameworks */,
@@ -130,6 +148,7 @@
 		1435EDAF1613B31D008BF105 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				142A594D162A155700257605 /* QuartzCore.framework */,
 				148BD3571624EAE400FF4CFE /* CoreData.framework */,
 				14D7A0E716150160004BF0AB /* SystemConfiguration.framework */,
 				148BD3531624E99D00FF4CFE /* MobileCoreServices.framework */,
@@ -145,6 +164,7 @@
 		1435EDB61613B31D008BF105 /* MrTickTock */ = {
 			isa = PBXGroup;
 			children = (
+				148BF386162E043700B68C62 /* Utils */,
 				14AA7C881629D6DF00DA9597 /* Manager */,
 				14CAAEEE16144DB50013E039 /* API */,
 				14CAAEED16144D9F0013E039 /* Model */,
@@ -159,7 +179,7 @@
 		1435EDB71613B31D008BF105 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */,
+				14FC3872162E14EC0021EBA0 /* Fonts */,
 				14C0FFD3161F873F004A7380 /* Images */,
 				141F3C0D161D8DB40098D478 /* Icon-72.png */,
 				141F3C0E161D8DB40098D478 /* Icon-72@2x.png */,
@@ -188,6 +208,16 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		148BF386162E043700B68C62 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */,
+				148BF387162E045000B68C62 /* UIImage+Utils.h */,
+				148BF388162E045000B68C62 /* UIImage+Utils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		14AA7C881629D6DF00DA9597 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +230,8 @@
 		14C0FFD3161F873F004A7380 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				148BF37E162DF4A000B68C62 /* pause.pdf */,
+				148BF37F162DF4A000B68C62 /* start.pdf */,
 				14C0FFD6161F8A19004A7380 /* bar@2x.png */,
 				14C0FFDC161F9517004A7380 /* nav-button-selected@2x.png */,
 				14C0FFD9161F91D1004A7380 /* nav-button@2x.png */,
@@ -226,6 +258,8 @@
 				14626026161F5B0900C766A8 /* MainStoryboard.storyboard */,
 				147590A31613D08E0013CF70 /* TaskCell.h */,
 				147590A41613D08E0013CF70 /* TaskCell.m */,
+				148BF383162DFD8A00B68C62 /* NavigationBar.h */,
+				148BF384162DFD8A00B68C62 /* NavigationBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -235,6 +269,8 @@
 			children = (
 				143ED8F11624E43B00F7EA62 /* Task.h */,
 				143ED8F21624E43B00F7EA62 /* Task.m */,
+				142A5949162A14D800257605 /* ToggleTaskButton.h */,
+				142A594A162A14D800257605 /* ToggleTaskButton.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,6 +282,14 @@
 				147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		14FC3872162E14EC0021EBA0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				14FC386F162E14DA0021EBA0 /* mrticktock.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +360,9 @@
 				14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */,
 				14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */,
 				14C0FFDD161F9518004A7380 /* nav-button-selected@2x.png in Resources */,
+				148BF380162DF4A000B68C62 /* pause.pdf in Resources */,
+				148BF381162DF4A000B68C62 /* start.pdf in Resources */,
+				14FC3870162E14DA0021EBA0 /* mrticktock.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +399,9 @@
 				143ED8F31624E43B00F7EA62 /* Task.m in Sources */,
 				148BD3521624E90A00FF4CFE /* MrTickTock.xcdatamodeld in Sources */,
 				14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */,
+				142A594B162A14D800257605 /* ToggleTaskButton.m in Sources */,
+				148BF385162DFD8A00B68C62 /* NavigationBar.m in Sources */,
+				148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

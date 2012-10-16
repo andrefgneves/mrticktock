@@ -12,8 +12,9 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 
+- (IBAction)showMenu:(id)sender;
 - (IBAction)confirmLogout:(id)sender;
 
 @end
