@@ -5,6 +5,7 @@ PODS:
 - FTAssetRenderer (0.1.0)
 - LOG_EXPR (1.2)
 - MGImageUtilities (0.0.1)
+- NSDate+Helper (0.0.1)
 - SVProgressHUD (0.8)
 - TestFlightSDK (1.1)
 - UIImage+PDF (1.0.0)
@@ -16,6 +17,7 @@ DEPENDENCIES:
 - FTAssetRenderer
 - LOG_EXPR
 - MGImageUtilities
+- NSDate+Helper
 - SVProgressHUD
 - TestFlightSDK
 - UIImage+PDF
@@ -27,6 +29,7 @@ SPEC CHECKSUMS:
   FTAssetRenderer: e2f5b05f3e4336bedf3d69d818e159ba55ab45bf
   LOG_EXPR: 98b4a79dcbac62529ea7d0c5fcb82e7727970233
   MGImageUtilities: ab3580f2161b10f8a41331baea87aaafbd688950
+  NSDate+Helper: 3015cb57778256bce7c549fca172474308740059
   SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
   TestFlightSDK: a62347405c04307e2953eda4b8cc465ee51a6c90
   UIImage+PDF: cad9495618586e360f318d8a570a8f9a589a4573

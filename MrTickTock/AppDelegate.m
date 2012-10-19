@@ -12,6 +12,14 @@
 #import "Task.h"
 #import "UIImage+Utils.h"
 
+@interface AppDelegate()
+{
+    UIColor * UINavigationBarBackgroundColor;
+    UIImage * UINavigationBarBackgroundImage;
+}
+
+@end
+
 @implementation AppDelegate
 
 @synthesize window           = _window;
@@ -20,6 +28,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UINavigationBarBackgroundColor = [UIColor colorWithRed:0.267 green:0.561 blue:0.710 alpha:1.000];
+    UINavigationBarBackgroundImage = [UIImage imageWithColor:UINavigationBarBackgroundColor andSize:CGSizeMake(1, 1)];
+
     [self setStyle];
 
     [TestFlight takeOff:@"e9f2e39c8bff04f2885aa45c506b0e3c_MTM3NzgyMjAxMi0wOS0zMCAwODozNzozNS4zNTQ3ODk"];
@@ -44,31 +55,60 @@
 
 - (void)setStyle
 {
-    UIColor * barColor = [UIColor colorWithRed:0.475 green:0.725 blue:0.929 alpha:1.000];
-    UIImage * nav = [UIImage imageWithColor:barColor andSize:CGSizeMake(1, 1)];
+    [[UINavigationBar appearance] setBackgroundImage:UINavigationBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:UINavigationBarBackgroundColor forKey:UITextAttributeTextShadowColor]];
 
-    [[UINavigationBar appearance] setBackgroundImage:nav forBarMetrics:UIBarMetricsDefault];
+    // Remove navigation bars shadow
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 
-    NSDictionary * textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     [UIFont fontWithName:@"mrticktock" size:25],
-                                     UITextAttributeFont,
-                                     [UIColor whiteColor],
-                                     UITextAttributeTextColor,
-                                     barColor,
-                                     UITextAttributeTextShadowColor,
-                                     nil];
+    // Text attributes for UIBarButtons
+    NSDictionary * navBarButtonTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                 [UIFont fontWithName:@"mrticktock" size:35],
+                                                 UITextAttributeFont,
+                                                 [UIColor whiteColor],
+                                                 UITextAttributeTextColor,
+                                                 UINavigationBarBackgroundColor,
+                                                 UITextAttributeTextShadowColor,
+                                                 nil];
 
-    [[UIBarButtonItem appearance] setTitleTextAttributes:textAttributes forState:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:navBarButtonTextAttributes forState:UIControlStateNormal];
 
-    [[UIBarButtonItem appearance] setBackgroundImage:nav
-                                  forState:UIControlStateNormal
-                                          barMetrics:UIBarMetricsDefault];
+    // Use the same image as the navigations bar to have a flat look
+    [[UIBarButtonItem appearance] setBackgroundImage:UINavigationBarBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:UINavigationBarBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
 
-    [[UIBarButtonItem appearance] setBackgroundImage:nav
-                                            forState:UIControlStateSelected
-                                          barMetrics:UIBarMetricsDefault];
+    // The UISearchBar cancel button is proxied through UIBarButtonItem so we need to reset it's look
+    UIImage * UISearchBarCancelButtonImage = [UIImage imageWithColor:UINavigationBarBackgroundColor andSize:CGSizeMake(48, 30)];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setBackgroundImage:UISearchBarCancelButtonImage
+                                                                                    forState:UIControlStateNormal
+                                                                                  barMetrics:UIBarMetricsDefault];
 
-    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] andSize:CGSizeMake(200, 44)] forState:UIControlStateNormal];
+    UIImage * UISearchBarCancelButtonHighlightedImage = [UIImage imageWithColor:[UIColor blackColor] andSize:CGSizeMake(48, 30)];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setBackgroundImage:UISearchBarCancelButtonHighlightedImage
+                                                                                    forState:UIControlStateHighlighted
+                                                                                  barMetrics:UIBarMetricsDefault];
+
+    // Text attributes for UISearchBar cancel button
+    NSDictionary * UISearchBarCancelButtonTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                            [UIFont systemFontOfSize:15],
+                                                            UITextAttributeFont,
+                                                            [UIColor whiteColor],
+                                                            UITextAttributeTextColor,
+                                                            UINavigationBarBackgroundColor,
+                                                            UITextAttributeTextShadowColor,
+                                                            nil];
+
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:UISearchBarCancelButtonTextAttributes forState:UIControlStateNormal];
+
+    // Highlighted
+    NSMutableDictionary * UISearchBarCancelButtonHighlightedTextAttributes = [NSMutableDictionary dictionaryWithDictionary:UISearchBarCancelButtonTextAttributes];
+    [UISearchBarCancelButtonHighlightedTextAttributes setObject:[UIColor blackColor] forKey:UITextAttributeTextShadowColor];
+
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:UISearchBarCancelButtonHighlightedTextAttributes
+                                                                                        forState:UIControlStateHighlighted];
+
+    // UISearchBar textfield appearance
+    [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] andSize:CGSizeMake(320, 44)] forState:UIControlStateNormal];
 }
 
 @end

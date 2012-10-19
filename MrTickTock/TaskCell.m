@@ -10,15 +10,4 @@
 
 @implementation TaskCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-
-    if (self) {
-        self.projectName.textColor = [UIColor redColor];
-    }
-
-    return self;
-}
-
 @end

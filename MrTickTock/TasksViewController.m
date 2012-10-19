@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 André Neves. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "TasksViewController.h"
 #import "AFMrTickTockAPIClient.h"
 #import "Task.h"
@@ -15,6 +16,7 @@
 #import "IIViewDeckController.h"
 #import "Task.h"
 #import "TasksManager.h"
+#import "NSDate+Helper.h"
 
 @interface TasksViewController ()
 {
@@ -314,25 +316,40 @@
 
     Task * task = [_isSearching ? _searchResults : _tasks objectAtIndex:indexPath.row];
 
-    cell.projectName.text = [NSString stringWithFormat:@"%@ (%@)", task.projectName, task.name];
-    cell.taskName.text = task.totalTime != @"" ? [NSString stringWithFormat:@"%@ (%@ total)", task.time, task.totalTime] : @"";
+    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor clearColor];
+
+    UIColor * textColor = task.isRunning ? [UIColor whiteColor] : [UIColor colorWithRed:0.267 green:0.561 blue:0.710 alpha:1.000];
+
+    cell.projectName.text = task.projectName;
+    cell.projectName.textColor = textColor;
+
+    cell.taskName.text = task.name;
+    cell.taskName.textColor = textColor;
+
+    cell.taskTime.text = [self timeString:task.totalTime != @"" ? task.totalTime : @"00:00"];
+    cell.taskTime.textColor = textColor;
+
+    cell.toggleButton.tag = indexPath.row;
+    cell.toggleButton.running = task.isRunning;
 
     return cell;
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
+- (NSString *)timeString:(NSString *)time
 {
-    Task * task = [_isSearching ? _searchResults : _tasks objectAtIndex:indexPath.row];
+    NSDate * date = [NSDate dateFromString:[NSString stringWithFormat:@"2012-01-01 %@:00", time]];
 
-    return task.isRunning ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    return [date stringWithFormat:@"HH:mm"];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (IBAction)toggleButtonTouched:(UIButton *)button
 {
-    if (indexPath.row == _taskManager.runningTaskIndex) {
+    NSInteger index = button.tag;
+
+    if (index == _taskManager.runningTaskIndex) {
         [self stopRunningTask];
     } else {
-        [self setRunningTask:indexPath.row];
+        [self setRunningTask:index];
     }
 }
 

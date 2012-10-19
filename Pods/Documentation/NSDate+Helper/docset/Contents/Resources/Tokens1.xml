@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDate+Helper.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDate(Helper)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/daysAgo</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSUInteger)daysAgo</Declaration>
+			
+			
+			<Anchor>//api/name/daysAgo</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/daysAgoAgainstMidnight</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSUInteger)daysAgoAgainstMidnight</Declaration>
+			
+			
+			<Anchor>//api/name/daysAgoAgainstMidnight</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringDaysAgo</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringDaysAgo</Declaration>
+			
+			
+			<Anchor>//api/name/stringDaysAgo</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringDaysAgoAgainstMidnight:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringDaysAgoAgainstMidnight:(BOOL)flag</Declaration>
+			
+			
+			<Anchor>//api/name/stringDaysAgoAgainstMidnight:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/weekday</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSUInteger)weekday</Declaration>
+			
+			
+			<Anchor>//api/name/weekday</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/dateFromString:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDate *)dateFromString:(NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/dateFromString:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/dateFromString:withFormat:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSDate *)dateFromString:(NSString *)string withFormat:(NSString *)format</Declaration>
+			
+			
+			<Anchor>//api/name/dateFromString:withFormat:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringFromDate:withFormat:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringFromDate:(NSDate *)date withFormat:(NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/stringFromDate:withFormat:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringFromDate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringFromDate:(NSDate *)date</Declaration>
+			
+			
+			<Anchor>//api/name/stringFromDate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringForDisplayFromDate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringForDisplayFromDate:(NSDate *)date</Declaration>
+			
+			
+			<Anchor>//api/name/stringForDisplayFromDate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringForDisplayFromDate:prefixed:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringForDisplayFromDate:(NSDate *)date prefixed:(BOOL)prefixed</Declaration>
+			
+			
+			<Anchor>//api/name/stringForDisplayFromDate:prefixed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringForDisplayFromDate:prefixed:alwaysDisplayTime:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)stringForDisplayFromDate:(NSDate *)date prefixed:(BOOL)prefixed alwaysDisplayTime:(BOOL)displayTime</Declaration>
+			
+			
+			<Anchor>//api/name/stringForDisplayFromDate:prefixed:alwaysDisplayTime:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/string</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/string</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringWithFormat:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringWithFormat:(NSString *)format</Declaration>
+			
+			
+			<Anchor>//api/name/stringWithFormat:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/stringWithDateStyle:timeStyle:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)stringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle</Declaration>
+			
+			
+			<Anchor>//api/name/stringWithDateStyle:timeStyle:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/beginningOfWeek</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)beginningOfWeek</Declaration>
+			
+			
+			<Anchor>//api/name/beginningOfWeek</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/beginningOfDay</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)beginningOfDay</Declaration>
+			
+			
+			<Anchor>//api/name/beginningOfDay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/endOfWeek</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>- (NSDate *)endOfWeek</Declaration>
+			
+			
+			<Anchor>//api/name/endOfWeek</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/dateFormatString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)dateFormatString</Declaration>
+			
+			
+			<Anchor>//api/name/dateFormatString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/timeFormatString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)timeFormatString</Declaration>
+			
+			
+			<Anchor>//api/name/timeFormatString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/timestampFormatString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)timestampFormatString</Declaration>
+			
+			
+			<Anchor>//api/name/timestampFormatString</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/NSDate(Helper)/dbFormatString</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>NSDate+Helper.h</DeclaredIn>			
+			
+			<Declaration>+ (NSString *)dbFormatString</Declaration>
+			
+			
+			<Anchor>//api/name/dbFormatString</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

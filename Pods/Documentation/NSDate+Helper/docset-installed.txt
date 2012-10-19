@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/seven/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.NSDate+Helper-0.0.1.docset
+Time: 2012-10-19 00:25:56 +0000

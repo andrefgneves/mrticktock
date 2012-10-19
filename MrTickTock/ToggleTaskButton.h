@@ -10,4 +10,6 @@
 
 @interface ToggleTaskButton : UIButton
 
+@property (nonatomic) BOOL running;
+
 @end

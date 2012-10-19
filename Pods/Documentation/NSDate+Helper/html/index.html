@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>NSDate+Helper 0.0.1 Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">NSDate+Helper 0.0.1 </a></h1>
+				<a id="developerHome" href="index.html">Billy Gray</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">NSDate+Helper 0.0.1 Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">NSDate+Helper 0.0.1 Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<p>h2. NSDate (Helper)</p>
+
+<p>This is a category for the @NSDate@ class that provides some convenience methods for working with @NSDate@ objects and displaying formatted and relative strings.</p>
+
+<p>More information can be found at my &ldquo;initial blog post&rdquo;:<a href="http://www.zetetic.net/blog/2009/03/11/nsdate-helper/.">http://www.zetetic.net/blog/2009/03/11/nsdate-helper/.</a></p>
+
+<p>Anyone is welcome to use it for anything, and to change it as they see fit. If you&rsquo;d like to contribute back any changes (woot!), please fork and send a pull request!</p>
+
+<p>h3. Usage</p>
+
+<p>Full documentation is now up &ldquo;on the Github wiki for this project&rdquo;:<a href="http://wiki.github.com/billymeltdown/nsdate-helper.">http://wiki.github.com/billymeltdown/nsdate-helper.</a> It&rsquo;s a lot better than this kinda rambling overview here.</p>
+
+<p>Two convenience methods make it easy for you to display some relative date information. @stringForDisplayFromDate@ gives you the kind of relative format you see in the Notes listing on the iPhone:</p>
+
+<pre><code>
+  NSString *displayString = [NSDate stringForDisplayFromDate:date];
+</code></pre>
+
+
+<p>This produces the following kinds of output:</p>
+
+<ul>
+<li>&lsquo;3:42 AM&rsquo; &ndash; if the date is after midnight today</li>
+<li>&lsquo;Tuesday&rsquo; &ndash; if the date is within the last seven days</li>
+<li>&lsquo;Mar 1&rsquo; &ndash; if the date is within the current calendar year</li>
+<li>&lsquo;Mar 1, 2008&rsquo; &ndash; else ;&ndash;)</li>
+</ul>
+
+
+<pre><code>
+  NSString *displayString = [NSDate stringForDisplayFromDate:date prefixed:YES];
+</code></pre>
+
+
+<p>This produces the same as above, but prefixed with &lsquo;at&rsquo; or &lsquo;on&rsquo; depending on the appropriate English syntax.</p>
+
+<p>Another set of methods provide days-ago information:</p>
+
+<pre><code>
+  NSDate *date = [NSDate date];
+  [date daysAgo]; // provides an NSComponent-based NSUInteger describing days ago.
+  [date daysAgoAgainstMidnight]; // better version of daysAgo, works off midnight (hat-tip: "sburlot":http://github.com/sburlot)
+  [date stringDaysAgo]; // 'Today', 'Yesterday', or 'N days ago'.
+</code></pre>
+
+
+<p>Tired of creating and releasing date formatters? Missing things like @to_s(:db)@? Me, too. @NSDate (Helper)@ has some static methods to make going back and forth between strings and dates a little less painful, and particularly easier when working with database timestamps (a la SQLite):</p>
+
+<pre><code>
+  NSDate *date = [NSDate dateFromString:@"2009-03-01 12:15:23"]; 
+  NSString *dbDateString = [NSDate stringFromDate:date]; // returns '2009-03-01 12:15:23'
+</code></pre>
+
+
+<p>Who needs NSDateFormatter?</p>
+
+<p>  NSString *otherDateString = [NSDate stringFromDate:date withFormat:@&ldquo;EEEE&rdquo;]; // use any format you like</p>
+
+<p>h3. Installation</p>
+
+<p>To use it in your Cocoa project, import the header and implementation files, and then add the header to your project&rsquo;s <projectname>_prefix.pch file so that it&rsquo;s available across your project:</p>
+
+<pre><code>
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import "NSDate+Helper.h"
+#endif
+</code></pre>
+
+
+<p>h3. License</p>
+
+<p>Copyright &copy; 2009, 2010, ZETETIC LLC
+All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<pre><code>* Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in the
+  documentation and/or other materials provided with the distribution.
+* Neither the name of the ZETETIC LLC nor the
+  names of its contributors may be used to endorse or promote products
+  derived from this software without specific prior written permission.
+</code></pre>
+
+<p>THIS SOFTWARE IS PROVIDED BY ZETETIC LLC &lsquo;'AS IS&rsquo;&lsquo; AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL ZETETIC LLC BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					
+						
+					<div class="index-column">
+						
+						
+						<h2 class="index-title">Category References</h2>
+						<ul>
+							
+							<li><a href="Categories/NSDate+Helper.html">NSDate(Helper)</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Billy Gray. All rights reserved. (Last updated: 2012-10-19)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

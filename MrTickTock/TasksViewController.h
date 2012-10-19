@@ -16,5 +16,6 @@
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)confirmLogout:(id)sender;
+- (IBAction)toggleButtonTouched:(UIButton *)button;
 
 @end

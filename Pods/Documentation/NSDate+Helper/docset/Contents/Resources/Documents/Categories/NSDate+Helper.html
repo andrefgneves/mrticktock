@@ -1,0 +1,740 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>NSDate(Helper) Category Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">NSDate+Helper 0.0.1 </a></h1>
+				<a id="developerHome" href="../index.html">Billy Gray</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">NSDate(Helper) Category Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/dateFormatString">&nbsp;&nbsp;&nbsp;&nbsp;+ dateFormatString</option>
+	
+	<option value="//api/name/dateFromString:">&nbsp;&nbsp;&nbsp;&nbsp;+ dateFromString:</option>
+	
+	<option value="//api/name/dateFromString:withFormat:">&nbsp;&nbsp;&nbsp;&nbsp;+ dateFromString:withFormat:</option>
+	
+	<option value="//api/name/dbFormatString">&nbsp;&nbsp;&nbsp;&nbsp;+ dbFormatString</option>
+	
+	<option value="//api/name/stringForDisplayFromDate:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringForDisplayFromDate:</option>
+	
+	<option value="//api/name/stringForDisplayFromDate:prefixed:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringForDisplayFromDate:prefixed:</option>
+	
+	<option value="//api/name/stringForDisplayFromDate:prefixed:alwaysDisplayTime:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringForDisplayFromDate:prefixed:alwaysDisplayTime:</option>
+	
+	<option value="//api/name/stringFromDate:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringFromDate:</option>
+	
+	<option value="//api/name/stringFromDate:withFormat:">&nbsp;&nbsp;&nbsp;&nbsp;+ stringFromDate:withFormat:</option>
+	
+	<option value="//api/name/timeFormatString">&nbsp;&nbsp;&nbsp;&nbsp;+ timeFormatString</option>
+	
+	<option value="//api/name/timestampFormatString">&nbsp;&nbsp;&nbsp;&nbsp;+ timestampFormatString</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/beginningOfDay">&nbsp;&nbsp;&nbsp;&nbsp;- beginningOfDay</option>
+	
+	<option value="//api/name/beginningOfWeek">&nbsp;&nbsp;&nbsp;&nbsp;- beginningOfWeek</option>
+	
+	<option value="//api/name/daysAgo">&nbsp;&nbsp;&nbsp;&nbsp;- daysAgo</option>
+	
+	<option value="//api/name/daysAgoAgainstMidnight">&nbsp;&nbsp;&nbsp;&nbsp;- daysAgoAgainstMidnight</option>
+	
+	<option value="//api/name/endOfWeek">&nbsp;&nbsp;&nbsp;&nbsp;- endOfWeek</option>
+	
+	<option value="//api/name/string">&nbsp;&nbsp;&nbsp;&nbsp;- string</option>
+	
+	<option value="//api/name/stringDaysAgo">&nbsp;&nbsp;&nbsp;&nbsp;- stringDaysAgo</option>
+	
+	<option value="//api/name/stringDaysAgoAgainstMidnight:">&nbsp;&nbsp;&nbsp;&nbsp;- stringDaysAgoAgainstMidnight:</option>
+	
+	<option value="//api/name/stringWithDateStyle:timeStyle:">&nbsp;&nbsp;&nbsp;&nbsp;- stringWithDateStyle:timeStyle:</option>
+	
+	<option value="//api/name/stringWithFormat:">&nbsp;&nbsp;&nbsp;&nbsp;- stringWithFormat:</option>
+	
+	<option value="//api/name/weekday">&nbsp;&nbsp;&nbsp;&nbsp;- weekday</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dateFormatString">dateFormatString</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dateFromString:">dateFromString:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dateFromString:withFormat:">dateFromString:withFormat:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dbFormatString">dbFormatString</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringForDisplayFromDate:">stringForDisplayFromDate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringForDisplayFromDate:prefixed:">stringForDisplayFromDate:prefixed:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringForDisplayFromDate:prefixed:alwaysDisplayTime:">stringForDisplayFromDate:prefixed:alwaysDisplayTime:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromDate:">stringFromDate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringFromDate:withFormat:">stringFromDate:withFormat:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/timeFormatString">timeFormatString</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/timestampFormatString">timestampFormatString</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginningOfDay">beginningOfDay</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/beginningOfWeek">beginningOfWeek</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/daysAgo">daysAgo</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/daysAgoAgainstMidnight">daysAgoAgainstMidnight</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/endOfWeek">endOfWeek</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/string">string</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringDaysAgo">stringDaysAgo</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringDaysAgoAgainstMidnight:">stringDaysAgoAgainstMidnight:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringWithDateStyle:timeStyle:">stringWithDateStyle:timeStyle:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stringWithFormat:">stringWithFormat:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/weekday">weekday</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="NSDate(Helper) Category Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">NSDate(Helper) Category Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">NSDate+Helper.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/daysAgo">&ndash;&nbsp;daysAgo</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/daysAgoAgainstMidnight">&ndash;&nbsp;daysAgoAgainstMidnight</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringDaysAgo">&ndash;&nbsp;stringDaysAgo</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringDaysAgoAgainstMidnight:">&ndash;&nbsp;stringDaysAgoAgainstMidnight:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/weekday">&ndash;&nbsp;weekday</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dateFromString:">+&nbsp;dateFromString:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dateFromString:withFormat:">+&nbsp;dateFromString:withFormat:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromDate:withFormat:">+&nbsp;stringFromDate:withFormat:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringFromDate:">+&nbsp;stringFromDate:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringForDisplayFromDate:">+&nbsp;stringForDisplayFromDate:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringForDisplayFromDate:prefixed:">+&nbsp;stringForDisplayFromDate:prefixed:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringForDisplayFromDate:prefixed:alwaysDisplayTime:">+&nbsp;stringForDisplayFromDate:prefixed:alwaysDisplayTime:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/string">&ndash;&nbsp;string</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringWithFormat:">&ndash;&nbsp;stringWithFormat:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/stringWithDateStyle:timeStyle:">&ndash;&nbsp;stringWithDateStyle:timeStyle:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginningOfWeek">&ndash;&nbsp;beginningOfWeek</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/beginningOfDay">&ndash;&nbsp;beginningOfDay</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/endOfWeek">&ndash;&nbsp;endOfWeek</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dateFormatString">+&nbsp;dateFormatString</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/timeFormatString">+&nbsp;timeFormatString</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/timestampFormatString">+&nbsp;timestampFormatString</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dbFormatString">+&nbsp;dbFormatString</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/dateFormatString" title="dateFormatString"></a>
+	<h3 class="subsubtitle method-title">dateFormatString</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)dateFormatString</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dateFromString:" title="dateFromString:"></a>
+	<h3 class="subsubtitle method-title">dateFromString:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSDate *)dateFromString:(NSString *)<em>string</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dateFromString:withFormat:" title="dateFromString:withFormat:"></a>
+	<h3 class="subsubtitle method-title">dateFromString:withFormat:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSDate *)dateFromString:(NSString *)<em>string</em> withFormat:(NSString *)<em>format</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dbFormatString" title="dbFormatString"></a>
+	<h3 class="subsubtitle method-title">dbFormatString</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)dbFormatString</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringForDisplayFromDate:" title="stringForDisplayFromDate:"></a>
+	<h3 class="subsubtitle method-title">stringForDisplayFromDate:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)stringForDisplayFromDate:(NSDate *)<em>date</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringForDisplayFromDate:prefixed:" title="stringForDisplayFromDate:prefixed:"></a>
+	<h3 class="subsubtitle method-title">stringForDisplayFromDate:prefixed:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)stringForDisplayFromDate:(NSDate *)<em>date</em> prefixed:(BOOL)<em>prefixed</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringForDisplayFromDate:prefixed:alwaysDisplayTime:" title="stringForDisplayFromDate:prefixed:alwaysDisplayTime:"></a>
+	<h3 class="subsubtitle method-title">stringForDisplayFromDate:prefixed:alwaysDisplayTime:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)stringForDisplayFromDate:(NSDate *)<em>date</em> prefixed:(BOOL)<em>prefixed</em> alwaysDisplayTime:(BOOL)<em>displayTime</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromDate:" title="stringFromDate:"></a>
+	<h3 class="subsubtitle method-title">stringFromDate:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)stringFromDate:(NSDate *)<em>date</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringFromDate:withFormat:" title="stringFromDate:withFormat:"></a>
+	<h3 class="subsubtitle method-title">stringFromDate:withFormat:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)stringFromDate:(NSDate *)<em>date</em> withFormat:(NSString *)<em>string</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/timeFormatString" title="timeFormatString"></a>
+	<h3 class="subsubtitle method-title">timeFormatString</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)timeFormatString</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/timestampFormatString" title="timestampFormatString"></a>
+	<h3 class="subsubtitle method-title">timestampFormatString</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (NSString *)timestampFormatString</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/beginningOfDay" title="beginningOfDay"></a>
+	<h3 class="subsubtitle method-title">beginningOfDay</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSDate *)beginningOfDay</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/beginningOfWeek" title="beginningOfWeek"></a>
+	<h3 class="subsubtitle method-title">beginningOfWeek</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSDate *)beginningOfWeek</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/daysAgo" title="daysAgo"></a>
+	<h3 class="subsubtitle method-title">daysAgo</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)daysAgo</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/daysAgoAgainstMidnight" title="daysAgoAgainstMidnight"></a>
+	<h3 class="subsubtitle method-title">daysAgoAgainstMidnight</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)daysAgoAgainstMidnight</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/endOfWeek" title="endOfWeek"></a>
+	<h3 class="subsubtitle method-title">endOfWeek</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSDate *)endOfWeek</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/string" title="string"></a>
+	<h3 class="subsubtitle method-title">string</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)string</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringDaysAgo" title="stringDaysAgo"></a>
+	<h3 class="subsubtitle method-title">stringDaysAgo</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringDaysAgo</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringDaysAgoAgainstMidnight:" title="stringDaysAgoAgainstMidnight:"></a>
+	<h3 class="subsubtitle method-title">stringDaysAgoAgainstMidnight:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringDaysAgoAgainstMidnight:(BOOL)<em>flag</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringWithDateStyle:timeStyle:" title="stringWithDateStyle:timeStyle:"></a>
+	<h3 class="subsubtitle method-title">stringWithDateStyle:timeStyle:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringWithDateStyle:(NSDateFormatterStyle)<em>dateStyle</em> timeStyle:(NSDateFormatterStyle)<em>timeStyle</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/stringWithFormat:" title="stringWithFormat:"></a>
+	<h3 class="subsubtitle method-title">stringWithFormat:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)stringWithFormat:(NSString *)<em>format</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/weekday" title="weekday"></a>
+	<h3 class="subsubtitle method-title">weekday</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)weekday</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Billy Gray. All rights reserved. (Last updated: 2012-10-19)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

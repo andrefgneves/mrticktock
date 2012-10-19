@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToggleTaskButton.h"
 
 @interface TaskCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel * projectName;
 @property (strong, nonatomic) IBOutlet UILabel * taskName;
+@property (strong, nonatomic) IBOutlet UILabel * taskTime;
+@property (strong, nonatomic) IBOutlet ToggleTaskButton * toggleButton;
+
 
 @end
