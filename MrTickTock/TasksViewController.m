@@ -17,6 +17,7 @@
 #import "Task.h"
 #import "TasksManager.h"
 #import "NSDate+Helper.h"
+#import "AppDelegate.h"
 
 @interface TasksViewController ()
 {
@@ -78,7 +79,9 @@
 
 - (void)showMenu:(id)sender
 {
+    AppDelegate * app = [[UIApplication sharedApplication] delegate];
 
+    [app.deckController toggleLeftViewAnimated:YES];
 }
 
 - (void)showLogin
@@ -316,7 +319,7 @@
 
     Task * task = [_isSearching ? _searchResults : _tasks objectAtIndex:indexPath.row];
 
-    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor clearColor];
+    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor colorWithRed:0.804 green:0.890 blue:0.969 alpha:1.000];
 
     UIColor * textColor = task.isRunning ? [UIColor whiteColor] : [UIColor colorWithRed:0.267 green:0.561 blue:0.710 alpha:1.000];
 
@@ -331,6 +334,10 @@
 
     cell.toggleButton.tag = indexPath.row;
     cell.toggleButton.running = task.isRunning;
+
+    cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    cell.taskName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:11];
+    cell.taskTime.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
 
     return cell;
 }

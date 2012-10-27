@@ -28,6 +28,7 @@
 		1435EDC51613B31E008BF105 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC41613B31E008BF105 /* Default@2x.png */; };
 		1435EDC71613B31E008BF105 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1435EDC61613B31E008BF105 /* Default-568h@2x.png */; };
 		1435EDCD1613B31E008BF105 /* TasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1435EDCC1613B31E008BF105 /* TasksViewController.m */; };
+		143CC782163B4E2800698C82 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143CC781163B4E2800698C82 /* MenuViewController.m */; };
 		143ED8F31624E43B00F7EA62 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 143ED8F21624E43B00F7EA62 /* Task.m */; };
 		14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14626026161F5B0900C766A8 /* MainStoryboard.storyboard */; };
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
@@ -45,6 +46,8 @@
 		14C9F03716309DCC00F8C94D /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9F03616309DCC00F8C94D /* SearchBar.m */; };
 		14D7A0E816150160004BF0AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D7A0E716150160004BF0AB /* SystemConfiguration.framework */; };
 		14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A0F316151710004BF0AB /* LoginViewController.m */; };
+		14DFB4A21632E97600B0109F /* Proxima Nova Reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */; };
+		14DFB4A31632E97600B0109F /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */; };
 		14FC3870162E14DA0021EBA0 /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14FC386F162E14DA0021EBA0 /* mrticktock.ttf */; };
 		751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004521F44D504A1C93BB1CE7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -78,6 +81,8 @@
 		1435EDC61613B31E008BF105 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1435EDCB1613B31E008BF105 /* TasksViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TasksViewController.h; sourceTree = "<group>"; };
 		1435EDCC1613B31E008BF105 /* TasksViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TasksViewController.m; sourceTree = "<group>"; };
+		143CC780163B4E2800698C82 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		143CC781163B4E2800698C82 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		143ED8DE1624C92E00F7EA62 /* MrTickTock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MrTickTock.xcdatamodel; sourceTree = "<group>"; };
 		143ED8F11624E43B00F7EA62 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		143ED8F21624E43B00F7EA62 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
@@ -103,6 +108,8 @@
 		14D7A0E716150160004BF0AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14D7A0F216151710004BF0AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		14D7A0F316151710004BF0AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Reg.otf"; sourceTree = "<group>"; };
+		14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
 		14FC386F162E14DA0021EBA0 /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
 		D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -248,6 +255,8 @@
 				1435EDCC1613B31E008BF105 /* TasksViewController.m */,
 				14D7A0F216151710004BF0AB /* LoginViewController.h */,
 				14D7A0F316151710004BF0AB /* LoginViewController.m */,
+				143CC780163B4E2800698C82 /* MenuViewController.h */,
+				143CC781163B4E2800698C82 /* MenuViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -287,6 +296,8 @@
 		14FC3872162E14EC0021EBA0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */,
+				14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */,
 				14FC386F162E14DA0021EBA0 /* mrticktock.ttf */,
 			);
 			name = Fonts;
@@ -363,6 +374,8 @@
 				148BF380162DF4A000B68C62 /* pause.pdf in Resources */,
 				148BF381162DF4A000B68C62 /* start.pdf in Resources */,
 				14FC3870162E14DA0021EBA0 /* mrticktock.ttf in Resources */,
+				14DFB4A21632E97600B0109F /* Proxima Nova Reg.otf in Resources */,
+				14DFB4A31632E97600B0109F /* Proxima Nova Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +415,7 @@
 				142A594B162A14D800257605 /* ToggleTaskButton.m in Sources */,
 				148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */,
 				14C9F03716309DCC00F8C94D /* SearchBar.m in Sources */,
+				143CC782163B4E2800698C82 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,6 +45,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>mrticktock.ttf</string>
+		<string>Proxima Nova Reg.otf</string>
+		<string>Proxima Nova Bold.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>

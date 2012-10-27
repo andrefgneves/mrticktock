@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "IIViewDeckController.h"
 #import "LoginViewController.h"
 #import "Task.h"
 #import "UIImage+Utils.h"
@@ -25,6 +24,7 @@
 @synthesize window           = _window;
 @synthesize centerController = _viewController;
 @synthesize leftController   = _leftController;
+@synthesize deckController   = _deckController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -43,11 +43,10 @@
 
     self.centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
 
-    IIViewDeckController * deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController
-                                                                                    leftViewController:self.leftController];
-    deckController.leftLedge = 100;
-    self.window.rootViewController = deckController;
+    _deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController leftViewController:self.leftController];
+    _deckController.leftLedge = 100;
 
+    self.window.rootViewController = _deckController;
     [self.window makeKeyAndVisible];
 
     return YES;
@@ -90,7 +89,7 @@
 
     // Text attributes for UISearchBar cancel button
     NSDictionary * UISearchBarCancelButtonTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                            [UIFont systemFontOfSize:15],
+                                                            [UIFont fontWithName:@"ProximaNova-Bold" size:18],
                                                             UITextAttributeFont,
                                                             [UIColor whiteColor],
                                                             UITextAttributeTextColor,
