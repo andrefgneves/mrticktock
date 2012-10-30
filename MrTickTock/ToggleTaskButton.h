@@ -11,5 +11,6 @@
 @interface ToggleTaskButton : UIButton
 
 @property (nonatomic) BOOL running;
+@property (nonatomic, strong) UIColor * color;
 
 @end
