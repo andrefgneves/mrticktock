@@ -18,6 +18,7 @@
 #import "TasksManager.h"
 #import "NSDate+Helper.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface TasksViewController ()
 {
@@ -28,6 +29,7 @@
     TasksManager * _taskManager;
     BOOL _isIOS6;
     BOOL _isSearching;
+    UILabel * _totalTimeLabel;
 }
 
 @end
@@ -56,6 +58,8 @@
         self.navigationItem.rightBarButtonItem = refreshButton;
     }
 
+    [self setupToolbar];
+
     _keychain = [ACSimpleKeychain defaultKeychain];
     _taskManager = [TasksManager sharedTasksManager];
     _tasks = [NSMutableArray array];
@@ -66,6 +70,20 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     self.viewDeckController.panningMode = IIViewDeckNavigationBarPanning;
+}
+
+- (void)setupToolbar
+{
+    _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    _totalTimeLabel.text = @"00:00";
+    _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    _totalTimeLabel.textColor = UIColor.whiteColor;
+    _totalTimeLabel.backgroundColor = KNavbarBackgroundColor;
+
+    UIBarButtonItem * totalTime = [[UIBarButtonItem alloc] initWithCustomView:_totalTimeLabel];
+
+    self.navigationController.toolbarHidden = NO;
+    self.toolbarItems = @[totalTime];
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state
@@ -188,6 +206,8 @@
 
 - (void)getTasksTime
 {
+    __block NSDate * totalTimeDate = [NSDate dateFromString:@"2012-01-01 00:00:00"];
+
     for (NSUInteger i = 0; i < _tasks.count; i++) {
         Task * task = [_tasks objectAtIndex:i];
 
@@ -204,6 +224,11 @@
 
             task.time = [attributes objectForKey:@"timer_time"];
             task.totalTime = [attributes objectForKey:@"total_time"];
+
+            NSTimeInterval taskTotalTimeInterval = task.timeInterval;
+
+            totalTimeDate = [totalTimeDate dateByAddingTimeInterval:taskTotalTimeInterval];
+            _totalTimeLabel.text = [NSDate stringFromDate:totalTimeDate withFormat:@"HH:mm"];
 
             [_tasks replaceObjectAtIndex:i withObject:task];
 

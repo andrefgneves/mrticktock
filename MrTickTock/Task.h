@@ -28,6 +28,8 @@
 @property (strong, nonatomic) NSString * time;
 @property (strong, nonatomic) NSString * totalTime;
 
+@property (nonatomic) NSTimeInterval timeInterval;
+
 - (id)initWithAttributes:(NSDictionary *)attributes;
 
 @end

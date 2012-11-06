@@ -10,7 +10,8 @@
 
 @implementation Task
 
-- (id)initWithAttributes:(NSDictionary *)attributes {
+- (id)initWithAttributes:(NSDictionary *)attributes
+{
     self = [super init];
     
     if (!self) {
@@ -35,6 +36,16 @@
     self.totalTime = @"";
 
     return self;
+}
+
+- (NSTimeInterval)timeInterval
+{
+    NSArray * parts = [self.totalTime componentsSeparatedByString:@":"];
+
+    NSUInteger hours = [[parts objectAtIndex:0] integerValue] * 60 * 60;
+    NSUInteger minutes = [[parts objectAtIndex:1] integerValue] * 60;
+
+    return hours + minutes;
 }
 
 @end

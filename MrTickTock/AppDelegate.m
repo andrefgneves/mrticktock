@@ -10,14 +10,7 @@
 #import "LoginViewController.h"
 #import "Task.h"
 #import "UIImage+Utils.h"
-
-@interface AppDelegate()
-{
-    UIColor * UINavigationBarBackgroundColor;
-    UIImage * UINavigationBarBackgroundImage;
-}
-
-@end
+#import "Constants.h"
 
 @implementation AppDelegate
 
@@ -28,9 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UINavigationBarBackgroundColor = [UIColor colorWithRed:0.267 green:0.561 blue:0.710 alpha:1.000];
-    UINavigationBarBackgroundImage = [UIImage imageWithColor:UINavigationBarBackgroundColor andSize:CGSizeMake(1, 1)];
-
     [self setStyle];
 
     [TestFlight takeOff:@"e9f2e39c8bff04f2885aa45c506b0e3c_MTM3NzgyMjAxMi0wOS0zMCAwODozNzozNS4zNTQ3ODk"];
@@ -54,11 +44,15 @@
 
 - (void)setStyle
 {
-    [[UINavigationBar appearance] setBackgroundImage:UINavigationBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:UINavigationBarBackgroundColor forKey:UITextAttributeTextShadowColor]];
+    BOOL _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
 
-    // Remove navigation bars shadow
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    [[UINavigationBar appearance] setBackgroundImage:KNavbarBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:KNavbarBackgroundColor forKey:UITextAttributeTextShadowColor]];
+
+    if (_isIOS6) {
+        // Remove navigation bars shadow
+        [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    }
 
     // Text attributes for UIBarButtons
     NSDictionary * navBarButtonTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -66,18 +60,18 @@
                                                  UITextAttributeFont,
                                                  [UIColor whiteColor],
                                                  UITextAttributeTextColor,
-                                                 UINavigationBarBackgroundColor,
+                                                 KNavbarBackgroundColor,
                                                  UITextAttributeTextShadowColor,
                                                  nil];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:navBarButtonTextAttributes forState:UIControlStateNormal];
 
     // Use the same image as the navigations bar to have a flat look
-    [[UIBarButtonItem appearance] setBackgroundImage:UINavigationBarBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setBackgroundImage:UINavigationBarBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:KNavbarBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackgroundImage:KNavbarBackgroundImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
 
     // The UISearchBar cancel button is proxied through UIBarButtonItem so we need to reset it's look
-    UIImage * UISearchBarCancelButtonImage = [UIImage imageWithColor:UINavigationBarBackgroundColor andSize:CGSizeMake(48, 30)];
+    UIImage * UISearchBarCancelButtonImage = [UIImage imageWithColor:KNavbarBackgroundColor andSize:CGSizeMake(48, 30)];
     [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setBackgroundImage:UISearchBarCancelButtonImage
                                                                                     forState:UIControlStateNormal
                                                                                   barMetrics:UIBarMetricsDefault];
@@ -93,7 +87,7 @@
                                                             UITextAttributeFont,
                                                             [UIColor whiteColor],
                                                             UITextAttributeTextColor,
-                                                            UINavigationBarBackgroundColor,
+                                                            KNavbarBackgroundColor,
                                                             UITextAttributeTextShadowColor,
                                                             nil];
 
@@ -108,6 +102,13 @@
 
     // UISearchBar textfield appearance
     [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] andSize:CGSizeMake(320, 44)] forState:UIControlStateNormal];
+    
+    // UIToolbar appearance
+    [[UIToolbar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.278 green:0.565 blue:0.702 alpha:1.000] andSize:CGSizeMake(1, 1)] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+
+    if (_isIOS6) {
+        [[UIToolbar appearance] setShadowImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionAny];
+    }
 }
 
 @end
