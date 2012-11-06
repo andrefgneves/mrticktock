@@ -7,10 +7,21 @@ I'm using the "unadvertised" API found on <a href="http://mrticktock.com">MrTick
 There's a lot of room for improvement and still lots to be done but it's already usable.
 
 
+###Installing
+
+Make sure you have (*the awesome*) [cocoapods](http://cocoapods.org) installed on your Mac, then:
+
+1. git clone https://github.com/andrefgneves/MrTickTock.git
+2. cd MrTickTock
+3. pod install
+4. open MrTickTock.xcworkspace
+5. build, run and have fun
+
+
 ### Plans
 
-
 I'll be fixing bugs and adding features on a "when I feel like it" basis but feel free to use this anyway you want.
+
 
 ### Contact
 
