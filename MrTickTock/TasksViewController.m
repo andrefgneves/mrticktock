@@ -51,6 +51,7 @@
     if (_isIOS6) {
         self.refreshControl = [[UIRefreshControl alloc] init];
         [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+        self.refreshControl.tintColor = KNavbarBackgroundColor;
     } else {
         UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                                         target:self
@@ -165,9 +166,11 @@
     [_table reloadData];
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
+
     [params setObject:@"false" forKey:@"closed"];
-    [params setObject:@"type" forKey:@"user"];
-    [params setObject:@"true" forKey:@"get_hidden_timer"];
+    [params setObject:@"true" forKey:@"visible"];
+    [params setObject:@"user" forKey:@"type"];
+    [params setObject:@"false" forKey:@"get_hidden_timer"];
 
     [[AFMrTickTockAPIClient sharedClient] postPath:@"get_tasks" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
 

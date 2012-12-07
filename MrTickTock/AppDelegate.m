@@ -56,12 +56,9 @@
 
     // Text attributes for UIBarButtons
     NSDictionary * navBarButtonTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                 [UIFont fontWithName:@"mrticktock" size:35],
-                                                 UITextAttributeFont,
-                                                 [UIColor whiteColor],
-                                                 UITextAttributeTextColor,
-                                                 KNavbarBackgroundColor,
-                                                 UITextAttributeTextShadowColor,
+                                                 [UIFont fontWithName:@"mrticktock" size:35], UITextAttributeFont,
+                                                 [UIColor whiteColor], UITextAttributeTextColor,
+                                                 KNavbarBackgroundColor, UITextAttributeTextShadowColor,
                                                  nil];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:navBarButtonTextAttributes forState:UIControlStateNormal];
@@ -83,12 +80,9 @@
 
     // Text attributes for UISearchBar cancel button
     NSDictionary * UISearchBarCancelButtonTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                            [UIFont fontWithName:@"ProximaNova-Bold" size:18],
-                                                            UITextAttributeFont,
-                                                            [UIColor whiteColor],
-                                                            UITextAttributeTextColor,
-                                                            KNavbarBackgroundColor,
-                                                            UITextAttributeTextShadowColor,
+                                                            [UIFont fontWithName:@"ProximaNova-Bold" size:18], UITextAttributeFont,
+                                                            [UIColor whiteColor], UITextAttributeTextColor,
+                                                            KNavbarBackgroundColor, UITextAttributeTextShadowColor,
                                                             nil];
 
     [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:UISearchBarCancelButtonTextAttributes forState:UIControlStateNormal];
