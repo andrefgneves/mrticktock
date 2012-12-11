@@ -1,7 +1,9 @@
 
 .icon-plus:before { content: '\2b'; } /* '+' */
 .icon-minus:before { content: '\2d'; } /* '-' */
+.icon-check:before { content: '\66'; } /* 'f' */
 .icon-th-list:before { content: '\62'; } /* 'b' */
 .icon-cw:before { content: '\64'; } /* 'd' */
+.icon-logout:before { content: '\65'; } /* 'e' */
 .icon-search:before { content: '\61'; } /* 'a' */
 .icon-clock:before { content: '\63'; } /* 'c' */

@@ -70,7 +70,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.viewDeckController.panningMode = IIViewDeckNavigationBarPanning;
+    self.viewDeckController.panningMode = IIViewDeckNavigationControllerIntegrated;
 }
 
 - (void)setupToolbar
@@ -180,6 +180,8 @@
 
             return;
         }
+
+        LOG_EXPR([JSON objectForKey:@"content"]);
 
         int i = 0;
         for (NSDictionary * attributes in [JSON objectForKey:@"content"]) {

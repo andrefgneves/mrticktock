@@ -31,6 +31,9 @@
 		143CC782163B4E2800698C82 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143CC781163B4E2800698C82 /* MenuViewController.m */; };
 		143ED8F31624E43B00F7EA62 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 143ED8F21624E43B00F7EA62 /* Task.m */; };
 		14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14626026161F5B0900C766A8 /* MainStoryboard.storyboard */; };
+		14731A8B1674B7CD00EB24D2 /* MenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8A1674B7CD00EB24D2 /* MenuNavigationController.m */; };
+		14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8E1674DBC600EB24D2 /* MenuCell.m */; };
+		14731A911674DF7E00EB24D2 /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14731A901674DF7E00EB24D2 /* mrticktock.ttf */; };
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
 		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
 		148BD3541624E99D00FF4CFE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148BD3531624E99D00FF4CFE /* MobileCoreServices.framework */; };
@@ -47,7 +50,6 @@
 		14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A0F316151710004BF0AB /* LoginViewController.m */; };
 		14DFB4A21632E97600B0109F /* Proxima Nova Reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */; };
 		14DFB4A31632E97600B0109F /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */; };
-		14FC3870162E14DA0021EBA0 /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14FC386F162E14DA0021EBA0 /* mrticktock.ttf */; };
 		751C6F71F21E43199BB2C737 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 004521F44D504A1C93BB1CE7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,11 @@
 		143ED8F11624E43B00F7EA62 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		143ED8F21624E43B00F7EA62 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		14626027161F5B0900C766A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		14731A891674B7CD00EB24D2 /* MenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuNavigationController.h; sourceTree = "<group>"; };
+		14731A8A1674B7CD00EB24D2 /* MenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuNavigationController.m; sourceTree = "<group>"; };
+		14731A8D1674DBC600EB24D2 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		14731A8E1674DBC600EB24D2 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		14731A901674DF7E00EB24D2 /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
 		1475909F1613B4C40013CF70 /* AFMrTickTockAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMrTickTockAPIClient.h; sourceTree = "<group>"; };
 		147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMrTickTockAPIClient.m; sourceTree = "<group>"; };
 		147590A31613D08E0013CF70 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
@@ -109,7 +116,6 @@
 		14D7A0F316151710004BF0AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Reg.otf"; sourceTree = "<group>"; };
 		14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold.otf"; sourceTree = "<group>"; };
-		14FC386F162E14DA0021EBA0 /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
 		D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -248,6 +254,8 @@
 				14D7A0F316151710004BF0AB /* LoginViewController.m */,
 				143CC780163B4E2800698C82 /* MenuViewController.h */,
 				143CC781163B4E2800698C82 /* MenuViewController.m */,
+				14731A891674B7CD00EB24D2 /* MenuNavigationController.h */,
+				14731A8A1674B7CD00EB24D2 /* MenuNavigationController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -262,6 +270,8 @@
 				142A594A162A14D800257605 /* ToggleTaskButton.m */,
 				14C9F03516309DCC00F8C94D /* SearchBar.h */,
 				14C9F03616309DCC00F8C94D /* SearchBar.m */,
+				14731A8D1674DBC600EB24D2 /* MenuCell.h */,
+				14731A8E1674DBC600EB24D2 /* MenuCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -287,9 +297,9 @@
 		14FC3872162E14EC0021EBA0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				14731A901674DF7E00EB24D2 /* mrticktock.ttf */,
 				14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */,
 				14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */,
-				14FC386F162E14DA0021EBA0 /* mrticktock.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -364,9 +374,9 @@
 				14C0FFDD161F9518004A7380 /* nav-button-selected@2x.png in Resources */,
 				148BF380162DF4A000B68C62 /* pause.pdf in Resources */,
 				148BF381162DF4A000B68C62 /* start.pdf in Resources */,
-				14FC3870162E14DA0021EBA0 /* mrticktock.ttf in Resources */,
 				14DFB4A21632E97600B0109F /* Proxima Nova Reg.otf in Resources */,
 				14DFB4A31632E97600B0109F /* Proxima Nova Bold.otf in Resources */,
+				14731A911674DF7E00EB24D2 /* mrticktock.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +416,8 @@
 				148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */,
 				14C9F03716309DCC00F8C94D /* SearchBar.m in Sources */,
 				143CC782163B4E2800698C82 /* MenuViewController.m in Sources */,
+				14731A8B1674B7CD00EB24D2 /* MenuNavigationController.m in Sources */,
+				14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

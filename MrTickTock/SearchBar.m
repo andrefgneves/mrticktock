@@ -20,7 +20,7 @@
         // Remove the top 1px black border
         self.layer.masksToBounds = YES;
 
-        // The UITextField doesn't fill the whole search bar, so we set force the bar's background to white
+        // The UITextField doesn't fill the whole search bar, so we force the bar's background to white
         self.backgroundImage = [UIImage imageWithColor:[UIColor whiteColor] andSize:self.frame.size];
     }
 

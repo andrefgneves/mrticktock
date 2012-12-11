@@ -27,7 +27,7 @@
 
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
-    self.leftController = [storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    self.leftController = [storyboard instantiateViewControllerWithIdentifier:@"MenuNavigationController"];
 
     LoginViewController * centerController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
 

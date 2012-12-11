@@ -10,9 +10,7 @@
 
 typedef enum {
     MenuActionMyTasks  = 0,
-    MenuActionAllTasks = 1,
-    MenuActionSettings = 2,
-    MenuActionLogout   = 3
+    MenuActionLogout   = 1
 } MenuActions;
 
 @interface MenuViewController : UITableViewController
