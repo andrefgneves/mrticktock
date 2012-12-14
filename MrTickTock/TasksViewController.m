@@ -476,7 +476,7 @@
 {
     NSMutableArray * allTasks = [NSMutableArray array];
 
-    for (NSString * customer in _searchResults ? _searchCustomers : _customers) {
+    for (NSString * customer in _isSearching ? _searchCustomers : _customers) {
         [allTasks addObjectsFromArray:[_isSearching ? _searchResults : _tasks objectForKey:customer]];
     }
 
