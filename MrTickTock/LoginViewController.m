@@ -13,7 +13,6 @@
 
 @interface LoginViewController ()
 {
-    UIBarButtonItem * loginButton;
     ACSimpleKeychain * keychain;
 }
 @end
@@ -29,23 +28,14 @@
 
     keychain = [ACSimpleKeychain defaultKeychain];
 
-    loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStylePlain
-                                                  target:self
-                                                  action:@selector(login)];
     [self checkCredentials];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(textChanged:)
-                                                 name:UITextFieldTextDidChangeNotification
-                                               object:nil];
-
     [self.emailTextField becomeFirstResponder];
 
     self.viewDeckController.panningMode = IIViewDeckNoPanning;
 }
-
 
 - (void)checkCredentials {
     NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];
@@ -67,17 +57,6 @@
         [keychain storeUsername:self.emailTextField.text password:self.passwordTextField.text identifier:@"account" forService:@"MrTickTock"];
 
         [self performSegueWithIdentifier:@"showTasks" sender:self];
-    }
-}
-
-- (void)textChanged:(UITextField *)textField {
-    NSString * email = self.emailTextField.text;
-    NSString * password = self.passwordTextField.text;
-
-    if (email.length > 0 && password.length > 0) {
-        self.navigationItem.rightBarButtonItem = loginButton;
-    } else {
-        self.navigationItem.rightBarButtonItem = nil;
     }
 }
 

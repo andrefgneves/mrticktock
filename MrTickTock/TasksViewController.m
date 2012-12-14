@@ -22,9 +22,15 @@
 
 @interface TasksViewController ()
 {
-    NSMutableArray * _tasks;
-    NSMutableArray * _searchResults;
+    NSMutableDictionary * _tasks;
+    NSMutableDictionary * _searchResults;
+
+    NSMutableArray * _customers;
+    NSMutableArray * _searchCustomers;
+
+    NSMutableArray * _allTasks;
     NSMutableArray * _taskNames;
+
     ACSimpleKeychain * _keychain;
     TasksManager * _taskManager;
     BOOL _isIOS6;
@@ -63,14 +69,18 @@
 
     _keychain = [ACSimpleKeychain defaultKeychain];
     _taskManager = [TasksManager sharedTasksManager];
-    _tasks = [NSMutableArray array];
+    _tasks = [NSMutableDictionary dictionary];
+    _customers = [NSMutableArray array];
+    _searchCustomers = [NSMutableArray array];
     _searchResults = [NSMutableArray array];
     _isSearching = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.viewDeckController.panningMode = IIViewDeckNavigationControllerIntegrated;
+    self.viewDeckController.panningMode = IIViewDeckNoPanning;
+
+    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
 }
 
 - (void)setupToolbar
@@ -79,12 +89,14 @@
     _totalTimeLabel.text = @"00:00";
     _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
     _totalTimeLabel.textColor = UIColor.whiteColor;
+    _totalTimeLabel.textAlignment = UITextAlignmentRight;
     _totalTimeLabel.backgroundColor = KNavbarBackgroundColor;
 
+    UIBarButtonItem * space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem * totalTime = [[UIBarButtonItem alloc] initWithCustomView:_totalTimeLabel];
 
     self.navigationController.toolbarHidden = NO;
-    self.toolbarItems = @[totalTime];
+    self.toolbarItems = @[space, totalTime];
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state
@@ -181,19 +193,31 @@
             return;
         }
 
-        LOG_EXPR([JSON objectForKey:@"content"]);
-
         int i = 0;
         for (NSDictionary * attributes in [JSON objectForKey:@"content"]) {
             Task * task = [[Task alloc] initWithAttributes:attributes];
 
+            NSMutableArray * tasks;
+
+            if ([_tasks objectForKey:task.customerName]) {
+                tasks = [_tasks objectForKey:task.customerName];
+            } else {
+                tasks = [NSMutableArray array];
+            }
+
+            [tasks addObject:task];
+            [_tasks setObject:tasks forKey:task.customerName];
+
+            if (![_customers containsObject:task.customerName]) {
+                [_customers addObject:task.customerName];
+            }
+
             if (task.id == _taskManager.runningTaskId) {
                 _taskManager.runningTaskIndex = i;
                 _taskManager.hasRunningTask = YES;
+                
                 task.isRunning = YES;
             }
-
-            [_tasks addObject:task];
 
             i++;
         }
@@ -213,39 +237,49 @@
 {
     __block NSDate * totalTimeDate = [NSDate dateFromString:@"2012-01-01 00:00:00"];
 
-    for (NSUInteger i = 0; i < _tasks.count; i++) {
-        Task * task = [_tasks objectAtIndex:i];
+    for (NSString * customer in _customers) {
+        NSMutableArray * tasks = [_tasks objectForKey:customer];
+        
+        for (NSUInteger i = 0; i < tasks.count; i++) {
+            Task * task = [tasks objectAtIndex:i];
 
-        NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
-        [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
+            NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
+            [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
 
-        [[AFMrTickTockAPIClient sharedClient] postPath:@"get_task_details" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
-            NSArray * errors = [JSON objectForKey:@"errors"];
-            if (errors.count) {
-                return;
-            }
+            [[AFMrTickTockAPIClient sharedClient] postPath:@"get_task_details" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+                NSArray * errors = [JSON objectForKey:@"errors"];
+                if (errors.count) {
+                    return;
+                }
 
-            NSDictionary * attributes = [JSON objectForKey:@"content"];
+                NSDictionary * attributes = [JSON objectForKey:@"content"];
 
-            task.time = [attributes objectForKey:@"timer_time"];
-            task.totalTime = [attributes objectForKey:@"total_time"];
+                task.time = [attributes objectForKey:@"timer_time"];
+                task.totalTime = [attributes objectForKey:@"total_time"];
 
-            NSTimeInterval taskTotalTimeInterval = task.timeInterval;
+                NSTimeInterval taskTotalTimeInterval = task.timeInterval;
 
-            totalTimeDate = [totalTimeDate dateByAddingTimeInterval:taskTotalTimeInterval];
-            _totalTimeLabel.text = [NSDate stringFromDate:totalTimeDate withFormat:@"HH:mm"];
+                totalTimeDate = [totalTimeDate dateByAddingTimeInterval:taskTotalTimeInterval];
+                _totalTimeLabel.text = [NSDate stringFromDate:totalTimeDate withFormat:@"HH:mm"];
 
-            [_tasks replaceObjectAtIndex:i withObject:task];
+                [tasks replaceObjectAtIndex:i withObject:task];
 
-            [_table reloadData];
+                [_table reloadData];
 
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
+        }
+
+        [_tasks setObject:tasks forKey:customer];
     }
 }
 
 - (void)setRunningTask:(NSInteger)index
 {
-    Task * task = [_tasks objectAtIndex:index];
+    Task * task = [self taskForIndex:index];
+
+    if (!task) {
+        return;
+    }
 
     [SVProgressHUD show];
 
@@ -261,8 +295,11 @@
         }
 
         if (_taskManager.runningTaskIndex != -1) {
-            Task * runningTask = [_tasks objectAtIndex:_taskManager.runningTaskIndex];
-            runningTask.isRunning = NO;
+            Task * runningTask = [self taskForIndex:_taskManager.runningTaskIndex];
+
+            if (runningTask) {
+                runningTask.isRunning = NO;
+            }
         }
 
         task.isRunning = YES;
@@ -286,7 +323,11 @@
 
     [SVProgressHUD show];
 
-    Task * task = [_tasks objectAtIndex:_taskManager.runningTaskIndex];
+    Task * task = [self taskForIndex:_taskManager.runningTaskIndex];
+
+    if (!task) {
+        return;
+    }
 
     NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
     [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
@@ -327,19 +368,52 @@
 #pragma mark TableView
 #pragma mark -
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _isSearching ? _searchCustomers.count : _customers.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [_isSearching ? _searchCustomers : _customers objectAtIndex:section];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString * customer = [_isSearching ? _searchCustomers : _customers objectAtIndex:section];
+
+    UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 15)];
+    headerView.backgroundColor = [UIColor colorWithRed:0.655 green:0.760 blue:0.875 alpha:1.000];
+
+    UILabel * customerLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, self.tableView.bounds.size.width, 22)];
+    customerLabel.backgroundColor = UIColor.clearColor;
+    customerLabel.text = customer;
+    customerLabel.textColor = UIColor.whiteColor;
+    customerLabel.font = [UIFont boldSystemFontOfSize:12];
+
+    [headerView addSubview:customerLabel];
+
+    return headerView;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _isSearching ? _searchResults.count : _tasks.count;
+    NSString * customer = [_isSearching ? _searchCustomers : _customers objectAtIndex:section];
+    NSArray * tasks = [_isSearching ? _searchResults : _tasks objectForKey:customer];
+    
+    return tasks.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 67;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TaskCell * cell;
+    NSString * customer = [_isSearching ? _searchCustomers : _customers objectAtIndex:indexPath.section];
+    NSArray * tasks = [_isSearching ? _searchResults : _tasks objectForKey:customer];
 
     if (_isIOS6) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
@@ -347,7 +421,7 @@
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
     }
 
-    Task * task = [_isSearching ? _searchResults : _tasks objectAtIndex:indexPath.row];
+    Task * task = [tasks objectAtIndex:indexPath.row];
 
     cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor colorWithRed:0.804 green:0.890 blue:0.969 alpha:1.000];
 
@@ -362,7 +436,15 @@
     cell.taskTime.text = [self timeString:task.totalTime != @"" ? task.totalTime : @"00:00"];
     cell.taskTime.textColor = textColor;
 
-    cell.toggleButton.tag = indexPath.row;
+    int absoluteRow = indexPath.row;
+    int s;
+
+    for (s = 0; s < indexPath.section; s++) {
+        absoluteRow += [tableView numberOfRowsInSection:s];
+    }
+
+    cell.toggleButton.tag = absoluteRow;
+    cell.toggleButton.titleLabel.text = task.customerName;
     cell.toggleButton.running = task.isRunning;
 
     cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
@@ -388,6 +470,21 @@
     } else {
         [self setRunningTask:index];
     }
+}
+
+- (Task *)taskForIndex:(NSInteger)index
+{
+    NSMutableArray * allTasks = [NSMutableArray array];
+
+    for (NSString * customer in _searchResults ? _searchCustomers : _customers) {
+        [allTasks addObjectsFromArray:[_isSearching ? _searchResults : _tasks objectForKey:customer]];
+    }
+
+    if (index >= 0 && index < allTasks.count) {
+        return [allTasks objectAtIndex:index];
+    }
+
+    return nil;
 }
 
 #pragma mark -
@@ -418,13 +515,18 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    _searchResults = [NSMutableArray arrayWithArray:_tasks];
+    _allTasks = [NSMutableArray array];
     _isSearching = YES;
 
     _taskNames = [NSMutableArray array];
 
-    for (Task * task in _tasks) {
-        [_taskNames addObject:[NSString stringWithFormat:@"%@ %@", [task.projectName lowercaseString], [task.name lowercaseString]]];
+    for (NSString * customer in _customers) {
+        NSArray * tasks = [_tasks objectForKey:customer];
+
+        for (Task * task in tasks) {
+            [_allTasks addObject:task];
+            [_taskNames addObject:[NSString stringWithFormat:@"%@ %@", [task.projectName lowercaseString], [task.name lowercaseString]]];
+        }
     }
 
     _table.allowsSelection = NO;
@@ -451,16 +553,35 @@
     NSMutableArray * results = [NSMutableArray array];
     searchText = [searchText lowercaseString];
 
+    _searchResults = [NSMutableDictionary dictionary];
+    _searchCustomers = [NSMutableArray array];
+
     int i = 0;
     for (NSString * name in _taskNames) {
         if (([searchText isEqualToString:@""]) ||[name rangeOfString:searchText].length > 0) {
-            [results addObject:[_tasks objectAtIndex:i]];
+            [results addObject:[_allTasks objectAtIndex:i]];
         }
 
         i++;
     }
 
-    _searchResults = results;
+    for (Task * task in results) {
+        NSMutableArray * tasks;
+
+        if ([_searchResults objectForKey:task.customerName]) {
+            tasks = [_searchResults objectForKey:task.customerName];
+        } else {
+            tasks = [NSMutableArray array];
+        }
+        
+        [tasks addObject:task];
+        [_searchResults setObject:tasks forKey:task.customerName];
+
+        if (![_searchCustomers containsObject:task.customerName]) {
+            [_searchCustomers addObject:task.customerName];
+        }
+    }
+
     [_table reloadData];
 }
 
