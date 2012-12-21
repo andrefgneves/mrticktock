@@ -1,36 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Categories/UIViewController+UIViewDeckItem.html">
+	<File path="Classes/IIWrapController.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cat/UIViewController(UIViewDeckItem)</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/IIWrapController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>IIViewDeckController.h</DeclaredIn>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>
 			
 			<NodeRef refid="3"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/UIViewController(UIViewDeckItem)/setViewDeckController:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/setWrappedController:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readonly, retain) IIViewDeckController *viewDeckController</Declaration>
+			<Declaration>@property (nonatomic, readonly, retain) UIViewController *wrappedController</Declaration>
 			
 			
-			<Anchor>//api/name/viewDeckController</Anchor>
+			<Anchor>//api/name/wrappedController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfp/UIViewController(UIViewDeckItem)/viewDeckController</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIWrapController/wrappedController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readonly, retain) IIViewDeckController *viewDeckController</Declaration>
+			<Declaration>@property (nonatomic, readonly, retain) UIViewController *wrappedController</Declaration>
 			
 			
-			<Anchor>//api/name/viewDeckController</Anchor>
+			<Anchor>//api/name/wrappedController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/setOnViewDidLoad:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller ) onViewDidLoad</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidLoad</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIWrapController/onViewDidLoad</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller ) onViewDidLoad</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidLoad</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/setOnViewWillAppear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewWillAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIWrapController/onViewWillAppear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewWillAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/setOnViewDidAppear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewDidAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIWrapController/onViewDidAppear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewDidAppear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/setOnViewWillDisappear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewWillDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIWrapController/onViewWillDisappear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewWillDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewWillDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/setOnViewDidDisappear:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewDidDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIWrapController/onViewDidDisappear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( IIWrapController *controller , BOOL animated ) onViewDidDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/onViewDidDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIWrapController/initWithViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIWrapController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithViewController:(UIViewController *)controller</Declaration>
+			
+			
+			<Anchor>//api/name/initWithViewController:</Anchor>
 		</Token>
 		
 	</File>

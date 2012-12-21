@@ -1,157 +1,1785 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/WrapController.html">
+	<File path="Classes/IIViewDeckController.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/WrapController</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cl/IIViewDeckController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>
 			
 			<NodeRef refid="2"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setWrappedController:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setDelegate:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readonly, retain) UIViewController *wrappedController</Declaration>
+			<Declaration>@property (nonatomic, assign) id&lt;IIViewDeckControllerDelegate&gt; delegate</Declaration>
 			
 			
-			<Anchor>//api/name/wrappedController</Anchor>
+			<Anchor>//api/name/delegate</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/WrapController/wrappedController</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/delegate</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readonly, retain) UIViewController *wrappedController</Declaration>
+			<Declaration>@property (nonatomic, assign) id&lt;IIViewDeckControllerDelegate&gt; delegate</Declaration>
 			
 			
-			<Anchor>//api/name/wrappedController</Anchor>
+			<Anchor>//api/name/delegate</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewDidLoad:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setDelegateMode:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller ) onViewDidLoad</Declaration>
+			<Declaration>@property (nonatomic, assign) IIViewDeckDelegateMode delegateMode</Declaration>
 			
 			
-			<Anchor>//api/name/onViewDidLoad</Anchor>
+			<Anchor>//api/name/delegateMode</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewDidLoad</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/delegateMode</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller ) onViewDidLoad</Declaration>
+			<Declaration>@property (nonatomic, assign) IIViewDeckDelegateMode delegateMode</Declaration>
 			
 			
-			<Anchor>//api/name/onViewDidLoad</Anchor>
+			<Anchor>//api/name/delegateMode</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewWillAppear:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setControllers:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillAppear</Declaration>
+			<Declaration>@property (nonatomic, readonly, retain) NSArray *controllers</Declaration>
 			
 			
-			<Anchor>//api/name/onViewWillAppear</Anchor>
+			<Anchor>//api/name/controllers</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewWillAppear</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/controllers</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillAppear</Declaration>
+			<Declaration>@property (nonatomic, readonly, retain) NSArray *controllers</Declaration>
 			
 			
-			<Anchor>//api/name/onViewWillAppear</Anchor>
+			<Anchor>//api/name/controllers</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewDidAppear:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setCenterController:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidAppear</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *centerController</Declaration>
 			
 			
-			<Anchor>//api/name/onViewDidAppear</Anchor>
+			<Anchor>//api/name/centerController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewDidAppear</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/centerController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidAppear</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *centerController</Declaration>
 			
 			
-			<Anchor>//api/name/onViewDidAppear</Anchor>
+			<Anchor>//api/name/centerController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewWillDisappear:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setLeftController:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillDisappear</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *leftController</Declaration>
 			
 			
-			<Anchor>//api/name/onViewWillDisappear</Anchor>
+			<Anchor>//api/name/leftController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewWillDisappear</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/leftController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewWillDisappear</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *leftController</Declaration>
 			
 			
-			<Anchor>//api/name/onViewWillDisappear</Anchor>
+			<Anchor>//api/name/leftController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/setOnViewDidDisappear:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setRightController:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidDisappear</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *rightController</Declaration>
 			
 			
-			<Anchor>//api/name/onViewDidDisappear</Anchor>
+			<Anchor>//api/name/rightController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/WrapController/onViewDidDisappear</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/rightController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, copy) void ( ^ ) ( WrapController *controller , BOOL animated ) onViewDidDisappear</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *rightController</Declaration>
 			
 			
-			<Anchor>//api/name/onViewDidDisappear</Anchor>
+			<Anchor>//api/name/rightController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/WrapController/initWithViewController:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setTopController:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>- (id)initWithViewController:(UIViewController *)controller</Declaration>
+			<Declaration>@property (nonatomic, retain) UIViewController *topController</Declaration>
 			
 			
-			<Anchor>//api/name/initWithViewController:</Anchor>
+			<Anchor>//api/name/topController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/topController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIViewController *topController</Declaration>
+			
+			
+			<Anchor>//api/name/topController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBottomController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIViewController *bottomController</Declaration>
+			
+			
+			<Anchor>//api/name/bottomController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/bottomController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIViewController *bottomController</Declaration>
+			
+			
+			<Anchor>//api/name/bottomController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setSlidingController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, assign) UIViewController *slidingController</Declaration>
+			
+			
+			<Anchor>//api/name/slidingController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/slidingController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, assign) UIViewController *slidingController</Declaration>
+			
+			
+			<Anchor>//api/name/slidingController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setPanningView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIView *panningView</Declaration>
+			
+			
+			<Anchor>//api/name/panningView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/panningView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIView *panningView</Declaration>
+			
+			
+			<Anchor>//api/name/panningView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setPanningGestureDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;UIGestureRecognizerDelegate&gt; panningGestureDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/panningGestureDelegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/panningGestureDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;UIGestureRecognizerDelegate&gt; panningGestureDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/panningGestureDelegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setEnabled:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isEnabled) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/enabled</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isEnabled) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setElastic:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isElastic) BOOL elastic</Declaration>
+			
+			
+			<Anchor>//api/name/elastic</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/elastic</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, getter=isElastic) BOOL elastic</Declaration>
+			
+			
+			<Anchor>//api/name/elastic</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setLeftSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat leftSize</Declaration>
+			
+			
+			<Anchor>//api/name/leftSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/leftSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat leftSize</Declaration>
+			
+			
+			<Anchor>//api/name/leftSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setLeftViewSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat leftViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/leftViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/leftViewSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat leftViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/leftViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setLeftLedgeSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat leftLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/leftLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/leftLedgeSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat leftLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/leftLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setRightSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat rightSize</Declaration>
+			
+			
+			<Anchor>//api/name/rightSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/rightSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat rightSize</Declaration>
+			
+			
+			<Anchor>//api/name/rightSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setRightViewSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat rightViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/rightViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/rightViewSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat rightViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/rightViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setRightLedgeSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat rightLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/rightLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/rightLedgeSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat rightLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/rightLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setTopSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat topSize</Declaration>
+			
+			
+			<Anchor>//api/name/topSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/topSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat topSize</Declaration>
+			
+			
+			<Anchor>//api/name/topSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setTopViewSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat topViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/topViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/topViewSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat topViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/topViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setTopLedgeSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat topLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/topLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/topLedgeSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat topLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/topLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBottomSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat bottomSize</Declaration>
+			
+			
+			<Anchor>//api/name/bottomSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/bottomSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat bottomSize</Declaration>
+			
+			
+			<Anchor>//api/name/bottomSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBottomViewSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat bottomViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/bottomViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/bottomViewSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat bottomViewSize</Declaration>
+			
+			
+			<Anchor>//api/name/bottomViewSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBottomLedgeSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat bottomLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/bottomLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/bottomLedgeSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign, readonly) CGFloat bottomLedgeSize</Declaration>
+			
+			
+			<Anchor>//api/name/bottomLedgeSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setMaxSize:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat maxSize</Declaration>
+			
+			
+			<Anchor>//api/name/maxSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/maxSize</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat maxSize</Declaration>
+			
+			
+			<Anchor>//api/name/maxSize</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setResizesCenterView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL resizesCenterView</Declaration>
+			
+			
+			<Anchor>//api/name/resizesCenterView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/resizesCenterView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL resizesCenterView</Declaration>
+			
+			
+			<Anchor>//api/name/resizesCenterView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setPanningMode:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckPanningMode panningMode</Declaration>
+			
+			
+			<Anchor>//api/name/panningMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/panningMode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckPanningMode panningMode</Declaration>
+			
+			
+			<Anchor>//api/name/panningMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setCenterhiddenInteractivity:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckCenterHiddenInteractivity centerhiddenInteractivity</Declaration>
+			
+			
+			<Anchor>//api/name/centerhiddenInteractivity</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/centerhiddenInteractivity</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckCenterHiddenInteractivity centerhiddenInteractivity</Declaration>
+			
+			
+			<Anchor>//api/name/centerhiddenInteractivity</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setNavigationControllerBehavior:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckNavigationControllerBehavior navigationControllerBehavior</Declaration>
+			
+			
+			<Anchor>//api/name/navigationControllerBehavior</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/navigationControllerBehavior</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckNavigationControllerBehavior navigationControllerBehavior</Declaration>
+			
+			
+			<Anchor>//api/name/navigationControllerBehavior</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setAutomaticallyUpdateTabBarItems:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL automaticallyUpdateTabBarItems</Declaration>
+			
+			
+			<Anchor>//api/name/automaticallyUpdateTabBarItems</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/automaticallyUpdateTabBarItems</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) BOOL automaticallyUpdateTabBarItems</Declaration>
+			
+			
+			<Anchor>//api/name/automaticallyUpdateTabBarItems</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setSizeMode:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckSizeMode sizeMode</Declaration>
+			
+			
+			<Anchor>//api/name/sizeMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/sizeMode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) IIViewDeckSizeMode sizeMode</Declaration>
+			
+			
+			<Anchor>//api/name/sizeMode</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBounceDurationFactor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat bounceDurationFactor</Declaration>
+			
+			
+			<Anchor>//api/name/bounceDurationFactor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/bounceDurationFactor</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat bounceDurationFactor</Declaration>
+			
+			
+			<Anchor>//api/name/bounceDurationFactor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBounceOpenSideDurationFactor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat bounceOpenSideDurationFactor</Declaration>
+			
+			
+			<Anchor>//api/name/bounceOpenSideDurationFactor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/bounceOpenSideDurationFactor</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat bounceOpenSideDurationFactor</Declaration>
+			
+			
+			<Anchor>//api/name/bounceOpenSideDurationFactor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setOpenSlideAnimationDuration:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat openSlideAnimationDuration</Declaration>
+			
+			
+			<Anchor>//api/name/openSlideAnimationDuration</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/openSlideAnimationDuration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat openSlideAnimationDuration</Declaration>
+			
+			
+			<Anchor>//api/name/openSlideAnimationDuration</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setCloseSlideAnimationDuration:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat closeSlideAnimationDuration</Declaration>
+			
+			
+			<Anchor>//api/name/closeSlideAnimationDuration</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/IIViewDeckController/closeSlideAnimationDuration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) CGFloat closeSlideAnimationDuration</Declaration>
+			
+			
+			<Anchor>//api/name/closeSlideAnimationDuration</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:leftViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController leftViewController:(UIViewController *)leftController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:leftViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:rightViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController rightViewController:(UIViewController *)rightController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:rightViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:leftViewController:rightViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController leftViewController:(UIViewController *)leftController rightViewController:(UIViewController *)rightController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:leftViewController:rightViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:topViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController topViewController:(UIViewController *)topController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:topViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:bottomViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController bottomViewController:(UIViewController *)bottomController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:bottomViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:topViewController:bottomViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController topViewController:(UIViewController *)topController bottomViewController:(UIViewController *)bottomController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:topViewController:bottomViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/initWithCenterViewController:leftViewController:rightViewController:topViewController:bottomViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithCenterViewController:(UIViewController *)centerController leftViewController:(UIViewController *)leftController rightViewController:(UIViewController *)rightController topViewController:(UIViewController *)topController bottomViewController:(UIViewController *)bottomController</Declaration>
+			
+			
+			<Anchor>//api/name/initWithCenterViewController:leftViewController:rightViewController:topViewController:bottomViewController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setLeftSize:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setLeftSize:(CGFloat)leftSize completion:(void ( ^ ) ( BOOL finished ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/setLeftSize:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setRightSize:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setRightSize:(CGFloat)rightSize completion:(void ( ^ ) ( BOOL finished ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/setRightSize:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setTopSize:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setTopSize:(CGFloat)leftSize completion:(void ( ^ ) ( BOOL finished ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/setTopSize:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setBottomSize:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setBottomSize:(CGFloat)rightSize completion:(void ( ^ ) ( BOOL finished ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/setBottomSize:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/setMaxSize:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)setMaxSize:(CGFloat)maxSize completion:(void ( ^ ) ( BOOL finished ))completion</Declaration>
+			
+			
+			<Anchor>//api/name/setMaxSize:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleLeftView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleLeftView</Declaration>
+			
+			
+			<Anchor>//api/name/toggleLeftView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openLeftView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openLeftView</Declaration>
+			
+			
+			<Anchor>//api/name/openLeftView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeLeftView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeLeftView</Declaration>
+			
+			
+			<Anchor>//api/name/closeLeftView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleLeftViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleLeftViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/toggleLeftViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleLeftViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleLeftViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/toggleLeftViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openLeftViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openLeftViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/openLeftViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openLeftViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openLeftViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openLeftViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openLeftViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openLeftViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/openLeftViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openLeftViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openLeftViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openLeftViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeLeftViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeLeftViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/closeLeftViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeLeftViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeLeftViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeLeftViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeLeftViewAnimated:duration:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeLeftViewAnimated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeLeftViewAnimated:duration:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeLeftViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeLeftViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/closeLeftViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeLeftViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeLeftViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeLeftViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleRightView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleRightView</Declaration>
+			
+			
+			<Anchor>//api/name/toggleRightView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openRightView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openRightView</Declaration>
+			
+			
+			<Anchor>//api/name/openRightView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeRightView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeRightView</Declaration>
+			
+			
+			<Anchor>//api/name/closeRightView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleRightViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleRightViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/toggleRightViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleRightViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleRightViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/toggleRightViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openRightViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openRightViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/openRightViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openRightViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openRightViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openRightViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openRightViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openRightViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/openRightViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openRightViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openRightViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openRightViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeRightViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeRightViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/closeRightViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeRightViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeRightViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeRightViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeRightViewAnimated:duration:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeRightViewAnimated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeRightViewAnimated:duration:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeRightViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeRightViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/closeRightViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeRightViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeRightViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeRightViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleTopView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleTopView</Declaration>
+			
+			
+			<Anchor>//api/name/toggleTopView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openTopView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openTopView</Declaration>
+			
+			
+			<Anchor>//api/name/openTopView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeTopView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeTopView</Declaration>
+			
+			
+			<Anchor>//api/name/closeTopView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleTopViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleTopViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/toggleTopViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleTopViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleTopViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/toggleTopViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openTopViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openTopViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/openTopViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openTopViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openTopViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openTopViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openTopViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openTopViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/openTopViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openTopViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openTopViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openTopViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeTopViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeTopViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/closeTopViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeTopViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeTopViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeTopViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeTopViewAnimated:duration:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeTopViewAnimated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeTopViewAnimated:duration:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeTopViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeTopViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/closeTopViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeTopViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeTopViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeTopViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleBottomView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleBottomView</Declaration>
+			
+			
+			<Anchor>//api/name/toggleBottomView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openBottomView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openBottomView</Declaration>
+			
+			
+			<Anchor>//api/name/openBottomView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeBottomView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeBottomView</Declaration>
+			
+			
+			<Anchor>//api/name/closeBottomView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleBottomViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleBottomViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/toggleBottomViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleBottomViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleBottomViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/toggleBottomViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openBottomViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openBottomViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/openBottomViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openBottomViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openBottomViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openBottomViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openBottomViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openBottomViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/openBottomViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/openBottomViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)openBottomViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/openBottomViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeBottomViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeBottomViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/closeBottomViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeBottomViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeBottomViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeBottomViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeBottomViewAnimated:duration:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeBottomViewAnimated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeBottomViewAnimated:duration:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeBottomViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeBottomViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/closeBottomViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeBottomViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeBottomViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeBottomViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleOpenView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleOpenView</Declaration>
+			
+			
+			<Anchor>//api/name/toggleOpenView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleOpenViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleOpenViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/toggleOpenViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/toggleOpenViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)toggleOpenViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/toggleOpenViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeOpenView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeOpenView</Declaration>
+			
+			
+			<Anchor>//api/name/closeOpenView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeOpenViewAnimated:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeOpenViewAnimated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/closeOpenViewAnimated:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeOpenViewAnimated:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeOpenViewAnimated:(BOOL)animated completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeOpenViewAnimated:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeOpenViewAnimated:duration:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeOpenViewAnimated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeOpenViewAnimated:duration:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeOpenViewBouncing:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeOpenViewBouncing:(IIViewDeckControllerBounceBlock)bounced</Declaration>
+			
+			
+			<Anchor>//api/name/closeOpenViewBouncing:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/closeOpenViewBouncing:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)closeOpenViewBouncing:(IIViewDeckControllerBounceBlock)bounced completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/closeOpenViewBouncing:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/previewBounceView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)previewBounceView:(IIViewDeckSide)viewDeckSide</Declaration>
+			
+			
+			<Anchor>//api/name/previewBounceView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/previewBounceView:withCompletion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)previewBounceView:(IIViewDeckSide)viewDeckSide withCompletion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/previewBounceView:withCompletion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/previewBounceView:toDistance:duration:callDelegate:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)previewBounceView:(IIViewDeckSide)viewDeckSide toDistance:(CGFloat)distance duration:(NSTimeInterval)duration callDelegate:(BOOL)callDelegate completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/previewBounceView:toDistance:duration:callDelegate:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/previewBounceView:toDistance:duration:numberOfBounces:dampingFactor:callDelegate:completion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)previewBounceView:(IIViewDeckSide)viewDeckSide toDistance:(CGFloat)distance duration:(NSTimeInterval)duration numberOfBounces:(CGFloat)numberOfBounces dampingFactor:(CGFloat)zeta callDelegate:(BOOL)callDelegate completion:(IIViewDeckControllerBlock)completed</Declaration>
+			
+			
+			<Anchor>//api/name/previewBounceView:toDistance:duration:numberOfBounces:dampingFactor:callDelegate:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/canRightViewPushViewControllerOverCenterController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)canRightViewPushViewControllerOverCenterController</Declaration>
+			
+			
+			<Anchor>//api/name/canRightViewPushViewControllerOverCenterController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/rightViewPushViewControllerOverCenterController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (void)rightViewPushViewControllerOverCenterController:(UIViewController *)controller</Declaration>
+			
+			
+			<Anchor>//api/name/rightViewPushViewControllerOverCenterController:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/isSideClosed:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isSideClosed:(IIViewDeckSide)viewDeckSide</Declaration>
+			
+			
+			<Anchor>//api/name/isSideClosed:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/isSideOpen:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isSideOpen:(IIViewDeckSide)viewDeckSide</Declaration>
+			
+			
+			<Anchor>//api/name/isSideOpen:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/isAnySideOpen</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)isAnySideOpen</Declaration>
+			
+			
+			<Anchor>//api/name/isAnySideOpen</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/statusBarHeight</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (CGFloat)statusBarHeight</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarHeight</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/IIViewDeckController/sideForController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
+			
+			<Declaration>- (IIViewDeckSide)sideForController:(UIViewController *)controller</Declaration>
+			
+			
+			<Anchor>//api/name/sideForController:</Anchor>
 		</Token>
 		
 	</File>

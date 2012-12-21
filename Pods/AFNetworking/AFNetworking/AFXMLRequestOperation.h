@@ -48,13 +48,13 @@
 /**
  An `NSXMLParser` object constructed from the response data.
  */
-@property (readonly, nonatomic) NSXMLParser *responseXMLParser;
+@property (readonly, nonatomic, strong) NSXMLParser *responseXMLParser;
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 /**
  An `NSXMLDocument` object constructed from the response data. If an error occurs while parsing, `nil` will be returned, and the `error` property will be set to the error.
  */
-@property (readonly, nonatomic, retain) NSXMLDocument *responseXMLDocument;
+@property (readonly, nonatomic, strong) NSXMLDocument *responseXMLDocument;
 #endif
 
 /**
@@ -68,7 +68,7 @@
  */
 + (AFXMLRequestOperation *)XMLParserRequestOperationWithRequest:(NSURLRequest *)urlRequest
                                                         success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSXMLParser *XMLParser))success
-                                                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParse))failure;
+                                                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, NSXMLParser *XMLParser))failure;
 
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED

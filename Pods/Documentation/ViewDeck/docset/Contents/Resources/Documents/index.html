@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>ViewDeck 1.4.2 Reference</title>
+		<title>ViewDeck 2.2.0 Reference</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
@@ -10,12 +10,12 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="index.html">ViewDeck 1.4.2 </a></h1>
+				<h1><a id="libraryTitle" href="index.html">ViewDeck 2.2.0 </a></h1>
 				<a id="developerHome" href="index.html">Tom Adriaenssen</a>
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">ViewDeck 1.4.2 Reference</h1>
+				<h1 class="hideInXcode">ViewDeck 2.2.0 Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar"></ul>
 		</header>
@@ -26,7 +26,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">ViewDeck 1.4.2 Reference</h1>
+						<h1 class="title title-header">ViewDeck 2.2.0 Reference</h1>
 					</div>		
 				</div>
 				<div id="container">
@@ -70,8 +70,8 @@ Just add <a href="Classes/IIViewDeckController.html">IIViewDeckController</a>.m/
 <pre><code>#import "IIViewDeckController.h"
 
 // prepare view controllers
-UIViewController* leftController = [[UIViewController alloc] init]; 
-UIViewController* rightController = [[UIViewController alloc] init]; 
+UIViewController* leftController = [[UIViewController alloc] init];
+UIViewController* rightController = [[UIViewController alloc] init];
 
 IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController leftViewController:leftController
                                                   rightViewController:rightController];
@@ -84,7 +84,7 @@ IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCe
 <p>You can also switch view controllers in mid flight. Just assign a viewcontroller to the appropriate property and the view deck controller will do the rest:</p>
 
 <pre><code>// prepare view controllers
-UIViewController* newController = [[UIViewController alloc] init]; 
+UIViewController* newController = [[UIViewController alloc] init];
 self.viewDeckController.leftViewController = newController;
 </code></pre>
 
@@ -99,13 +99,13 @@ self.viewDeckController.leftViewController = newController;
 
 <p>If the controller is not enclosed by a <a href="Classes/IIViewDeckController.html">IIViewDeckController</a>, this property returns <code>nil</code>.</p>
 
-<h2>ledges</h2>
+<h2>ledge sizes</h2>
 
-<p>You cannot close the centerview completely, since it would block the user from panning it back. You can set the ledge sizes yourself by assigning a value to the <code>leftLedge</code> property for the left side and the <code>rightLedge</code> property for the right side. It is possible to set a ledge size of 0.</p>
+<p>You cannot close the centerview completely, since it would block the user from panning it back. You can set the ledge sizes yourself by assigning a value to the <code>leftSize</code> property for the left side and the <code>rightSize</code> property for the right side. It is possible to set a ledge size of 0.</p>
 
-<h3>maximum ledge, or gap-mode</h3>
+<h3>maximum ledge size, or gap-mode</h3>
 
-<p>It is possible to have the viewController always show a side controller. You do this by setting the <code>maxLedge</code> value to any (positive) nonzero value. This will force the centerview to be always opened, exposing a side controller permanently. <strong>This only works when you have ONE sidecontroller specified</strong> (this means either a left side controller or a right side controller), because this scenario does not make sense if you would be able to slide the center view in both directions. When you have 2 side controllers, this property is ignored.</p>
+<p>It is possible to have the viewController always show a side controller. You do this by setting the <code>maxSize</code> value to any (positive) nonzero value. This will force the centerview to be always opened, exposing a side controller permanently. <strong>This only works when you have ONE sidecontroller specified</strong> (this means either a left side controller or a right side controller), because this scenario does not make sense if you would be able to slide the center view in both directions. When you have 2 side controllers, this property is ignored.</p>
 
 <h2>bouncing close</h2>
 
@@ -116,6 +116,32 @@ self.viewDeckController.leftViewController = newController;
     // ...
 }];
 </code></pre>
+
+<h2>open/close animation duration</h2>
+
+<p>The view deck controller allows you to set the speed at which the opening and closing animations play. To do so, use the following properties.</p>
+
+<pre><code>self.viewDeckController.openSlideAnimationDuration = 0.15f; // In seconds
+self.viewDeckController.closeSlideAnimationDuration = 0.25f;
+</code></pre>
+
+<p>The default speed of both, if not set, is 0.3f.</p>
+
+<h2>bounce animation duration</h2>
+
+<p>You can set the duration of the bounce animation as a factor (multiple) of the close/openSlideAnimationDurations. To control both the open and close of the bounce, you can simply use:</p>
+
+<pre><code>self.viewDeckController.bounceAnimationDurationFactor = 0.5; // Animate at twice the speed (half the duration)
+</code></pre>
+
+<p>The default factor is 1.0 if bounceDurationFactor is not set.</p>
+
+<p>For even more control, you can also set the animation duration for the bounce open (the first part of the bounce):</p>
+
+<pre><code>self.viewDeckController.bounceOpenSideDurationFactor = 0.3f;
+</code></pre>
+
+<p>If bounceOpenSideDurationFactor is not set, it will fallback to the bounceAnimationDurationFactor behavior. If bounceOpenSideDurationFactor is set, bounceAnimationDurationFactor affects only the &ldquo;close&rdquo; (2nd half) of the bounce animation.</p>
 
 <h2>shadow</h2>
 
@@ -163,7 +189,7 @@ When rotating, the controller will move the open center views to the correct loc
 <pre><code>typedef enum {
     IIViewDeckNoPanning,              // no panning allowed
     IIViewDeckFullViewPanning,        // the default: touch anywhere in the center view to drag the center view around
-    IIViewDeckNavigationBarPanning,   // panning only occurs when you start touching in the navigation bar (when the center controller is a UINavigationController with a visible navigation bar). Otherwise it will behave as IIViewDeckNoPanning. 
+    IIViewDeckNavigationBarPanning,   // panning only occurs when you start touching in the navigation bar (when the center controller is a UINavigationController with a visible navigation bar). Otherwise it will behave as IIViewDeckNoPanning.
     IIViewDeckPanningViewPanning      // panning only occurs when you start touching in a UIView set in panningView property
 } IIViewDeckPanningMode;
 </code></pre>
@@ -247,9 +273,11 @@ There&rsquo;s currently no way to disable this behavior, but it will be added la
 						<h2 class="index-title">Class References</h2>
 						<ul>
 							
+							<li><a href="Classes/IISideController.html">IISideController</a></li>
+							
 							<li><a href="Classes/IIViewDeckController.html">IIViewDeckController</a></li>
 							
-							<li><a href="Classes/WrapController.html">WrapController</a></li>
+							<li><a href="Classes/IIWrapController.html">IIWrapController</a></li>
 							
 						</ul>
 					</div>
@@ -284,7 +312,7 @@ There&rsquo;s currently no way to disable this behavior, but it will be added la
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2012 Tom Adriaenssen. All rights reserved. (Last updated: 2012-10-09)</span><br />
+						<p><span class="copyright">&copy; 2012 Tom Adriaenssen. All rights reserved. (Last updated: 2012-12-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
 						

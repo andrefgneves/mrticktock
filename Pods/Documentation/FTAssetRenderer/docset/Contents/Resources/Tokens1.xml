@@ -38,7 +38,7 @@
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
 			
-			<Declaration>@property (assign, nonatomic) UIColor *targetColor</Declaration>
+			<Declaration>@property (nonatomic) UIColor *targetColor</Declaration>
 			
 			
 			<Anchor>//api/name/targetColor</Anchor>
@@ -49,7 +49,7 @@
 			<Abstract type="html"></Abstract>
 			<DeclaredIn>FTAssetRenderer.h</DeclaredIn>			
 			
-			<Declaration>@property (assign, nonatomic) UIColor *targetColor</Declaration>
+			<Declaration>@property (nonatomic) UIColor *targetColor</Declaration>
 			
 			
 			<Anchor>//api/name/targetColor</Anchor>

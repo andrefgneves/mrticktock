@@ -32,12 +32,13 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 }
 
 @interface AFJSONRequestOperation ()
-@property (readwrite, nonatomic) id responseJSON;
-@property (readwrite, nonatomic) NSError *JSONError;
+@property (readwrite, nonatomic, strong) id responseJSON;
+@property (readwrite, nonatomic, strong) NSError *JSONError;
 @end
 
 @implementation AFJSONRequestOperation
 @synthesize responseJSON = _responseJSON;
+@synthesize JSONReadingOptions = _JSONReadingOptions;
 @synthesize JSONError = _JSONError;
 
 + (AFJSONRequestOperation *)JSONRequestOperationWithRequest:(NSURLRequest *)urlRequest
@@ -66,7 +67,7 @@ static dispatch_queue_t json_request_operation_processing_queue() {
         if ([self.responseData length] == 0) {
             self.responseJSON = nil;
         } else {
-            self.responseJSON = [NSJSONSerialization JSONObjectWithData:self.responseData options:0 error:&error];
+            self.responseJSON = [NSJSONSerialization JSONObjectWithData:self.responseData options:self.JSONReadingOptions error:&error];
         }
         
         self.JSONError = error;

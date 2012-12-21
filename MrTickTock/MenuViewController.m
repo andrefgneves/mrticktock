@@ -79,7 +79,7 @@
 
     AppDelegate * app = [[UIApplication sharedApplication] delegate];
 
-    [app.deckController showCenterView:YES];
+    [app.deckController closeLeftView];
 
     return nil;
 }
@@ -98,9 +98,9 @@
     if (buttonIndex == 0) {
         AppDelegate * app = [[UIApplication sharedApplication] delegate];
 
-        [app.deckController showCenterView:YES completion:^(IIViewDeckController *controller) {
+        [app.deckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
             [ACSimpleKeychain.defaultKeychain deleteAllCredentialsForService:@"MrTickTock"];
-            
+
             [app.centerController popViewControllerAnimated:YES];
         }];
     }

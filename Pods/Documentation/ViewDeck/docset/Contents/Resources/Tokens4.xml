@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Categories/UIViewController+WrapControllerItem.html">
+	<File path="Categories/UIViewController+UIViewDeckItem.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cat/UIViewController(WrapControllerItem)</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/cat/UIViewController(UIViewDeckItem)</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>
 			
 			<NodeRef refid="4"/>
 		</Token>
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/UIViewController(WrapControllerItem)/setWrapController:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/intfm/UIViewController(UIViewDeckItem)/setViewDeckController:</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readonly, assign) WrapController *wrapController</Declaration>
+			<Declaration>@property (nonatomic, readonly, retain) IIViewDeckController *viewDeckController</Declaration>
 			
 			
-			<Anchor>//api/name/wrapController</Anchor>
+			<Anchor>//api/name/viewDeckController</Anchor>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfp/UIViewController(WrapControllerItem)/wrapController</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/intfp/UIViewController(UIViewDeckItem)/viewDeckController</TokenIdentifier>
 			<Abstract type="html"></Abstract>
-			<DeclaredIn>WrapController.h</DeclaredIn>			
+			<DeclaredIn>IIViewDeckController.h</DeclaredIn>			
 			
-			<Declaration>@property (nonatomic, readonly, assign) WrapController *wrapController</Declaration>
+			<Declaration>@property (nonatomic, readonly, retain) IIViewDeckController *viewDeckController</Declaration>
 			
 			
-			<Anchor>//api/name/wrapController</Anchor>
+			<Anchor>//api/name/viewDeckController</Anchor>
 		</Token>
 		
 	</File>

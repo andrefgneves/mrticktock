@@ -1,15 +1,15 @@
 
 PODS:
 - ACSimpleKeychain (0.0.1)
-- AFNetworking (1.0)
-- FTAssetRenderer (0.1.0)
+- AFNetworking (1.0.1)
+- FTAssetRenderer (0.1.1)
 - LOG_EXPR (1.2)
 - MGImageUtilities (0.0.1)
 - NSDate+Helper (0.0.1)
 - SVProgressHUD (0.8)
-- TestFlightSDK (1.1)
+- TestFlightSDK (1.2)
 - UIImage+PDF (1.0.0)
-- ViewDeck (1.4.2)
+- ViewDeck (2.2.0)
 
 DEPENDENCIES:
 - ACSimpleKeychain
@@ -25,14 +25,14 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ACSimpleKeychain: bd3dc5db0df1da0b44c15e6e997d8b802682ac18
-  AFNetworking: 758a1cb1ab5a0d22795ba1c44abb9cad395bc126
-  FTAssetRenderer: e2f5b05f3e4336bedf3d69d818e159ba55ab45bf
-  LOG_EXPR: 98b4a79dcbac62529ea7d0c5fcb82e7727970233
+  AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
+  FTAssetRenderer: d6a9d224e145596939ad6daaab23afa54a01cde3
+  LOG_EXPR: d62b8f6c3e174df041a14de62adfbb1daaa2ff14
   MGImageUtilities: ab3580f2161b10f8a41331baea87aaafbd688950
   NSDate+Helper: 3015cb57778256bce7c549fca172474308740059
   SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
-  TestFlightSDK: a62347405c04307e2953eda4b8cc465ee51a6c90
+  TestFlightSDK: 29e194fb148e4861f92e4c1195b9697e1f3ad19a
   UIImage+PDF: cad9495618586e360f318d8a570a8f9a589a4573
-  ViewDeck: a05ad18f6dcd87a95429c0b5bcaf58a450787c87
+  ViewDeck: c38895499ab96c9d69db724a1af489ee3a268682
 
-COCOAPODS: 0.15.1
+COCOAPODS: 0.16.0

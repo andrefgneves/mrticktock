@@ -11,6 +11,7 @@
 #import "Task.h"
 #import "UIImage+Utils.h"
 #import "Constants.h"
+#import <TestFlightSDK/TestFlight.h>
 
 @implementation AppDelegate
 
@@ -34,7 +35,9 @@
     self.centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
 
     _deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController leftViewController:self.leftController];
-    _deckController.leftLedge = 100;
+    _deckController.leftSize = 100;
+    _deckController.panningMode = IIViewDeckFullViewPanning;
+    _deckController.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing;
 
     self.window.rootViewController = _deckController;
     [self.window makeKeyAndVisible];

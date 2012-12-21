@@ -67,8 +67,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.viewDeckController.panningMode = IIViewDeckNoPanning;
-
     self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
 }
 

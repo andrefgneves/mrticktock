@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.cocoapods.ViewDeck-1.4.2</string>
+	<string>org.cocoapods.ViewDeck-2.2.0</string>
 	<key>CFBundleName</key>
-	<string>ViewDeck 1.4.2 Documentation</string>
+	<string>ViewDeck 2.2.0 Documentation</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -18,7 +18,7 @@
 	<string>An implementation of the sliding functionality found in the Path 2.0 or Facebook iOS apps.</string>
 	
 	<key>DocSetFeedName</key>
-	<string>ViewDeck 1.4.2 Documentation</string>
+	<string>ViewDeck 2.2.0 Documentation</string>
 	
 	<key>DocSetMinimumXcodeVersion</key>
 	<string>3.0</string>
