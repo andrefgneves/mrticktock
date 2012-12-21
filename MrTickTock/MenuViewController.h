@@ -13,6 +13,6 @@ typedef enum {
     MenuActionLogout   = 1
 } MenuActions;
 
-@interface MenuViewController : UITableViewController
+@interface MenuViewController : UITableViewController <UIActionSheetDelegate>
 
 @end

@@ -71,21 +71,39 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == MenuActionLogout) {
+        [self confirmLogout];
+
+        return nil;
+    }
+
     AppDelegate * app = [[UIApplication sharedApplication] delegate];
 
-    if (indexPath.row == MenuActionLogout) {
+    [app.deckController showCenterView:YES];
+
+    return nil;
+}
+
+- (IBAction)confirmLogout
+{
+    [[[UIActionSheet alloc] initWithTitle:@"Really logout?"
+                                 delegate:self
+                        cancelButtonTitle:@"Cancel"
+                   destructiveButtonTitle:@"Logout"
+                        otherButtonTitles: nil] showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        AppDelegate * app = [[UIApplication sharedApplication] delegate];
+
         [app.deckController showCenterView:YES completion:^(IIViewDeckController *controller) {
             [ACSimpleKeychain.defaultKeychain deleteAllCredentialsForService:@"MrTickTock"];
             
             [app.centerController popViewControllerAnimated:YES];
         }];
-
-        return nil;
     }
-
-    [app.deckController showCenterView:YES];
-
-    return nil;
 }
 
 @end
