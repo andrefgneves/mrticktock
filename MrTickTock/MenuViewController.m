@@ -29,20 +29,21 @@
 
     self.title = @"";
 
-//    UITextView * urlLabel = [[UITextView alloc] initWithFrame:CGRectZero];
-//    urlLabel.editable = NO;
-//    urlLabel.dataDetectorTypes = UIDataDetectorTypeLink;
-//    urlLabel.text = @"http://mrticktock.com";
-//    urlLabel.textColor = UIColor.whiteColor;
-//    urlLabel.backgroundColor = UIColor.clearColor;
-//    urlLabel.frame = CGRectMake(0, self.view.frame.size.height - 75, self.view.frame.size.width, 30);
-//
-//    [self.view addSubview:urlLabel];
+    STTweetLabel * urlLabel = [[STTweetLabel alloc] init];
+
+    urlLabel.delegate = self;
+    urlLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:10];
+    urlLabel.text = @"http://mrticktock.com";
+    urlLabel.textColor = UIColor.whiteColor;
+    urlLabel.backgroundColor = UIColor.clearColor;
+    urlLabel.frame = CGRectMake(10, self.view.frame.size.height - 70, self.view.frame.size.width, 30);
+
+    [self.view addSubview:urlLabel];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return MenuActionsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,7 +60,7 @@
     cell.titleLabel.text = indexPath.row ? @"Logout" : @"My Tasks";
 
     cell.iconLabel.font = [UIFont fontWithName:@"mrticktock" size:20];
-    cell.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
 
     UIView * selectedBackground = [[UIView alloc] init];
     selectedBackground.backgroundColor = [UIColor colorWithRed:0.213 green:0.231 blue:0.270 alpha:1.000];
@@ -104,6 +105,11 @@
             [app.centerController popViewControllerAnimated:YES];
         }];
     }
+}
+
+- (void)websiteClicked:(NSString *)link
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
 }
 
 @end

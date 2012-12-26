@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/seven/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.STTweetLabel-1.1.1.docset
+Time: 2012-12-22 20:36:00 +0000

@@ -36,6 +36,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
         _customers = [[NSMutableArray alloc] init];
         _allCustomers = [[NSMutableArray alloc] init];
         _taskNames = [[NSMutableArray alloc] init];
+
+        _syncing = NO;
     }
 
     return self;
@@ -58,6 +60,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
 - (void)sync
 {
+    if (_syncing) {
+        return;
+    }
+
+    _syncing = YES;
+
     [[AFMrTickTockAPIClient sharedClient] postPath:@"is_timer_active" parameters:[[AFMrTickTockAPIClient sharedClient] authParams] success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
 
         NSArray * errors = [JSON objectForKey:@"errors"];
@@ -163,6 +171,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
                     if (self.delegate && [self.delegate respondsToSelector:@selector(taskManagerDidFinishSyncing:)]) {
                         [self.delegate taskManagerDidFinishSyncing:self];
                     }
+
+                    _syncing = NO;
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
         }

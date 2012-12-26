@@ -304,7 +304,6 @@
         <class className="TasksViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TasksViewController.h"/>
             <relationships>
-                <relationship kind="action" name="confirmLogout:"/>
                 <relationship kind="action" name="showMenu:"/>
                 <relationship kind="action" name="toggleButtonTouched:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>

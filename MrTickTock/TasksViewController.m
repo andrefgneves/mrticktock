@@ -144,7 +144,7 @@
     customerLabel.backgroundColor = UIColor.clearColor;
     customerLabel.text = customer;
     customerLabel.textColor = UIColor.whiteColor;
-    customerLabel.font = [UIFont boldSystemFontOfSize:12];
+    customerLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:14];
 
     [headerView addSubview:customerLabel];
 
@@ -278,8 +278,6 @@
 
 - (void)taskManagerDidFinishSyncing:(TasksManager *)aTasksManager
 {
-    LOG_FUNCTION();
-
     [_table reloadData];
 
     _totalTimeLabel.text = [NSDate stringFromDate:tasksManager.totalTimeDate withFormat:@"HH:mm"];

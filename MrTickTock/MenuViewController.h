@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STTweetLabel.h"
 
 typedef enum {
     MenuActionMyTasks  = 0,
-    MenuActionLogout   = 1
+    MenuActionLogout   = 1,
+    MenuActionsCount
 } MenuActions;
 
-@interface MenuViewController : UITableViewController <UIActionSheetDelegate>
+@interface MenuViewController : UITableViewController <UIActionSheetDelegate, STLinkProtocol>
 
 @end

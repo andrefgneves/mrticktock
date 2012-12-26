@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/STTweetLabel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/STTweetLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/STTweetLabel/setFontLink:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIFont *fontLink</Declaration>
+			
+			
+			<Anchor>//api/name/fontLink</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/STTweetLabel/fontLink</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIFont *fontLink</Declaration>
+			
+			
+			<Anchor>//api/name/fontLink</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/STTweetLabel/setFontHashtag:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIFont *fontHashtag</Declaration>
+			
+			
+			<Anchor>//api/name/fontHashtag</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/STTweetLabel/fontHashtag</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIFont *fontHashtag</Declaration>
+			
+			
+			<Anchor>//api/name/fontHashtag</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/STTweetLabel/setColorLink:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *colorLink</Declaration>
+			
+			
+			<Anchor>//api/name/colorLink</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/STTweetLabel/colorLink</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *colorLink</Declaration>
+			
+			
+			<Anchor>//api/name/colorLink</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/STTweetLabel/setColorHashtag:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *colorHashtag</Declaration>
+			
+			
+			<Anchor>//api/name/colorHashtag</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/STTweetLabel/colorHashtag</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) UIColor *colorHashtag</Declaration>
+			
+			
+			<Anchor>//api/name/colorHashtag</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/STTweetLabel/setDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) id&lt;STLinkProtocol&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/STTweetLabel/delegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) id&lt;STLinkProtocol&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

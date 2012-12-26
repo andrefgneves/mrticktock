@@ -18,7 +18,7 @@
     title.text = @"MrTickTock";
     title.backgroundColor = UIColor.clearColor;
     title.textColor = UIColor.whiteColor;
-    title.font = [UIFont boldSystemFontOfSize:20];
+    title.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
 
     [self.navigationBar addSubview:title];
 }

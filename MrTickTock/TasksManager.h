@@ -18,6 +18,7 @@
 SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(TasksManager);
 
 @property (nonatomic, strong) id delegate;
+@property (nonatomic) BOOL syncing;
 @property (nonatomic) NSInteger runningTaskId;
 @property (nonatomic, retain) __block NSDate * totalTimeDate;
 

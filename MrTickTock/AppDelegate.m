@@ -50,7 +50,10 @@
     BOOL _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
 
     [[UINavigationBar appearance] setBackgroundImage:KNavbarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:KNavbarBackgroundColor forKey:UITextAttributeTextShadowColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          KNavbarBackgroundColor ,UITextAttributeTextShadowColor,
+                                                          [UIFont fontWithName:@"ProximaNova-Bold" size:20], UITextAttributeFont,
+                                                          nil]];
 
     if (_isIOS6) {
         // Remove navigation bars shadow

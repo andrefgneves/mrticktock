@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/STLinkProtocol.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/STLinkProtocol</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/STLinkProtocol/twitterAccountClicked:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>- (void)twitterAccountClicked:(NSString *)link</Declaration>
+			
+			
+			<Anchor>//api/name/twitterAccountClicked:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/STLinkProtocol/twitterHashtagClicked:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>- (void)twitterHashtagClicked:(NSString *)link</Declaration>
+			
+			
+			<Anchor>//api/name/twitterHashtagClicked:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/STLinkProtocol/websiteClicked:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>STTweetLabel.h</DeclaredIn>			
+			
+			<Declaration>- (void)websiteClicked:(NSString *)link</Declaration>
+			
+			
+			<Anchor>//api/name/websiteClicked:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
