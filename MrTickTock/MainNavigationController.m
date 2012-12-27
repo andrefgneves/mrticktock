@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 André Neves. All rights reserved.
 //
 
-#import "MenuNavigationController.h"
+#import "MainNavigationController.h"
 
-@implementation MenuNavigationController
+@implementation MainNavigationController
 
 - (void)viewDidLoad
 {

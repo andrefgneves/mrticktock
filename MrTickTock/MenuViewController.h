@@ -10,8 +10,9 @@
 #import "STTweetLabel.h"
 
 typedef enum {
-    MenuActionMyTasks  = 0,
-    MenuActionLogout   = 1,
+    MenuActionMyTasks,
+    MenuActionLogout,
+    MenuActionWebsite,
     MenuActionsCount
 } MenuActions;
 

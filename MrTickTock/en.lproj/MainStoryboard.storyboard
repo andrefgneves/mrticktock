@@ -175,7 +175,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxB-g8-UkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668" y="195"/>
+            <point key="canvasLocation" x="-671" y="195"/>
         </scene>
         <!--Navigation Controller - Mr Tick Tok-->
         <scene sceneID="Lul-6e-flA">
@@ -249,10 +249,10 @@
             </objects>
             <point key="canvasLocation" x="-671" y="881"/>
         </scene>
-        <!--Menu Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="zJs-si-knW">
             <objects>
-                <navigationController storyboardIdentifier="MenuNavigationController" id="G4Q-wK-cKP" customClass="MenuNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MenuNavigationController" id="G4Q-wK-cKP" customClass="MainNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1sB-4C-YYR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -267,6 +267,47 @@
             </objects>
             <point key="canvasLocation" x="-1197" y="881"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6U5-nJ-NG2">
+            <objects>
+                <navigationController storyboardIdentifier="WebsiteNavigationController" definesPresentationContext="YES" id="icB-fn-0OO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NhO-Dn-T8n">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Q6q-oQ-ROm" kind="relationship" relationship="rootViewController" id="3oJ-zn-9ZZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Be-RJ-8Nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1197" y="1568"/>
+        </scene>
+        <!--Website View Controller-->
+        <scene sceneID="CKx-7k-QX3">
+            <objects>
+                <viewController storyboardIdentifier="WebsiteViewController" id="Q6q-oQ-ROm" customClass="WebsiteViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f4y-bD-TQH">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="Ay1-A9-Dua">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nyv-rE-4Wi"/>
+                    <connections>
+                        <outlet property="webView" destination="Ay1-A9-Dua" id="xlv-zj-Lkh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ud0-ge-PnA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671" y="1568"/>
+        </scene>
     </scenes>
     <classes>
         <class className="LoginViewController" superclassName="UITableViewController">
@@ -276,15 +317,15 @@
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="MainNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNavigationController.h"/>
+        </class>
         <class className="MenuCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="iconLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
-        </class>
-        <class className="MenuNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuNavigationController.h"/>
         </class>
         <class className="MenuViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
@@ -313,6 +354,12 @@
         </class>
         <class className="ToggleTaskButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ToggleTaskButton.h"/>
+        </class>
+        <class className="WebsiteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebsiteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

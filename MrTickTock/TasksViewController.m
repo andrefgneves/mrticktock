@@ -222,7 +222,9 @@
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (viewController == self) {
+    BOOL isLoggedIn = [ACSimpleKeychain.defaultKeychain credentialsForIdentifier:@"account" service:@"MrTickTock"] != nil;
+
+    if (isLoggedIn && viewController == self) {
         [self reload];
     }
 }

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuNavigationController : UINavigationController
+@interface MainNavigationController : UINavigationController
 
 @end

@@ -12,8 +12,13 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow * window;
-@property (retain, nonatomic) IIViewDeckController * deckController;
-@property (retain, nonatomic) UINavigationController * centerController;
-@property (retain, nonatomic) UIViewController * leftController;
+@property (strong, nonatomic) IIViewDeckController * deckController;
+
+@property (strong, nonatomic) UIViewController * menuController;
+@property (strong, nonatomic) UINavigationController * tasksController;
+@property (strong, nonatomic) UINavigationController * websiteController;
+
+- (void)showTasks;
+- (void)showWebsite;
 
 @end

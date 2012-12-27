@@ -31,7 +31,7 @@
 		143CC782163B4E2800698C82 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143CC781163B4E2800698C82 /* MenuViewController.m */; };
 		143ED8F31624E43B00F7EA62 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 143ED8F21624E43B00F7EA62 /* Task.m */; };
 		14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14626026161F5B0900C766A8 /* MainStoryboard.storyboard */; };
-		14731A8B1674B7CD00EB24D2 /* MenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8A1674B7CD00EB24D2 /* MenuNavigationController.m */; };
+		14731A8B1674B7CD00EB24D2 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8A1674B7CD00EB24D2 /* MainNavigationController.m */; };
 		14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8E1674DBC600EB24D2 /* MenuCell.m */; };
 		14731A911674DF7E00EB24D2 /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14731A901674DF7E00EB24D2 /* mrticktock.ttf */; };
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
@@ -41,6 +41,9 @@
 		148BF380162DF4A000B68C62 /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 148BF37E162DF4A000B68C62 /* pause.pdf */; };
 		148BF381162DF4A000B68C62 /* start.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 148BF37F162DF4A000B68C62 /* start.pdf */; };
 		148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BF388162E045000B68C62 /* UIImage+Utils.m */; };
+		149C8D4D168BBD840040E305 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D4C168BBD840040E305 /* NSObject+PerformBlock.m */; };
+		149C8D50168BC5210040E305 /* WebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D4F168BC5210040E305 /* WebsiteViewController.m */; };
+		149C8D53168BDE220040E305 /* DDURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D52168BDE220040E305 /* DDURLParser.m */; };
 		14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA7C8A1629D6F800DA9597 /* TasksManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD6161F8A19004A7380 /* bar@2x.png */; };
 		14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD9161F91D1004A7380 /* nav-button@2x.png */; };
@@ -87,8 +90,8 @@
 		143ED8F11624E43B00F7EA62 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		143ED8F21624E43B00F7EA62 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		14626027161F5B0900C766A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		14731A891674B7CD00EB24D2 /* MenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuNavigationController.h; sourceTree = "<group>"; };
-		14731A8A1674B7CD00EB24D2 /* MenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuNavigationController.m; sourceTree = "<group>"; };
+		14731A891674B7CD00EB24D2 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
+		14731A8A1674B7CD00EB24D2 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		14731A8D1674DBC600EB24D2 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		14731A8E1674DBC600EB24D2 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
 		14731A901674DF7E00EB24D2 /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
@@ -102,6 +105,12 @@
 		148BF37F162DF4A000B68C62 /* start.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = start.pdf; sourceTree = "<group>"; };
 		148BF387162E045000B68C62 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		148BF388162E045000B68C62 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		149C8D4B168BBD840040E305 /* NSObject+PerformBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformBlock.h"; sourceTree = "<group>"; };
+		149C8D4C168BBD840040E305 /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
+		149C8D4E168BC5210040E305 /* WebsiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebsiteViewController.h; sourceTree = "<group>"; };
+		149C8D4F168BC5210040E305 /* WebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebsiteViewController.m; sourceTree = "<group>"; };
+		149C8D51168BDE210040E305 /* DDURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDURLParser.h; sourceTree = "<group>"; };
+		149C8D52168BDE220040E305 /* DDURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDURLParser.m; sourceTree = "<group>"; };
 		14AA7C891629D6F800DA9597 /* TasksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksManager.h; sourceTree = "<group>"; };
 		14AA7C8A1629D6F800DA9597 /* TasksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksManager.m; sourceTree = "<group>"; };
 		14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -214,10 +223,14 @@
 		148BF386162E043700B68C62 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				149C8D51168BDE210040E305 /* DDURLParser.h */,
+				149C8D52168BDE220040E305 /* DDURLParser.m */,
 				14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */,
 				148BF387162E045000B68C62 /* UIImage+Utils.h */,
 				148BF388162E045000B68C62 /* UIImage+Utils.m */,
 				14AF44721649C4A50087D5DF /* Constants.h */,
+				149C8D4B168BBD840040E305 /* NSObject+PerformBlock.h */,
+				149C8D4C168BBD840040E305 /* NSObject+PerformBlock.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -254,8 +267,10 @@
 				14D7A0F316151710004BF0AB /* LoginViewController.m */,
 				143CC780163B4E2800698C82 /* MenuViewController.h */,
 				143CC781163B4E2800698C82 /* MenuViewController.m */,
-				14731A891674B7CD00EB24D2 /* MenuNavigationController.h */,
-				14731A8A1674B7CD00EB24D2 /* MenuNavigationController.m */,
+				14731A891674B7CD00EB24D2 /* MainNavigationController.h */,
+				14731A8A1674B7CD00EB24D2 /* MainNavigationController.m */,
+				149C8D4E168BC5210040E305 /* WebsiteViewController.h */,
+				149C8D4F168BC5210040E305 /* WebsiteViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -416,8 +431,11 @@
 				148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */,
 				14C9F03716309DCC00F8C94D /* SearchBar.m in Sources */,
 				143CC782163B4E2800698C82 /* MenuViewController.m in Sources */,
-				14731A8B1674B7CD00EB24D2 /* MenuNavigationController.m in Sources */,
+				14731A8B1674B7CD00EB24D2 /* MainNavigationController.m in Sources */,
 				14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */,
+				149C8D4D168BBD840040E305 /* NSObject+PerformBlock.m in Sources */,
+				149C8D50168BC5210040E305 /* WebsiteViewController.m in Sources */,
+				149C8D53168BDE220040E305 /* DDURLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +516,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MrTickTock/MrTickTock-Prefix.pch";
 				INFOPLIST_FILE = "MrTickTock/MrTickTock-Info.plist";
@@ -512,6 +534,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D89F082A5D4D4824B9A26E30 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MrTickTock/MrTickTock-Prefix.pch";
 				INFOPLIST_FILE = "MrTickTock/MrTickTock-Info.plist";

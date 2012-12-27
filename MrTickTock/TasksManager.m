@@ -257,11 +257,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
             _runningTaskId = -1;
 
-            [SVProgressHUD dismiss];
+            [self syncTimers];
 
-            if (self.delegate && [self.delegate respondsToSelector:@selector(taskManagerDidFinishSyncing:)]) {
-                [self.delegate taskManagerDidFinishSyncing:self];
-            }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [self showError:error.description];
         }];

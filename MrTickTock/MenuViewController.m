@@ -11,6 +11,7 @@
 #import "ACSimpleKeychain.h"
 #import "TasksViewController.h"
 #import "MenuCell.h"
+#import "NSObject+PerformBlock.h"
 
 @interface MenuViewController()
 {
@@ -80,6 +81,18 @@
 
     AppDelegate * app = [[UIApplication sharedApplication] delegate];
 
+    if (indexPath.row == MenuActionMyTasks) {
+        [app showTasks];
+
+        return nil;
+    }
+
+    if (indexPath.row == MenuActionWebsite) {
+        [app showWebsite];
+
+        return nil;
+    }
+
     [app.deckController closeLeftView];
 
     return nil;
@@ -99,11 +112,18 @@
     if (buttonIndex == 0) {
         AppDelegate * app = [[UIApplication sharedApplication] delegate];
 
-        [app.deckController closeLeftViewAnimated:YES completion:^(IIViewDeckController *controller, BOOL success) {
+        app.deckController.leftSize = 0;
+
+        [self performBlock:^{
             [ACSimpleKeychain.defaultKeychain deleteAllCredentialsForService:@"MrTickTock"];
 
-            [app.centerController popViewControllerAnimated:YES];
-        }];
+            app.deckController.centerController = app.tasksController;
+            [app.tasksController popViewControllerAnimated:NO];
+
+            [app.deckController closeLeftViewAnimated:YES completion:nil];
+
+            app.deckController.leftSize = 100;
+        } afterDelay:0.3];
     }
 }
 

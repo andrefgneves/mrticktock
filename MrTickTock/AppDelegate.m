@@ -8,41 +8,71 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-#import "Task.h"
 #import "UIImage+Utils.h"
 #import "Constants.h"
+#import "NSObject+PerformBlock.h"
 #import <TestFlightSDK/TestFlight.h>
 
 @implementation AppDelegate
-
-@synthesize window           = _window;
-@synthesize centerController = _viewController;
-@synthesize leftController   = _leftController;
-@synthesize deckController   = _deckController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setStyle];
 
-    [TestFlight takeOff:@"e9f2e39c8bff04f2885aa45c506b0e3c_MTM3NzgyMjAxMi0wOS0zMCAwODozNzozNS4zNTQ3ODk"];
+    [TestFlight takeOff:@"1aba3921-3680-4b92-b2f8-fd57fad285a8"];
 
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 
-    self.leftController = [storyboard instantiateViewControllerWithIdentifier:@"MenuNavigationController"];
+    self.menuController = [storyboard instantiateViewControllerWithIdentifier:@"MenuNavigationController"];
+    self.tasksController = [[UINavigationController alloc] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"]];
+    self.websiteController = [storyboard instantiateViewControllerWithIdentifier:@"WebsiteNavigationController"];
 
-    LoginViewController * centerController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    self.deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.tasksController
+                                                                   leftViewController:self.menuController];
+    self.deckController.leftSize = 100;
+    self.deckController.panningMode = IIViewDeckFullViewPanning;
+    self.deckController.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing;
 
-    self.centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
-
-    _deckController =  [[IIViewDeckController alloc] initWithCenterViewController:self.centerController leftViewController:self.leftController];
-    _deckController.leftSize = 100;
-    _deckController.panningMode = IIViewDeckFullViewPanning;
-    _deckController.centerhiddenInteractivity = IIViewDeckCenterHiddenNotUserInteractiveWithTapToCloseBouncing;
-
-    self.window.rootViewController = _deckController;
+    self.window.rootViewController = self.deckController;
     [self.window makeKeyAndVisible];
 
     return YES;
+}
+
+- (void)showTasks
+{
+    if (self.deckController.centerController == self.tasksController) {
+        [self.deckController closeLeftView];
+
+        return;
+    }
+    
+    self.deckController.leftSize = 0;
+    
+    [self performBlock:^{
+        self.deckController.centerController = self.tasksController;
+        [self.deckController closeLeftView];
+
+        self.deckController.leftSize = 100;
+    } afterDelay:0.3];
+}
+
+- (void)showWebsite
+{
+    if (self.deckController.centerController == self.websiteController) {
+        [self.deckController closeLeftView];
+        
+        return;
+    }
+
+    self.deckController.leftSize = 0;
+
+    [self performBlock:^{
+        self.deckController.centerController = self.websiteController;
+        [self.deckController closeLeftView];
+
+        self.deckController.leftSize = 100;
+    } afterDelay:0.3];
 }
 
 - (void)setStyle
