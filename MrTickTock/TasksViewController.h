@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TasksManager.h"
 
-@interface TasksViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIActionSheetDelegate, UISearchBarDelegate, TaskManagerDelegate>
+@interface TasksViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIActionSheetDelegate, TaskManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
 
 - (IBAction)showMenu:(id)sender;

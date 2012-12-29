@@ -53,7 +53,7 @@
 
     NSDictionary * credentials = [[AFMrTickTockAPIClient sharedClient] authParams];
 
-    if (loggedUser != [credentials objectForKey:@"email"]) {
+    if (![[credentials objectForKey:@"email"] isEqualToString:loggedUser]) {
         if (loggedUser) {
             shouldLogin = YES;
             [self logout];

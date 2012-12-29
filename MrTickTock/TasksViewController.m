@@ -24,7 +24,6 @@
     TasksManager * tasksManager;
 
     BOOL _isIOS6;
-    BOOL _isSearching;
 
     UILabel * _totalTimeLabel;
 }
@@ -34,7 +33,6 @@
 @implementation TasksViewController
 
 @synthesize table = _table;
-@synthesize searchBar = _searchBar;
 
 - (void)viewDidLoad
 {
@@ -57,27 +55,16 @@
 
     [self setupToolbar];
 
-    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
-    searchField.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
-    [searchField setValue:[UIColor colorWithRed:0.576 green:0.596 blue:0.620 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-
     _keychain = [ACSimpleKeychain defaultKeychain];
 
     tasksManager = [TasksManager sharedTasksManager];
     tasksManager.delegate = self;
-
-    _isSearching = NO;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.tableView.contentOffset = CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height);
 }
 
 - (void)setupToolbar
 {
     _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
-    _totalTimeLabel.text = @"00:00";
+    _totalTimeLabel.text = @"";
     _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
     _totalTimeLabel.textColor = UIColor.whiteColor;
     _totalTimeLabel.textAlignment = UITextAlignmentRight;
@@ -106,6 +93,8 @@
 
 - (void)reload
 {
+    _totalTimeLabel.text = @"";
+
     [tasksManager sync];
 
     [_table reloadData];
@@ -218,40 +207,6 @@
     if (isLoggedIn && viewController == self) {
         [self reload];
     }
-}
-
-#pragma mark -
-#pragma mark UISearchBar
-#pragma mark -
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [tasksManager prepareSearch];
-
-    _table.allowsSelection = NO;
-    _table.scrollEnabled = NO;
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    searchBar.text = @"";
-
-    [searchBar setShowsCancelButton:NO animated:YES];
-    [searchBar resignFirstResponder];
-
-    [tasksManager clearSearch];
-
-    _table.allowsSelection = YES;
-    _table.scrollEnabled = YES;
-
-    [_table reloadData];
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    [tasksManager search:searchText];
-
-    [_table reloadData];
 }
 
 #pragma mark -
