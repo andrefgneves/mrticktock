@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CKRefreshArrowView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CKRefreshArrowView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshArrowView.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshArrowView/setProgress:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshArrowView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CKRefreshArrowView/progress</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshArrowView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat progress</Declaration>
+			
+			
+			<Anchor>//api/name/progress</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CKRefreshArrowView/setTintColor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshArrowView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) UIColor *tintColor</Declaration>
+			
+			
+			<Anchor>//api/name/tintColor</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CKRefreshArrowView/tintColor</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CKRefreshArrowView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) UIColor *tintColor</Declaration>
+			
+			
+			<Anchor>//api/name/tintColor</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

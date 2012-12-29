@@ -15,6 +15,7 @@
 #import "Task.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import <CKRefreshControl/CKRefreshControl.h>
 
 @interface TasksViewController ()
 {
@@ -44,16 +45,15 @@
     self.navigationController.delegate = self;
     self.navigationItem.hidesBackButton = YES;
 
+    CKRefreshControl * refreshControl = [CKRefreshControl new];
+
+    self.refreshControl = (id)refreshControl;
+
     if (_isIOS6) {
-        self.refreshControl = [[UIRefreshControl alloc] init];
-        [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
         self.refreshControl.tintColor = KNavbarBackgroundColor;
-    } else {
-        UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                        target:self
-                                                                                        action:@selector(refreshInvoked:forState:)];
-        self.navigationItem.rightBarButtonItem = refreshButton;
     }
+
+    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
 
     [self setupToolbar];
 
@@ -92,9 +92,7 @@
 
 -(void)refreshInvoked:(id)sender forState:(UIControlState)state
 {
-    if (_isIOS6) {
-        [self.refreshControl endRefreshing];
-    }
+    [self.refreshControl endRefreshing];
 
     [self reload];
 }
@@ -109,6 +107,8 @@
 - (void)reload
 {
     [tasksManager sync];
+
+    [_table reloadData];
 }
 
 #pragma mark -
@@ -117,7 +117,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return tasksManager.customers.count;
+    return tasksManager.syncing ? 0 : tasksManager.customers.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -140,6 +140,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tasksManager.syncing) {
+        return 0;
+    }
+
     NSString * customer = [tasksManager.customers objectAtIndex:section];
 
     return [tasksManager tasksForCustomer:customer].count;
@@ -161,7 +165,7 @@
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
     }
 
-    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor colorWithRed:0.812 green:0.882 blue:0.969 alpha:1.000];
+    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor whiteColor];
 
     UIColor * textColor = task.isRunning ? [UIColor whiteColor] : KNavbarBackgroundColor;
 

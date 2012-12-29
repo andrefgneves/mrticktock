@@ -176,11 +176,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
                 if (count == _allTasks.count) {
                     [SVProgressHUD dismiss];
 
+                    _syncing = NO;
+
                     if (self.delegate && [self.delegate respondsToSelector:@selector(taskManagerDidFinishSyncing:)]) {
                         [self.delegate taskManagerDidFinishSyncing:self];
                     }
-
-                    _syncing = NO;
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
         }
@@ -308,6 +308,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
 - (Task *)taskAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (!_customers.count || !_tasks.count) {
+        return nil;
+    }
+
     NSString * customer = [_customers objectAtIndex:indexPath.section];
     NSArray * tasks = [_tasks objectForKey:customer];
 
@@ -318,6 +322,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 {
     NSMutableArray * customerTasks;
 
+    NSSortDescriptor * sorter = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
+
     for (Task * task in tasks) {
         if ([_tasks objectForKey:task.customerName]) {
             customerTasks = [_tasks objectForKey:task.customerName];
@@ -326,6 +332,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
         }
 
         [customerTasks addObject:task];
+        [customerTasks sortUsingDescriptors:@[sorter]];
 
         [_tasks setObject:customerTasks forKey:task.customerName];
 
@@ -333,6 +340,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
             [_customers addObject:task.customerName];
         }
     }
+
+    [_customers sortUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
 - (void)prepareSearch

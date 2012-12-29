@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/seven/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.CKRefreshControl-0.0.1.docset
+Time: 2012-12-29 19:06:33 +0000

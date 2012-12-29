@@ -12,20 +12,11 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="71" sectionHeaderHeight="22" sectionFooterHeight="22" id="zKb-rA-mK1">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.81176470588235294" green="0.88235294117647056" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="0.64313725490196083" green="0.78431372549019607" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="Dah-Ju-bMs" customClass="SearchBar">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="dPk-6F-65K" id="teB-fa-wb2"/>
-                            </connections>
-                        </searchBar>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.8992577266461782" green="0.90626468130260829" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TASK_CELL" rowHeight="70" id="aMf-fd-V5u" customClass="TaskCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -94,7 +85,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="Dah-Ju-bMs" id="TE2-S0-y54"/>
                         <outlet property="searchDisplayController" destination="jzE-S3-mN2" id="G5c-hF-356"/>
                         <outlet property="showMenuButton" destination="Cva-OH-iUi" id="OH0-rm-l08"/>
                         <outlet property="table" destination="zKb-rA-mK1" id="pHN-dM-vQg"/>
@@ -104,7 +94,6 @@
                 <searchDisplayController id="jzE-S3-mN2">
                     <connections>
                         <outlet property="delegate" destination="dPk-6F-65K" id="42d-Sm-QWp"/>
-                        <outlet property="searchBar" destination="Dah-Ju-bMs" id="0vB-Wh-ZlP"/>
                         <outlet property="searchContentsController" destination="dPk-6F-65K" id="Zng-0V-XJs"/>
                         <outlet property="searchResultsDataSource" destination="dPk-6F-65K" id="ydu-e1-aUX"/>
                         <outlet property="searchResultsDelegate" destination="dPk-6F-65K" id="fyZ-yM-byk"/>
@@ -421,9 +410,6 @@
                 <relationship kind="outlet" name="mytTasksCell" candidateClass="MenuCell"/>
                 <relationship kind="outlet" name="websiteCell" candidateClass="MenuCell"/>
             </relationships>
-        </class>
-        <class className="SearchBar" superclassName="UISearchBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchBar.h"/>
         </class>
         <class className="TaskCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TaskCell.h"/>
