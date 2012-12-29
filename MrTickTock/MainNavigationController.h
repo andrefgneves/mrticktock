@@ -10,4 +10,6 @@
 
 @interface MainNavigationController : UINavigationController
 
+- (void)showAvatar;
+
 @end

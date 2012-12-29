@@ -3,10 +3,10 @@ PODS:
 - ACSimpleKeychain (0.0.1)
 - AFNetworking (1.0.1)
 - FTAssetRenderer (0.1.1)
+- GetGravatar (1.1)
 - LOG_EXPR (1.2)
 - MGImageUtilities (0.0.1)
 - NSDate+Helper (0.0.1)
-- STTweetLabel (1.1.1)
 - SVProgressHUD (0.8)
 - TestFlightSDK (1.2)
 - UIImage+PDF (1.0.0)
@@ -16,10 +16,10 @@ DEPENDENCIES:
 - ACSimpleKeychain
 - AFNetworking
 - FTAssetRenderer
+- GetGravatar
 - LOG_EXPR
 - MGImageUtilities
 - NSDate+Helper
-- STTweetLabel
 - SVProgressHUD
 - TestFlightSDK
 - UIImage+PDF
@@ -27,12 +27,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ACSimpleKeychain: bd3dc5db0df1da0b44c15e6e997d8b802682ac18
-  AFNetworking: 4c11f857c9a18d65f4257c90a1e74ac49f0ac422
+  AFNetworking: 0bce3ae41023e080e96b8a2e0d07c94709f72a81
   FTAssetRenderer: d6a9d224e145596939ad6daaab23afa54a01cde3
+  GetGravatar: 3f88c650d1f07a4ecdde8b8e2939566d05dc4272
   LOG_EXPR: d62b8f6c3e174df041a14de62adfbb1daaa2ff14
   MGImageUtilities: ab3580f2161b10f8a41331baea87aaafbd688950
   NSDate+Helper: 3015cb57778256bce7c549fca172474308740059
-  STTweetLabel: 0b7b53fcaef381babf3253d85ad3d05849b751ab
   SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
   TestFlightSDK: 29e194fb148e4861f92e4c1195b9697e1f3ad19a
   UIImage+PDF: cad9495618586e360f318d8a570a8f9a589a4573

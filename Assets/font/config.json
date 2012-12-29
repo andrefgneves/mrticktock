@@ -27,6 +27,18 @@
     },
     {
       "search": [
+        "home"
+      ],
+      "code": 104,
+      "uid": "513ac180ff85bd275f2b736720cbbf5e",
+      "css": "home",
+      "orig_css": "home",
+      "orig_code": 104,
+      "src": "entypo",
+      "from": 8962
+    },
+    {
+      "search": [
         "check"
       ],
       "code": 102,

@@ -43,7 +43,6 @@
 		148BF389162E045000B68C62 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BF388162E045000B68C62 /* UIImage+Utils.m */; };
 		149C8D4D168BBD840040E305 /* NSObject+PerformBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D4C168BBD840040E305 /* NSObject+PerformBlock.m */; };
 		149C8D50168BC5210040E305 /* WebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D4F168BC5210040E305 /* WebsiteViewController.m */; };
-		149C8D53168BDE220040E305 /* DDURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D52168BDE220040E305 /* DDURLParser.m */; };
 		14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA7C8A1629D6F800DA9597 /* TasksManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14C0FFD7161F8A19004A7380 /* bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD6161F8A19004A7380 /* bar@2x.png */; };
 		14C0FFDB161F91D1004A7380 /* nav-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C0FFD9161F91D1004A7380 /* nav-button@2x.png */; };
@@ -109,8 +108,6 @@
 		149C8D4C168BBD840040E305 /* NSObject+PerformBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformBlock.m"; sourceTree = "<group>"; };
 		149C8D4E168BC5210040E305 /* WebsiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebsiteViewController.h; sourceTree = "<group>"; };
 		149C8D4F168BC5210040E305 /* WebsiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebsiteViewController.m; sourceTree = "<group>"; };
-		149C8D51168BDE210040E305 /* DDURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDURLParser.h; sourceTree = "<group>"; };
-		149C8D52168BDE220040E305 /* DDURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDURLParser.m; sourceTree = "<group>"; };
 		14AA7C891629D6F800DA9597 /* TasksManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksManager.h; sourceTree = "<group>"; };
 		14AA7C8A1629D6F800DA9597 /* TasksManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksManager.m; sourceTree = "<group>"; };
 		14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -223,8 +220,6 @@
 		148BF386162E043700B68C62 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				149C8D51168BDE210040E305 /* DDURLParser.h */,
-				149C8D52168BDE220040E305 /* DDURLParser.m */,
 				14AA7C921629D85500DA9597 /* SynthesizeSingleton.h */,
 				148BF387162E045000B68C62 /* UIImage+Utils.h */,
 				148BF388162E045000B68C62 /* UIImage+Utils.m */,
@@ -435,7 +430,6 @@
 				14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */,
 				149C8D4D168BBD840040E305 /* NSObject+PerformBlock.m in Sources */,
 				149C8D50168BC5210040E305 /* WebsiteViewController.m in Sources */,
-				149C8D53168BDE220040E305 /* DDURLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

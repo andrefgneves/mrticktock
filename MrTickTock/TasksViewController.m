@@ -57,6 +57,10 @@
 
     [self setupToolbar];
 
+    UITextField * searchField = [self.searchBar valueForKey:@"_searchField"];
+    searchField.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
+    [searchField setValue:[UIColor colorWithRed:0.576 green:0.596 blue:0.620 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+
     _keychain = [ACSimpleKeychain defaultKeychain];
 
     tasksManager = [TasksManager sharedTasksManager];
@@ -74,7 +78,7 @@
 {
     _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
     _totalTimeLabel.text = @"00:00";
-    _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
     _totalTimeLabel.textColor = UIColor.whiteColor;
     _totalTimeLabel.textAlignment = UITextAlignmentRight;
     _totalTimeLabel.backgroundColor = KNavbarBackgroundColor;
@@ -102,25 +106,8 @@
     [app.deckController toggleLeftViewAnimated:YES];
 }
 
-- (void)showLogin
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)logout
-{
-    [_keychain deleteAllCredentialsForService:@"MrTickTock"];
-
-    [tasksManager cleanup:YES];
-
-    [_table reloadData];
-
-    [self showLogin];
-}
-
 - (void)reload
 {
-    [SVProgressHUD show];
     [tasksManager sync];
 }
 
@@ -140,11 +127,11 @@
     UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 15)];
     headerView.backgroundColor = [UIColor colorWithRed:0.655 green:0.760 blue:0.875 alpha:1.000];
 
-    UILabel * customerLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, self.tableView.bounds.size.width, 22)];
+    UILabel * customerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, self.tableView.bounds.size.width, 22)];
     customerLabel.backgroundColor = UIColor.clearColor;
     customerLabel.text = customer;
     customerLabel.textColor = UIColor.whiteColor;
-    customerLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:14];
+    customerLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
 
     [headerView addSubview:customerLabel];
 
@@ -174,9 +161,9 @@
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
     }
 
-    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor colorWithRed:0.804 green:0.890 blue:0.969 alpha:1.000];
+    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor colorWithRed:0.812 green:0.882 blue:0.969 alpha:1.000];
 
-    UIColor * textColor = task.isRunning ? [UIColor whiteColor] : [UIColor colorWithRed:0.267 green:0.561 blue:0.710 alpha:1.000];
+    UIColor * textColor = task.isRunning ? [UIColor whiteColor] : KNavbarBackgroundColor;
 
     cell.projectName.text = task.projectName;
     cell.projectName.textColor = textColor;
@@ -191,9 +178,9 @@
     cell.toggleButton.titleLabel.text = task.customerName;
     cell.toggleButton.running = task.isRunning;
 
-    cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
-    cell.taskName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:11];
-    cell.taskTime.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
+    cell.taskName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
+    cell.taskTime.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
 
     return cell;
 }
@@ -226,17 +213,6 @@
 
     if (isLoggedIn && viewController == self) {
         [self reload];
-    }
-}
-
-#pragma mark -
-#pragma mark UIActionSheet
-#pragma mark -
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0) {
-        [self logout];
     }
 }
 

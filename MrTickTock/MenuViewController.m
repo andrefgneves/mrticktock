@@ -13,10 +13,22 @@
 #import "MenuCell.h"
 #import "NSObject+PerformBlock.h"
 
+typedef enum {
+    MenuActionMyTasks,
+    MenuActionWebsite,
+    MenuActionDivider,
+    MenuActionLogout,
+    MenuActionsCount
+} MenuActions;
+
 @interface MenuViewController()
 {
     BOOL _isIOS6;
 }
+
+@property (weak, nonatomic) IBOutlet MenuCell * mytTasksCell;
+@property (weak, nonatomic) IBOutlet MenuCell * websiteCell;
+@property (weak, nonatomic) IBOutlet MenuCell * logoutCell;
 
 @end
 
@@ -30,45 +42,28 @@
 
     self.title = @"";
 
-    STTweetLabel * urlLabel = [[STTweetLabel alloc] init];
-
-    urlLabel.delegate = self;
-    urlLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:10];
-    urlLabel.text = @"http://mrticktock.com";
-    urlLabel.textColor = UIColor.whiteColor;
-    urlLabel.backgroundColor = UIColor.clearColor;
-    urlLabel.frame = CGRectMake(10, self.view.frame.size.height - 70, self.view.frame.size.width, 30);
-
-    [self.view addSubview:urlLabel];
+    [self setupCells];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)setupCells
 {
-    return MenuActionsCount;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    MenuCell * cell;
-
-    if (_isIOS6) {
-        cell = [self.tableView dequeueReusableCellWithIdentifier:@"MENU_CELL" forIndexPath:indexPath];
-    } else {
-        cell = [self.tableView dequeueReusableCellWithIdentifier:@"MENU_CELL"];
-    }
-
-    cell.iconLabel.text = indexPath.row ? @"e" : @"f";
-    cell.titleLabel.text = indexPath.row ? @"Logout" : @"My Tasks";
-
-    cell.iconLabel.font = [UIFont fontWithName:@"mrticktock" size:20];
-    cell.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    UIFont * iconFont = [UIFont fontWithName:@"mrticktock" size:20];
+    UIFont * titleFont = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
 
     UIView * selectedBackground = [[UIView alloc] init];
-    selectedBackground.backgroundColor = [UIColor colorWithRed:0.213 green:0.231 blue:0.270 alpha:1.000];
+    selectedBackground.backgroundColor = [UIColor colorWithRed:0.212 green:0.227 blue:0.267 alpha:1.000];
 
-    cell.selectedBackgroundView = selectedBackground;
+    self.mytTasksCell.iconLabel.font = iconFont;
+    self.mytTasksCell.titleLabel.font = titleFont;
+    self.mytTasksCell.selectedBackgroundView = selectedBackground;
 
-    return cell;
+    self.websiteCell.iconLabel.font = iconFont;
+    self.websiteCell.titleLabel.font = titleFont;
+    self.websiteCell.selectedBackgroundView = selectedBackground;
+
+    self.logoutCell.iconLabel.font = iconFont;
+    self.logoutCell.titleLabel.font = titleFont;
+    self.logoutCell.selectedBackgroundView = selectedBackground;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,6 +83,8 @@
     }
 
     if (indexPath.row == MenuActionWebsite) {
+        [SVProgressHUD dismiss];
+
         [app showWebsite];
 
         return nil;

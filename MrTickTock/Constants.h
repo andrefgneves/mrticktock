@@ -9,7 +9,7 @@
 #ifndef MrTickTock_Constants_h
 #define MrTickTock_Constants_h
 
-#define KNavbarBackgroundColor [UIColor colorWithRed:0.267 green:0.561 blue:0.710 alpha:1.000]
+#define KNavbarBackgroundColor [UIColor colorWithRed:0.329 green:0.533 blue:0.729 alpha:1]
 #define KNavbarBackgroundImage [UIImage imageWithColor:KNavbarBackgroundColor andSize:CGSizeMake(1, 1)]
 
 #endif

@@ -8,19 +8,21 @@
 
 #import "WebsiteViewController.h"
 #import "AFMrTickTockAPIClient.h"
-#import "DDURLParser.h"
+#import "AppDelegate.h"
+#import "Constants.h"
+#import "SVProgressHUD.h"
 
 #define MRTICKTOCK_LOGIN_URL "https://mrticktock.com/app/auth/log_in"
 #define MRTICKTOCK_LOGOUT_URL "https://mrticktock.com/app/auth/log_out"
 
 @interface WebsiteViewController ()
 {
-    BOOL isLoggingIn;
-    BOOL isLoggingOut;
-    NSDictionary * authParams;
+    NSString * loggedUser;
+    BOOL shouldLogin;
 }
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView * webView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem * reloadButton;
 
 @end
 
@@ -35,10 +37,44 @@
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
 
-    isLoggingIn = NO;
-    isLoggingOut = NO;
+    NSDictionary * buttonTextAttributes = @{
+        UITextAttributeFont: [UIFont fontWithName:@"mrticktock" size:25],
+        UITextAttributeTextShadowColor: KNavbarBackgroundColor
+    };
 
-    [self login];
+    [self.reloadButton setTitleTextAttributes:buttonTextAttributes forState:UIControlStateNormal];
+
+    shouldLogin = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    NSDictionary * credentials = [[AFMrTickTockAPIClient sharedClient] authParams];
+
+    if (loggedUser != [credentials objectForKey:@"email"]) {
+        if (loggedUser) {
+            shouldLogin = YES;
+            [self logout];
+
+            return;
+        }
+
+        [self login];
+    }
+}
+
+- (void)showMenu:(id)sender
+{
+    AppDelegate * app = [[UIApplication sharedApplication] delegate];
+    
+    [app.deckController toggleLeftViewAnimated:YES];
+}
+
+- (void)reload:(id)sender
+{
+    [self.webView reload];
 }
 
 - (void)login
@@ -52,6 +88,8 @@
     request.HTTPMethod = @"POST";
     request.HTTPBody = [body dataUsingEncoding: NSUTF8StringEncoding];
 
+    loggedUser = [credentials objectForKey:@"email"];
+
     [self.webView loadRequest:request];
 }
 
@@ -63,36 +101,26 @@
     [self.webView loadRequest:request];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    if (([request.URL.absoluteString isEqualToString:@MRTICKTOCK_LOGIN_URL]) && ([request.HTTPMethod isEqualToString:@"POST"])) {
-        isLoggingIn = YES;
-        isLoggingOut = NO;
-
-        NSString * dataString = [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding];
-        DDURLParser * urlParser = [[DDURLParser alloc] initWithURLString:[@"?" stringByAppendingString:dataString]];
-
-        LOG_EXPR(dataString);
-
-        LOG_EXPR([urlParser valueForVariable:@"user_email"]);
-    } else if (request.URL.absoluteString == @MRTICKTOCK_LOGOUT_URL) {
-        isLoggingIn = NO;
-        isLoggingOut = YES;
-    }
-
-    return YES;
-}
-
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    isLoggingOut = (webView.request.URL.absoluteString == @MRTICKTOCK_LOGOUT_URL);
+    [SVProgressHUD show];
+
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    if (isLoggingOut) {
-        
+    if (shouldLogin) {
+        shouldLogin = NO;
+
+        [self login];
+
+        return;
     }
+
+    [SVProgressHUD dismiss];
+
+    self.navigationItem.rightBarButtonItem = self.reloadButton;
 }
 
 - (void)viewDidUnload {

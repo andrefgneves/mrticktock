@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Pdf.h"
 #import "FTPDFAssetRenderer.h"
+#import "Constants.h"
 
 @implementation ToggleTaskButton
 
@@ -20,7 +21,7 @@
     FTPDFAssetRenderer * renderer = [FTAssetRenderer rendererForPDFNamed:_running ? @"pause" : @"start"];
     renderer.targetSize = self.bounds.size;
 
-    _color = _running ? [UIColor whiteColor] : [UIColor colorWithRed:0.278 green:0.565 blue:0.702 alpha:1.000];
+    _color = _running ? [UIColor whiteColor] : KNavbarBackgroundColor;
 
     renderer.targetColor = _color;
 

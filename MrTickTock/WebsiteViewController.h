@@ -10,6 +10,8 @@
 
 @interface WebsiteViewController : UIViewController <UIWebViewDelegate>
 
+- (IBAction)showMenu:(id)sender;
+- (IBAction)reload:(id)sender;
 - (void)login;
 - (void)logout;
 

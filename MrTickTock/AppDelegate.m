@@ -12,11 +12,21 @@
 #import "Constants.h"
 #import "NSObject+PerformBlock.h"
 #import <TestFlightSDK/TestFlight.h>
+#import "TasksManager.h"
+
+@interface AppDelegate()
+{
+    BOOL isBackgrounded;
+}
+
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    isBackgrounded = NO;
+
     [self setStyle];
 
     [TestFlight takeOff:@"1aba3921-3680-4b92-b2f8-fd57fad285a8"];
@@ -75,6 +85,20 @@
     } afterDelay:0.3];
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    isBackgrounded = YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    if (isBackgrounded && self.deckController.centerController == self.tasksController) {
+        [[TasksManager sharedTasksManager] sync];
+    }
+
+    isBackgrounded = NO;
+}
+
 - (void)setStyle
 {
     BOOL _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
@@ -84,6 +108,8 @@
                                                           KNavbarBackgroundColor ,UITextAttributeTextShadowColor,
                                                           [UIFont fontWithName:@"ProximaNova-Bold" size:20], UITextAttributeFont,
                                                           nil]];
+
+    [[UINavigationBar appearance] setTitleVerticalPositionAdjustment:2 forBarMetrics:UIBarMetricsDefault];
 
     if (_isIOS6) {
         // Remove navigation bars shadow
@@ -98,6 +124,7 @@
                                                  nil];
 
     [[UIBarButtonItem appearance] setTitleTextAttributes:navBarButtonTextAttributes forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setBackgroundVerticalPositionAdjustment:3 forBarMetrics:UIBarMetricsDefault];
 
     // Use the same image as the navigations bar to have a flat look
     [[UIBarButtonItem appearance] setBackgroundImage:KNavbarBackgroundImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
@@ -134,7 +161,7 @@
     [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] andSize:CGSizeMake(320, 44)] forState:UIControlStateNormal];
     
     // UIToolbar appearance
-    [[UIToolbar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0.278 green:0.565 blue:0.702 alpha:1.000] andSize:CGSizeMake(1, 1)] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    [[UIToolbar appearance] setBackgroundImage:[UIImage imageWithColor:KNavbarBackgroundColor andSize:CGSizeMake(1, 1)] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 
     if (_isIOS6) {
         [[UIToolbar appearance] setShadowImage:[[UIImage alloc] init] forToolbarPosition:UIToolbarPositionAny];

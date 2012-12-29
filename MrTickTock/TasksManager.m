@@ -7,6 +7,8 @@
 //
 
 #import "TasksManager.h"
+#import "AppDelegate.h"
+#import "MainNavigationController.h"
 
 @interface TasksManager()
 {
@@ -66,6 +68,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
     _syncing = YES;
 
+    [SVProgressHUD show];
+
     [[AFMrTickTockAPIClient sharedClient] postPath:@"is_timer_active" parameters:[[AFMrTickTockAPIClient sharedClient] authParams] success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
 
         NSArray * errors = [JSON objectForKey:@"errors"];
@@ -74,6 +78,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
             return;
         }
+
+        AppDelegate * app = [[UIApplication sharedApplication] delegate];
+
+        [(MainNavigationController *) app.deckController.leftController showAvatar];
 
         NSDictionary * response = [[JSON objectForKey:@"content"] objectAtIndex:0];
 
@@ -300,7 +308,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
 - (Task *)taskAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     NSString * customer = [_customers objectAtIndex:indexPath.section];
     NSArray * tasks = [_tasks objectForKey:customer];
 
