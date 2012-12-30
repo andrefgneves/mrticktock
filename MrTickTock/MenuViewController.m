@@ -28,6 +28,7 @@ typedef enum {
 
 @property (weak, nonatomic) IBOutlet MenuCell * mytTasksCell;
 @property (weak, nonatomic) IBOutlet MenuCell * websiteCell;
+@property (weak, nonatomic) IBOutlet MenuCell * dividerCell;
 @property (weak, nonatomic) IBOutlet MenuCell * logoutCell;
 
 @end
@@ -48,7 +49,7 @@ typedef enum {
 - (void)setupCells
 {
     UIFont * iconFont = [UIFont fontWithName:@"mrticktock" size:20];
-    UIFont * titleFont = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    UIFont * titleFont = [UIFont fontWithName:@"ProximaNova-Regular" size:20];
 
     UIView * selectedBackground = [[UIView alloc] init];
     selectedBackground.backgroundColor = [UIColor colorWithRed:0.212 green:0.227 blue:0.267 alpha:1.000];
@@ -64,6 +65,15 @@ typedef enum {
     self.logoutCell.iconLabel.font = iconFont;
     self.logoutCell.titleLabel.font = titleFont;
     self.logoutCell.selectedBackgroundView = selectedBackground;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == MenuActionDivider) {
+        return self.tableView.frame.size.height - self.mytTasksCell.frame.size.height - self.websiteCell.frame.size.height - self.logoutCell.frame.size.height;
+    }
+
+    return 45;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath

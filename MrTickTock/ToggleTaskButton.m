@@ -21,11 +21,11 @@
     FTPDFAssetRenderer * renderer = [FTAssetRenderer rendererForPDFNamed:_running ? @"pause" : @"start"];
     renderer.targetSize = self.bounds.size;
 
-    _color = _running ? [UIColor whiteColor] : KNavbarBackgroundColor;
+    _color = _running ? [UIColor whiteColor] : [UIColor colorWithWhite:0.555 alpha:1.000];
 
     renderer.targetColor = _color;
 
-    UIImage * normalImage = [renderer imageWithCacheIdentifier:[NSString stringWithFormat:@"%@-normal", _running ? @"running" : @"paused"]];
+    UIImage * normalImage = [renderer imageWithCacheIdentifier:[NSString stringWithFormat:@"%@-normal-button", _running ? @"running" : @"paused"]];
 
     renderer.targetColor = [UIColor blackColor];
     UIImage * highlightedImage = [renderer imageWithCacheIdentifier:@"highlighted"];

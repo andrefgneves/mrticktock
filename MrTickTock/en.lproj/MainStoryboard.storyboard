@@ -256,17 +256,17 @@
                                             <outlet property="titleLabel" destination="t37-mL-7AV" id="BCY-D4-fv9"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MENU_CELL" rowHeight="371" id="MCB-Ff-2QZ" customClass="MenuCell">
-                                        <rect key="frame" x="0.0" y="90" width="320" height="371"/>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MENU_CELL" rowHeight="45" id="MCB-Ff-2QZ" customClass="MenuCell">
+                                        <rect key="frame" x="0.0" y="90" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MENU_CELL" rowHeight="43" id="uVc-9R-EG9" customClass="MenuCell">
-                                        <rect key="frame" x="0.0" y="461" width="320" height="43"/>
+                                        <rect key="frame" x="0.0" y="135" width="320" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
@@ -304,6 +304,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Mr. Tick Tock" id="Zgl-Nz-Bfj"/>
                     <connections>
+                        <outlet property="dividerCell" destination="MCB-Ff-2QZ" id="xFj-Iu-9FR"/>
                         <outlet property="logoutCell" destination="uVc-9R-EG9" id="jdV-KD-oOX"/>
                         <outlet property="mytTasksCell" destination="cYc-Lo-nXh" id="1HI-v4-hgC"/>
                         <outlet property="websiteCell" destination="Y4B-Gn-Wdi" id="tRt-K7-r1q"/>
@@ -406,6 +407,7 @@
         <class className="MenuViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="dividerCell" candidateClass="MenuCell"/>
                 <relationship kind="outlet" name="logoutCell" candidateClass="MenuCell"/>
                 <relationship kind="outlet" name="mytTasksCell" candidateClass="MenuCell"/>
                 <relationship kind="outlet" name="websiteCell" candidateClass="MenuCell"/>

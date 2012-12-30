@@ -11,7 +11,7 @@
 @implementation UIImage (Utils)
 
 + (UIImage *)imageWithColor:(UIColor *)color andSize:(CGSize)size {
-    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
 
     CGRect fillRect = CGRectMake(0, 0, size.width, size.height);

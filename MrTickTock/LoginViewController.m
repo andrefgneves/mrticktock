@@ -31,13 +31,20 @@
     [self checkCredentials];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
+    [[self.navigationController.navigationBar viewWithTag:1000] removeFromSuperview];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [self.emailTextField becomeFirstResponder];
 
     self.viewDeckController.panningMode = IIViewDeckNoPanning;
 }
 
-- (void)checkCredentials {
+- (void)checkCredentials
+{
     NSDictionary * credentials = [keychain credentialsForIdentifier:@"account" service:@"MrTickTock"];
 
     if (credentials) {
@@ -49,7 +56,8 @@
     }
 }
 
-- (void)login {
+- (void)login
+{
     NSString * email = self.emailTextField.text;
     NSString * password = self.passwordTextField.text;
 
@@ -60,7 +68,8 @@
     }
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     if (textField == self.emailTextField) {
         [self.passwordTextField becomeFirstResponder];
     } else {

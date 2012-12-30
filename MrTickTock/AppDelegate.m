@@ -159,7 +159,7 @@
 
     // UISearchBar textfield appearance
     [[UISearchBar appearance] setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] andSize:CGSizeMake(320, 44)] forState:UIControlStateNormal];
-    
+
     // UIToolbar appearance
     [[UIToolbar appearance] setBackgroundImage:[UIImage imageWithColor:KNavbarBackgroundColor andSize:CGSizeMake(1, 1)] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 

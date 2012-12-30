@@ -41,14 +41,14 @@
 
 - (void)showAvatar
 {
-    NSString * email = @"";
+    NSString * email;
     NSDictionary * credentials = [[AFMrTickTockAPIClient sharedClient] authParams];
 
     if (credentials) {
         email = [credentials objectForKey:@"email"];
     }
 
-    NSURL * gravatarURL = [GetGravatar gravatarURL:email:@"52":nil];
+    NSURL * gravatarURL = [GetGravatar gravatarURL:email:@"52":@"blank"];
 
     [gravatarView setImageWithURL:gravatarURL];
 }

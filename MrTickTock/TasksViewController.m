@@ -48,7 +48,7 @@
     self.refreshControl = (id)refreshControl;
 
     if (_isIOS6) {
-        self.refreshControl.tintColor = KNavbarBackgroundColor;
+        self.refreshControl.tintColor = [UIColor colorWithWhite:0.555 alpha:1.000];
     }
 
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
@@ -61,20 +61,24 @@
     tasksManager.delegate = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    AppDelegate * app = [[UIApplication sharedApplication] delegate];
+
+    app.deckController.panningMode = IIViewDeckFullViewPanning;
+}
+
 - (void)setupToolbar
 {
-    _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 20)];
+    _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.navigationController.navigationBar.frame.size.width - 85, 13, 70, 20)];
     _totalTimeLabel.text = @"";
-    _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
+    _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
     _totalTimeLabel.textColor = UIColor.whiteColor;
     _totalTimeLabel.textAlignment = UITextAlignmentRight;
     _totalTimeLabel.backgroundColor = KNavbarBackgroundColor;
+    _totalTimeLabel.tag = 1000;
 
-    UIBarButtonItem * space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem * totalTime = [[UIBarButtonItem alloc] initWithCustomView:_totalTimeLabel];
-
-    self.navigationController.toolbarHidden = NO;
-    self.toolbarItems = @[space, totalTime];
+    [self.navigationController.navigationBar addSubview:_totalTimeLabel];
 }
 
 -(void)refreshInvoked:(id)sender forState:(UIControlState)state
@@ -114,13 +118,13 @@
     NSString * customer = [tasksManager.customers objectAtIndex:section];
 
     UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 15)];
-    headerView.backgroundColor = [UIColor colorWithRed:0.655 green:0.760 blue:0.875 alpha:1.000];
+    headerView.backgroundColor = [UIColor colorWithWhite:0.933 alpha:1.000];
 
     UILabel * customerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, self.tableView.bounds.size.width, 22)];
     customerLabel.backgroundColor = UIColor.clearColor;
     customerLabel.text = customer;
-    customerLabel.textColor = UIColor.whiteColor;
-    customerLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
+    customerLabel.textColor = [UIColor colorWithWhite:0.555 alpha:1.000];
+    customerLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12];
 
     [headerView addSubview:customerLabel];
 
@@ -154,9 +158,9 @@
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
     }
 
-    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.553 green:0.902 blue:0.180 alpha:1.000] : [UIColor whiteColor];
+    cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.537 green:0.805 blue:0.184 alpha:1.000] : [UIColor whiteColor];
 
-    UIColor * textColor = task.isRunning ? [UIColor whiteColor] : KNavbarBackgroundColor;
+    UIColor * textColor = task.isRunning ? [UIColor whiteColor] : [UIColor colorWithWhite:0.555 alpha:1.000];
 
     cell.projectName.text = task.projectName;
     cell.projectName.textColor = textColor;
@@ -171,9 +175,9 @@
     cell.toggleButton.titleLabel.text = task.customerName;
     cell.toggleButton.running = task.isRunning;
 
-    cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
-    cell.taskName.font = [UIFont fontWithName:@"ProximaNova-Bold" size:12];
-    cell.taskTime.font = [UIFont fontWithName:@"ProximaNova-Bold" size:18];
+    cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
+    cell.taskName.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12];
+    cell.taskTime.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
 
     return cell;
 }
