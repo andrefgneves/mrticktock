@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TasksManager.h"
 
-@interface TasksViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIActionSheetDelegate, TaskManagerDelegate>
+@interface TasksViewController : UITableViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIActionSheetDelegate, TaskManagerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *showMenuButton;
+@property (strong, nonatomic) IBOutlet UITableView * table;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem * showMenuButton;
+@property (strong, nonatomic) IBOutlet UILabel * titleLabel;
+
 
 - (IBAction)showMenu:(id)sender;
 - (IBAction)toggleButtonTouched:(UIButton *)button;

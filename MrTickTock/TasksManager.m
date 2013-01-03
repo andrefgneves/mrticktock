@@ -395,6 +395,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
 - (void)showError:(NSString *)error
 {
+    _syncing = NO;
+
     [SVProgressHUD dismiss];
 
     [[[UIAlertView alloc] initWithTitle:@"Error"

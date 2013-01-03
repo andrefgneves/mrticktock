@@ -32,13 +32,13 @@
 {
     [super viewDidLoad];
 
-    self.title = @"MrTickTock";
+    [self setupNavBar];
 
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
 
     NSDictionary * buttonTextAttributes = @{
-        UITextAttributeFont: [UIFont fontWithName:@"mrticktock" size:25],
+        UITextAttributeFont: [UIFont fontWithName:@"mrticktock" size:20],
         UITextAttributeTextShadowColor: KNavbarBackgroundColor
     };
 
@@ -63,6 +63,16 @@
 
         [self login];
     }
+}
+
+- (void)setupNavBar
+{
+    self.titleLabel.text = @"Website";
+    self.titleLabel.textColor = UIColor.whiteColor;
+    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+    
+    [self.navigationItem.leftBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-3, 3) forBarMetrics:UIBarMetricsDefault];
+    [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(5, 3) forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)showMenu:(id)sender

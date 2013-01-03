@@ -12,6 +12,8 @@
 #import "TasksViewController.h"
 #import "MenuCell.h"
 #import "NSObject+PerformBlock.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIImage+Utils.h"
 
 typedef enum {
     MenuActionMyTasks,
@@ -22,9 +24,6 @@ typedef enum {
 } MenuActions;
 
 @interface MenuViewController()
-{
-    BOOL _isIOS6;
-}
 
 @property (weak, nonatomic) IBOutlet MenuCell * mytTasksCell;
 @property (weak, nonatomic) IBOutlet MenuCell * websiteCell;
@@ -38,8 +37,6 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
 
     self.title = @"";
 
@@ -57,10 +54,12 @@ typedef enum {
     self.mytTasksCell.iconLabel.font = iconFont;
     self.mytTasksCell.titleLabel.font = titleFont;
     self.mytTasksCell.selectedBackgroundView = selectedBackground;
+    self.mytTasksCell.arrowLabel.font = iconFont;
 
     self.websiteCell.iconLabel.font = iconFont;
     self.websiteCell.titleLabel.font = titleFont;
     self.websiteCell.selectedBackgroundView = selectedBackground;
+    self.websiteCell.arrowLabel.font = iconFont;
 
     self.logoutCell.iconLabel.font = iconFont;
     self.logoutCell.titleLabel.font = titleFont;
@@ -105,7 +104,7 @@ typedef enum {
     return nil;
 }
 
-- (IBAction)confirmLogout
+- (void)confirmLogout
 {
     [[[UIActionSheet alloc] initWithTitle:@"Really logout?"
                                  delegate:self
@@ -134,9 +133,10 @@ typedef enum {
     }
 }
 
-- (void)websiteClicked:(NSString *)link
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+    UIImage * background = [UIImage imageWithColor:[UIColor colorWithWhite:0 alpha:.7] andSize:CGSizeMake(1, 1)];
+    [[actionSheet layer] setContents:(id)background.CGImage];
 }
 
 @end

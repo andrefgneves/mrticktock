@@ -25,7 +25,11 @@
 
     BOOL _isIOS6;
 
+    UILabel * _totalLabel;
     UILabel * _totalTimeLabel;
+    UIView * _toolbar;
+
+    NSIndexPath * _selectedIndexPath;
 }
 
 @end
@@ -39,6 +43,7 @@
     [super viewDidLoad];
 
     _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
+    _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
 
     self.navigationController.delegate = self;
     self.navigationItem.hidesBackButton = YES;
@@ -53,6 +58,7 @@
 
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
 
+    [self setupNavBar];
     [self setupToolbar];
 
     _keychain = [ACSimpleKeychain defaultKeychain];
@@ -68,17 +74,49 @@
     app.deckController.panningMode = IIViewDeckFullViewPanning;
 }
 
+- (void)setupNavBar
+{
+    self.titleLabel.text = @"My Tasks";
+    self.titleLabel.textColor = UIColor.whiteColor;
+    self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
+
+    [self.navigationItem.leftBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-3, 3) forBarMetrics:UIBarMetricsDefault];
+
+    NSDictionary * textAttributes = @{
+        [UIFont fontWithName:@"ProximaNova-Bold" size:20]: UITextAttributeFont,
+        UITextAttributeTextShadowColor: KNavbarBackgroundColor
+    };
+
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitlePositionAdjustment:UIOffsetMake(8, 3) forBarMetrics:UIBarMetricsDefault];
+
+    // Hide for now
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
 - (void)setupToolbar
 {
-    _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.navigationController.navigationBar.frame.size.width - 85, 13, 70, 20)];
+    _toolbar = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 44)];
+    _toolbar.backgroundColor = KToolbarBackgroundColor;
+    _toolbar.tag = KToolbarTag;
+
+    [self.navigationController.navigationBar addSubview:_toolbar];
+
+    _totalLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 12, 150, 20)];
+    _totalLabel.text = @"";
+    _totalLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12];
+    _totalLabel.textColor = [UIColor colorWithWhite:0.555 alpha:1.000];
+    _totalLabel.backgroundColor = UIColor.clearColor;
+
+    _totalTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(_toolbar.frame.size.width - 82, 12, 70, 20)];
     _totalTimeLabel.text = @"";
     _totalTimeLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
-    _totalTimeLabel.textColor = UIColor.whiteColor;
+    _totalTimeLabel.textColor = [UIColor colorWithWhite:0.555 alpha:1.000];
     _totalTimeLabel.textAlignment = UITextAlignmentRight;
-    _totalTimeLabel.backgroundColor = KNavbarBackgroundColor;
-    _totalTimeLabel.tag = 1000;
+    _totalTimeLabel.backgroundColor = UIColor.clearColor;
 
-    [self.navigationController.navigationBar addSubview:_totalTimeLabel];
+    [_toolbar addSubview:_totalLabel];
+    [_toolbar addSubview:_totalTimeLabel];
 }
 
 -(void)refreshInvoked:(id)sender forState:(UIControlState)state
@@ -97,11 +135,49 @@
 
 - (void)reload
 {
-    _totalTimeLabel.text = @"";
+    [self hideToolbar:YES];
 
     [tasksManager sync];
 
     [_table reloadData];
+}
+
+- (void)hideToolbar:(BOOL)animated
+{
+    CGRect toolbarFrame = _toolbar.frame;
+
+    if (animated) {
+        [UIView transitionWithView:self.navigationController.toolbar duration:(animated ? .3 : 0)
+                           options:UIViewAnimationOptionTransitionNone
+                        animations:^{
+                            _toolbar.frame = CGRectMake(toolbarFrame.origin.x, self.view.frame.size.height + 44, toolbarFrame.size.width, toolbarFrame.size.height);
+                        }
+                        completion:^(BOOL finished) {
+                            _totalLabel.text = @"";
+                            _totalTimeLabel.text = @"";
+                        }];
+    } else {
+        _toolbar.frame = CGRectMake(toolbarFrame.origin.x, self.view.frame.size.height + 44, toolbarFrame.size.width, toolbarFrame.size.height);
+
+        _totalLabel.text = @"";
+        _totalTimeLabel.text = @"";
+    }
+}
+
+- (void)showToolbar:(BOOL)animated
+{
+    CGRect toolbarFrame = _toolbar.frame;
+
+    if (animated) {
+        [UIView transitionWithView:self.navigationController.toolbar duration:(animated ? .3 : 0)
+                           options:UIViewAnimationOptionTransitionNone
+                        animations:^{
+                            _toolbar.frame = CGRectMake(toolbarFrame.origin.x, self.view.frame.size.height, toolbarFrame.size.width, toolbarFrame.size.height);
+                        }
+                        completion:nil];
+    } else {
+        _toolbar.frame = CGRectMake(toolbarFrame.origin.x, self.view.frame.size.height, toolbarFrame.size.width, toolbarFrame.size.height);
+    }
 }
 
 #pragma mark -
@@ -119,12 +195,14 @@
 
     UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 15)];
     headerView.backgroundColor = [UIColor colorWithWhite:0.933 alpha:1.000];
+    headerView.opaque = YES;
 
     UILabel * customerLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, self.tableView.bounds.size.width, 22)];
-    customerLabel.backgroundColor = UIColor.clearColor;
+    customerLabel.backgroundColor = headerView.backgroundColor;
     customerLabel.text = customer;
     customerLabel.textColor = [UIColor colorWithWhite:0.555 alpha:1.000];
     customerLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12];
+    customerLabel.opaque = YES;
 
     [headerView addSubview:customerLabel];
 
@@ -150,7 +228,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Task * task = [tasksManager taskAtIndexPath:indexPath];
+
     TaskCell * cell;
+
+    BOOL isSelected = (indexPath.section == _selectedIndexPath.section && indexPath.row == _selectedIndexPath.row);
+
+    if (isSelected) {
+        if (_isIOS6) {
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_ACTIONS_CELL" forIndexPath:indexPath];
+        } else {
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_ACTIONS_CELL"];
+        }
+
+        return cell;
+    }
 
     if (_isIOS6) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
@@ -175,6 +266,11 @@
     cell.toggleButton.titleLabel.text = task.customerName;
     cell.toggleButton.running = task.isRunning;
 
+    cell.projectName.backgroundColor = cell.contentView.backgroundColor;
+    cell.taskName.backgroundColor = cell.contentView.backgroundColor;
+    cell.taskTime.backgroundColor = cell.contentView.backgroundColor;
+    cell.toggleButton.backgroundColor = cell.contentView.backgroundColor;
+
     cell.projectName.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
     cell.taskName.font = [UIFont fontWithName:@"ProximaNova-Regular" size:12];
     cell.taskTime.font = [UIFont fontWithName:@"ProximaNova-Regular" size:18];
@@ -182,11 +278,25 @@
     return cell;
 }
 
-- (NSString *)timeString:(NSString *)time
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate * date = [NSDate dateFromString:[NSString stringWithFormat:@"2012-01-01 %@:00", time]];
+    if (indexPath.section == _selectedIndexPath.section && indexPath.row == _selectedIndexPath.row) {
+        _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
 
-    return [date stringWithFormat:@"HH:mm"];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+
+        return;
+    }
+
+    NSIndexPath * previousIndexPath = _selectedIndexPath;
+
+    _selectedIndexPath = indexPath;
+
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    
+    if (previousIndexPath.section >= 0) {
+        [tableView reloadRowsAtIndexPaths:@[previousIndexPath] withRowAnimation:UITableViewRowAnimationRight];
+    }
 }
 
 - (IBAction)toggleButtonTouched:(UIButton *)button
@@ -198,6 +308,13 @@
     if (task) {
         [tasksManager toggleTask:task sync:YES];
     }
+}
+
+- (NSString *)timeString:(NSString *)time
+{
+    NSDate * date = [NSDate dateFromString:[NSString stringWithFormat:@"2012-01-01 %@:00", time]];
+    
+    return [date stringWithFormat:@"HH:mm"];
 }
 
 #pragma mark -
@@ -221,7 +338,25 @@
 {
     [_table reloadData];
 
+    _totalLabel.text = @"Total today";
     _totalTimeLabel.text = [NSDate stringFromDate:tasksManager.totalTimeDate withFormat:@"HH:mm"];
+
+    [self showToolbar:YES];
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate methods
+#pragma mark -
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (_selectedIndexPath.section >= 0) {
+        NSIndexPath * previousIndexPath = _selectedIndexPath;
+
+        _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
+
+        [self.tableView reloadRowsAtIndexPaths:@[previousIndexPath] withRowAnimation:UITableViewRowAnimationRight];
+    }
 }
 
 @end

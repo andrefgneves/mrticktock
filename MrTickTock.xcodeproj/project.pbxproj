@@ -33,7 +33,6 @@
 		14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14626026161F5B0900C766A8 /* MainStoryboard.storyboard */; };
 		14731A8B1674B7CD00EB24D2 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8A1674B7CD00EB24D2 /* MainNavigationController.m */; };
 		14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8E1674DBC600EB24D2 /* MenuCell.m */; };
-		14731A911674DF7E00EB24D2 /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14731A901674DF7E00EB24D2 /* mrticktock.ttf */; };
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
 		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
 		147927A1168FD67F003EB905 /* start.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1479279F168FD67F003EB905 /* start.pdf */; };
@@ -45,6 +44,7 @@
 		149C8D50168BC5210040E305 /* WebsiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 149C8D4F168BC5210040E305 /* WebsiteViewController.m */; };
 		14AA7C8B1629D6F800DA9597 /* TasksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AA7C8A1629D6F800DA9597 /* TasksManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14C9F03716309DCC00F8C94D /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C9F03616309DCC00F8C94D /* SearchBar.m */; };
+		14D7142516950E9A00CB732C /* mrticktock.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14D7142416950E9A00CB732C /* mrticktock.ttf */; };
 		14D7A0E816150160004BF0AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14D7A0E716150160004BF0AB /* SystemConfiguration.framework */; };
 		14D7A0F416151710004BF0AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D7A0F316151710004BF0AB /* LoginViewController.m */; };
 		14DFB4A21632E97600B0109F /* Proxima Nova Reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */; };
@@ -90,7 +90,6 @@
 		14731A8A1674B7CD00EB24D2 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		14731A8D1674DBC600EB24D2 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
 		14731A8E1674DBC600EB24D2 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
-		14731A901674DF7E00EB24D2 /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
 		1475909F1613B4C40013CF70 /* AFMrTickTockAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMrTickTockAPIClient.h; sourceTree = "<group>"; };
 		147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMrTickTockAPIClient.m; sourceTree = "<group>"; };
 		147590A31613D08E0013CF70 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		14AF44721649C4A50087D5DF /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		14C9F03516309DCC00F8C94D /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		14C9F03616309DCC00F8C94D /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
+		14D7142416950E9A00CB732C /* mrticktock.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mrticktock.ttf; sourceTree = "<group>"; };
 		14D7A0E716150160004BF0AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		14D7A0F216151710004BF0AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		14D7A0F316151710004BF0AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		14FC3872162E14EC0021EBA0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				14731A901674DF7E00EB24D2 /* mrticktock.ttf */,
+				14D7142416950E9A00CB732C /* mrticktock.ttf */,
 				14DFB4A01632E97600B0109F /* Proxima Nova Reg.otf */,
 				14DFB4A11632E97600B0109F /* Proxima Nova Bold.otf */,
 			);
@@ -372,9 +372,9 @@
 				14626028161F5B0900C766A8 /* MainStoryboard.storyboard in Resources */,
 				14DFB4A21632E97600B0109F /* Proxima Nova Reg.otf in Resources */,
 				14DFB4A31632E97600B0109F /* Proxima Nova Bold.otf in Resources */,
-				14731A911674DF7E00EB24D2 /* mrticktock.ttf in Resources */,
 				147927A1168FD67F003EB905 /* start.pdf in Resources */,
 				147927A4168FD7D4003EB905 /* pause.pdf in Resources */,
+				14D7142516950E9A00CB732C /* mrticktock.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
