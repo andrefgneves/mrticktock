@@ -322,7 +322,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 {
     NSMutableArray * customerTasks;
 
-    NSSortDescriptor * sorter = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
+    NSSortDescriptor * projectSorter = [[NSSortDescriptor alloc] initWithKey:@"projectName" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    NSSortDescriptor * nameSorter = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
 
     for (Task * task in tasks) {
         if ([_tasks objectForKey:task.customerName]) {
@@ -332,7 +333,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
         }
 
         [customerTasks addObject:task];
-        [customerTasks sortUsingDescriptors:@[sorter]];
+        [customerTasks sortUsingDescriptors:@[projectSorter, nameSorter]];
 
         [_tasks setObject:customerTasks forKey:task.customerName];
 

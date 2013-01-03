@@ -11,6 +11,7 @@
 #import "UIImage+Utils.h"
 #import "Constants.h"
 #import "NSObject+PerformBlock.h"
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <TestFlightSDK/TestFlight.h>
 #import "TasksManager.h"
 
@@ -25,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+
     isBackgrounded = NO;
 
     [self setStyle];
