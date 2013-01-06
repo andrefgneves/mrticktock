@@ -35,6 +35,7 @@
 		14731A8F1674DBC600EB24D2 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14731A8E1674DBC600EB24D2 /* MenuCell.m */; };
 		147590A11613B4C40013CF70 /* AFMrTickTockAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */; };
 		147590A51613D08E0013CF70 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147590A41613D08E0013CF70 /* TaskCell.m */; };
+		1478185216991E0D00022B9D /* TaskActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1478185116991E0D00022B9D /* TaskActionButton.m */; };
 		147927A1168FD67F003EB905 /* start.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1479279F168FD67F003EB905 /* start.pdf */; };
 		147927A4168FD7D4003EB905 /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 147927A3168FD7D4003EB905 /* pause.pdf */; };
 		147A97FF1698E49000E84993 /* ActionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147A97FE1698E49000E84993 /* ActionsCell.m */; };
@@ -95,6 +96,8 @@
 		147590A01613B4C40013CF70 /* AFMrTickTockAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFMrTickTockAPIClient.m; sourceTree = "<group>"; };
 		147590A31613D08E0013CF70 /* TaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
 		147590A41613D08E0013CF70 /* TaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCell.m; sourceTree = "<group>"; };
+		1478185016991E0C00022B9D /* TaskActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskActionButton.h; sourceTree = "<group>"; };
+		1478185116991E0D00022B9D /* TaskActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskActionButton.m; sourceTree = "<group>"; };
 		1479279F168FD67F003EB905 /* start.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = start.pdf; sourceTree = "<group>"; };
 		147927A3168FD7D4003EB905 /* pause.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pause.pdf; sourceTree = "<group>"; };
 		147A97FD1698E49000E84993 /* ActionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionsCell.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				14626026161F5B0900C766A8 /* MainStoryboard.storyboard */,
 				147A97FD1698E49000E84993 /* ActionsCell.h */,
 				147A97FE1698E49000E84993 /* ActionsCell.m */,
+				1478185016991E0C00022B9D /* TaskActionButton.h */,
+				1478185116991E0D00022B9D /* TaskActionButton.m */,
 				147590A31613D08E0013CF70 /* TaskCell.h */,
 				147590A41613D08E0013CF70 /* TaskCell.m */,
 				142A5949162A14D800257605 /* ToggleTaskButton.h */,
@@ -424,6 +429,7 @@
 				149C8D4D168BBD840040E305 /* NSObject+PerformBlock.m in Sources */,
 				149C8D50168BC5210040E305 /* WebsiteViewController.m in Sources */,
 				147A97FF1698E49000E84993 /* ActionsCell.m in Sources */,
+				1478185216991E0D00022B9D /* TaskActionButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
