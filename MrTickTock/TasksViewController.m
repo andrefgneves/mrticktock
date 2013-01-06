@@ -29,7 +29,8 @@
     UILabel * _totalTimeLabel;
     UIView * _toolbar;
 
-    NSIndexPath * _selectedIndexPath;
+    NSIndexPath * tappedCellIndexPath;
+    NSIndexPath * actionsCellIndexPath;
 }
 
 @end
@@ -43,7 +44,9 @@
     [super viewDidLoad];
 
     _isIOS6 =  NSClassFromString(@"UIRefreshControl") != nil;
-    _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
+
+    tappedCellIndexPath = nil;
+    actionsCellIndexPath = nil;
 
     self.navigationController.delegate = self;
     self.navigationItem.hidesBackButton = YES;
@@ -209,6 +212,14 @@
     return headerView;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 43)];
+    footerView.backgroundColor = UIColor.clearColor;
+
+    return footerView;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tasksManager.syncing) {
@@ -217,23 +228,36 @@
 
     NSString * customer = [tasksManager.customers objectAtIndex:section];
 
+    if (actionsCellIndexPath && actionsCellIndexPath.section == section) {
+        return [tasksManager tasksForCustomer:customer].count + 1;
+    }
+
     return [tasksManager tasksForCustomer:customer].count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section == tasksManager.customers.count - 1) {
+        return 43;
+    }
+
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([indexPath isEqual:actionsCellIndexPath]){
+        return 50;
+    }
+
     return 67;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Task * task = [tasksManager taskAtIndexPath:indexPath];
-
     TaskCell * cell;
 
-    BOOL isSelected = (indexPath.section == _selectedIndexPath.section && indexPath.row == _selectedIndexPath.row);
-
-    if (isSelected) {
+    if ([indexPath isEqual:actionsCellIndexPath]) {
         if (_isIOS6) {
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_ACTIONS_CELL" forIndexPath:indexPath];
         } else {
@@ -242,6 +266,12 @@
 
         return cell;
     }
+
+    if (actionsCellIndexPath && indexPath.section == actionsCellIndexPath.section && indexPath.row >= actionsCellIndexPath.row) {
+        indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+    }
+
+    Task * task = [tasksManager taskAtIndexPath:indexPath];
 
     if (_isIOS6) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
@@ -280,22 +310,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == _selectedIndexPath.section && indexPath.row == _selectedIndexPath.row) {
-        _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
-
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-
+    if (actionsCellIndexPath && [indexPath isEqual:actionsCellIndexPath]) {
         return;
     }
 
-    NSIndexPath * previousIndexPath = _selectedIndexPath;
+    if (actionsCellIndexPath != nil && indexPath.row > actionsCellIndexPath.row) {
+        indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+    }
 
-    _selectedIndexPath = indexPath;
+    NSIndexPath * indexPathToDelete = actionsCellIndexPath;
 
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-    
-    if (previousIndexPath.section >= 0) {
-        [tableView reloadRowsAtIndexPaths:@[previousIndexPath] withRowAnimation:UITableViewRowAnimationRight];
+    if ([indexPath isEqual:tappedCellIndexPath]) {
+        tappedCellIndexPath = nil;
+        actionsCellIndexPath = nil;
+    } else {
+        tappedCellIndexPath = indexPath;
+        actionsCellIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+    }
+
+    [tableView beginUpdates];
+
+    if (indexPathToDelete) {
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPathToDelete] withRowAnimation:UITableViewRowAnimationTop];
+    }
+
+    if (actionsCellIndexPath) {
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:actionsCellIndexPath] withRowAnimation:UITableViewRowAnimationTop];
+    }
+
+    [tableView endUpdates];
+
+    if (actionsCellIndexPath) {
+        NSInteger totalSections = [self numberOfSectionsInTableView:tableView];
+        NSInteger totalRows = [self tableView:tableView numberOfRowsInSection:totalSections - 1];
+
+        if ([actionsCellIndexPath isEqual:[NSIndexPath indexPathForRow:totalRows - 1 inSection:totalSections - 1]]) {
+            [tableView scrollToRowAtIndexPath:actionsCellIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
     }
 }
 
@@ -350,13 +401,7 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    if (_selectedIndexPath.section >= 0) {
-        NSIndexPath * previousIndexPath = _selectedIndexPath;
-
-        _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
-
-        [self.tableView reloadRowsAtIndexPaths:@[previousIndexPath] withRowAnimation:UITableViewRowAnimationRight];
-    }
+    
 }
 
 @end

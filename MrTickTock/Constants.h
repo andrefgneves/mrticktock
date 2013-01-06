@@ -12,6 +12,6 @@
 #define KNavbarBackgroundColor [UIColor colorWithRed:0.329 green:0.533 blue:0.729 alpha:1]
 #define KNavbarBackgroundImage [UIImage imageWithColor:KNavbarBackgroundColor andSize:CGSizeMake(1, 1)]
 
-#define KToolbarBackgroundColor [UIColor colorWithWhite:0.933 alpha:.95]
+#define KToolbarBackgroundColor [UIColor colorWithWhite:0.933 alpha:.90]
 #define KToolbarTag 1000
 #endif

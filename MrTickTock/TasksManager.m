@@ -308,12 +308,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
 - (Task *)taskAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!_customers.count || !_tasks.count) {
+    if (!_customers.count || !_tasks.count || (indexPath.section > _customers.count)) {
         return nil;
     }
 
     NSString * customer = [_customers objectAtIndex:indexPath.section];
     NSArray * tasks = [_tasks objectForKey:customer];
+
+    if (indexPath.row > tasks.count) {
+        return nil;
+    }
 
     return [tasks objectAtIndex:indexPath.row];
 }
