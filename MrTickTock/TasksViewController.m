@@ -255,23 +255,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TaskCell * cell;
+    Task * task;
 
     if ([indexPath isEqual:actionsCellIndexPath]) {
+        TaskActionsCell * cell;
+
         if (_isIOS6) {
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_ACTIONS_CELL" forIndexPath:indexPath];
         } else {
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_ACTIONS_CELL"];
         }
 
+        task = [tasksManager taskAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
+
+        cell.task = task;
+        cell.delegate = self;
+
+        [cell didMoveToSuperview];
+
         return cell;
     }
+
+    TaskCell * cell;
 
     if (actionsCellIndexPath && indexPath.section == actionsCellIndexPath.section && indexPath.row >= actionsCellIndexPath.row) {
         indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
     }
 
-    Task * task = [tasksManager taskAtIndexPath:indexPath];
+    task = [tasksManager taskAtIndexPath:indexPath];
 
     if (_isIOS6) {
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL" forIndexPath:indexPath];
@@ -314,7 +325,7 @@
         return;
     }
 
-    if (actionsCellIndexPath != nil && indexPath.row > actionsCellIndexPath.row) {
+    if (actionsCellIndexPath != nil && actionsCellIndexPath.section == indexPath.section && indexPath.row > actionsCellIndexPath.row) {
         indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
     }
 
@@ -402,6 +413,15 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     
+}
+
+#pragma mark -
+#pragma mark TaskActionsCellDelegate methods
+#pragma mark -
+
+- (void)setTaskTime:(Task *)task time:(NSString *)time
+{
+    [tasksManager setTaskTime:task time:time];
 }
 
 @end

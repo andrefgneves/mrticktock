@@ -14,6 +14,7 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <TestFlightSDK/TestFlight.h>
 #import "TasksManager.h"
+#import "TaskActionButton.h"
 
 @interface AppDelegate()
 {

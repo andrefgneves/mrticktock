@@ -22,7 +22,7 @@
     UIRectCorner corners = UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomRight | UIRectCornerBottomLeft;
     UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                    byRoundingCorners:corners
-                                                         cornerRadii:CGSizeMake(8, 8)];
+                                                         cornerRadii:CGSizeMake(20, 20)];
 
     self.contentLayer = [CAShapeLayer layer];
     self.contentLayer.frame = self.bounds;
@@ -35,30 +35,27 @@
 
     [self setTitleColor:UIColor.grayColor forState:UIControlStateNormal];
     [self setTitleColor:UIColor.blackColor forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor colorWithWhite:0.867 alpha:1.000] forState:UIControlStateDisabled];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)setEnabled:(BOOL)enabled
 {
     [CATransaction setDisableActions:YES];
-    self.contentLayer.strokeColor = UIColor.blackColor.CGColor;
+    self.contentLayer.strokeColor = enabled ? UIColor.grayColor.CGColor : [UIColor colorWithWhite:0.867 alpha:1.000].CGColor;
 
-    [self setHighlighted:YES];
+    [super setEnabled:enabled];
+
+    [CATransaction setDisableActions:NO];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)setHighlighted:(BOOL)highlighted
 {
     [CATransaction setDisableActions:YES];
-    self.contentLayer.strokeColor = UIColor.grayColor.CGColor;
+    self.contentLayer.strokeColor = highlighted ? UIColor.blackColor.CGColor : UIColor.grayColor.CGColor;
 
-    [self setHighlighted:NO];
-}
+    [super setHighlighted:highlighted];
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [CATransaction setDisableActions:YES];
-    self.contentLayer.strokeColor = UIColor.grayColor.CGColor;
-
-    [self setHighlighted:NO];
+    [CATransaction setDisableActions:NO];
 }
 
 @end

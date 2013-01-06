@@ -289,6 +289,34 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
     }
 }
 
+- (void)setTaskTime:(Task *)task time:(NSString *)time
+{
+    if (task.isRunning) {
+        return;
+    }
+
+    [SVProgressHUD show];
+
+    NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
+    [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"task_id"];
+    [params setObject:time forKey:@"time"];
+    [params setObject:@"true" forKey:@"keep_timeranges"];
+
+    [[AFMrTickTockAPIClient sharedClient] postPath:@"report_time_on_task" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+        NSArray * errors = [JSON objectForKey:@"errors"];
+        if (errors.count) {
+            [self showError:[errors objectAtIndex:0]];
+            
+            return;
+        }
+
+        [self sync];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self showError:error.description];
+    }];
+}
+
 - (Task *)taskById:(NSUInteger)taskId
 {
     NSMutableArray * allTasks = [[NSMutableArray alloc] init];
