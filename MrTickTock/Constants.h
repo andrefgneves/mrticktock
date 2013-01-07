@@ -14,4 +14,7 @@
 
 #define KToolbarBackgroundColor [UIColor colorWithWhite:0.933 alpha:.90]
 #define KToolbarTag 1000
+
+#define KTaskActionStrokeColor [UIColor colorWithWhite:0.557 alpha:1.000].CGColor
+
 #endif

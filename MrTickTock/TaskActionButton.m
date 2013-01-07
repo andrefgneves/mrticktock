@@ -7,6 +7,7 @@
 //
 
 #import "TaskActionButton.h"
+#import "Constants.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TaskActionButton()
@@ -27,8 +28,8 @@
     self.contentLayer = [CAShapeLayer layer];
     self.contentLayer.frame = self.bounds;
     self.contentLayer.path = path.CGPath;
-    self.contentLayer.strokeColor = UIColor.grayColor.CGColor;
-    self.contentLayer.lineWidth = 1.7;
+    self.contentLayer.strokeColor = KTaskActionStrokeColor;
+    self.contentLayer.lineWidth = 1;
     self.contentLayer.fillColor = UIColor.clearColor.CGColor;
 
     [self.layer addSublayer:self.contentLayer];
@@ -41,7 +42,7 @@
 - (void)setEnabled:(BOOL)enabled
 {
     [CATransaction setDisableActions:YES];
-    self.contentLayer.strokeColor = enabled ? UIColor.grayColor.CGColor : [UIColor colorWithWhite:0.867 alpha:1.000].CGColor;
+    self.contentLayer.strokeColor = enabled ? KTaskActionStrokeColor : [UIColor colorWithWhite:0.867 alpha:1.000].CGColor;
 
     [super setEnabled:enabled];
 
@@ -51,7 +52,7 @@
 - (void)setHighlighted:(BOOL)highlighted
 {
     [CATransaction setDisableActions:YES];
-    self.contentLayer.strokeColor = highlighted ? UIColor.blackColor.CGColor : UIColor.grayColor.CGColor;
+    self.contentLayer.strokeColor = highlighted ? UIColor.blackColor.CGColor : KTaskActionStrokeColor;
 
     [super setHighlighted:highlighted];
 

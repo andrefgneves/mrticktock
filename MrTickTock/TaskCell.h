@@ -15,6 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel * taskName;
 @property (strong, nonatomic) IBOutlet UILabel * taskTime;
 @property (strong, nonatomic) IBOutlet ToggleTaskButton * toggleButton;
-
+@property (nonatomic) BOOL shoudDrawSeparator;
 
 @end

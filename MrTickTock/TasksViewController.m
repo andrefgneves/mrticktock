@@ -290,6 +290,8 @@
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"TASK_CELL"];
     }
 
+    cell.shoudDrawSeparator = indexPath.row > 0;
+
     cell.contentView.backgroundColor = task.isRunning ? [UIColor colorWithRed:0.537 green:0.805 blue:0.184 alpha:1.000] : [UIColor whiteColor];
 
     UIColor * textColor = task.isRunning ? [UIColor whiteColor] : [UIColor colorWithWhite:0.555 alpha:1.000];
@@ -404,15 +406,6 @@
     _totalTimeLabel.text = [NSDate stringFromDate:tasksManager.totalTimeDate withFormat:@"HH:mm"];
 
     [self showToolbar:YES];
-}
-
-#pragma mark -
-#pragma mark UIScrollViewDelegate methods
-#pragma mark -
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    
 }
 
 #pragma mark -

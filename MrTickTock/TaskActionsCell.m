@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) IBOutlet UIView * buttonsView;
 @property (strong, nonatomic) IBOutlet TaskActionButton * setTimeButton;
+@property (strong, nonatomic) CALayer * shadowLayer;
+@property (strong, nonatomic) CAShapeLayer * triangle;
 
 @end
 
@@ -24,33 +26,59 @@
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
+    [super willMoveToSuperview:newSuperview];
+
     int r = 2;
 
-    self.buttonsView.layer.masksToBounds = YES;
-    self.buttonsView.backgroundColor = [UIColor colorWithWhite:0.961 alpha:1.000];
+    if (!self.shadowLayer) {
+        self.buttonsView.layer.masksToBounds = YES;
+        self.buttonsView.backgroundColor = [UIColor colorWithWhite:0.961 alpha:1.000];
 
-    CALayer * layer = [CALayer layer];
+        self.shadowLayer = [CALayer layer];
 
-    layer.frame = CGRectMake(-r, -r, self.buttonsView.frame.size.width + (r * 2), r);
-    layer.backgroundColor = UIColor.whiteColor.CGColor;
-    layer.shadowOpacity = .8;
-    layer.shadowRadius = r;
-    layer.shadowOffset = CGSizeMake(0, 1);
-    layer.shadowPath = [UIBezierPath bezierPathWithRect:layer.frame].CGPath;
+        self.shadowLayer.frame = CGRectMake(-r, -r, self.buttonsView.frame.size.width + (r * 2), r);
+        self.shadowLayer.backgroundColor = UIColor.whiteColor.CGColor;
+        self.shadowLayer.shadowOpacity = .8;
+        self.shadowLayer.shadowRadius = r;
+        self.shadowLayer.shadowOffset = CGSizeMake(0, 1);
+        self.shadowLayer.shadowPath = [UIBezierPath bezierPathWithRect:self.shadowLayer.frame].CGPath;
+        
+        [self.buttonsView.layer addSublayer:self.shadowLayer];
 
-    [self.buttonsView.layer addSublayer:layer];
+        for (UIView * view in self.buttonsView.subviews) {
+            if ([view class] == [TaskActionButton class]) {
+                UIButton * button = (UIButton *)view;
 
-    for (UIView * view in self.buttonsView.subviews) {
-        if ([view class] == [TaskActionButton class]) {
-            UIButton * button = (UIButton *)view;
-
-            button.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:13];
-            button.titleEdgeInsets = UIEdgeInsetsMake(1, 0, 0, 0);
+                button.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Regular" size:13];
+                button.titleEdgeInsets = UIEdgeInsetsMake(1, 0, 0, 0);
+            }
         }
+    }
+
+    if (!self.triangle) {
+        CGRect triangleRect = CGRectMake(self.buttonsView.frame.size.width / 2 - 5, 0, 10, 10);
+
+        CGMutablePathRef path = CGPathCreateMutable();
+        CGPathMoveToPoint(path, NULL, CGRectGetMinX(triangleRect), 0);
+        CGPathAddLineToPoint(path, NULL, CGRectGetMidX(triangleRect), CGRectGetMidY(triangleRect));
+        CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(triangleRect), 0);
+        CGPathCloseSubpath(path);
+
+        self.triangle = [CAShapeLayer layer];
+        self.triangle.path = path;
+        self.triangle.fillColor = UIColor.whiteColor.CGColor;
+        self.triangle.shadowOpacity = .3;
+        self.triangle.shadowOffset = CGSizeMake(0, 1);
+        self.triangle.shadowPath = path;
+        self.triangle.shadowRadius = r;
+
+        [self.buttonsView.layer addSublayer:self.triangle];
     }
 }
 
 - (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+
     self.setTimeButton.enabled = !self.task.isRunning;
 }
 
