@@ -10,6 +10,7 @@
 #import "TaskActionButton.h"
 #import "UIImage+Utils.h"
 #import "NSDate+Helper.h"
+#import "Constants.h"
 #import <ActionSheetPicker/ActionSheetDatePicker.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -66,7 +67,7 @@
 
         self.triangle = [CAShapeLayer layer];
         self.triangle.path = path;
-        self.triangle.fillColor = UIColor.whiteColor.CGColor;
+        self.triangle.fillColor = self.task.isRunning ? KTaskCellRunningBackgroundColor.CGColor : UIColor.whiteColor.CGColor;
         self.triangle.shadowOpacity = .3;
         self.triangle.shadowOffset = CGSizeMake(0, 1);
         self.triangle.shadowPath = path;
@@ -80,6 +81,12 @@
     [super didMoveToSuperview];
 
     self.setTimeButton.enabled = !self.task.isRunning;
+
+    [CATransaction setDisableActions:YES];
+
+    self.triangle.fillColor = self.task.isRunning ? KTaskCellRunningBackgroundColor.CGColor : UIColor.whiteColor.CGColor;
+
+    [CATransaction setDisableActions:NO];
 }
 
 - (IBAction)showTimePicker:(id)sender
@@ -110,7 +117,7 @@
 
 - (IBAction)addNote:(id)sender
 {
-    LOG_FUNCTION();
+    // @TODO
 }
 
 - (IBAction)showMore:(id)sender
