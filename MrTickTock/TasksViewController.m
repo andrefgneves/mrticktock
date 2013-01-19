@@ -302,7 +302,7 @@
     cell.taskName.text = task.name;
     cell.taskName.textColor = textColor;
 
-    cell.taskTime.text = [self timeString:task.totalTime != @"" ? task.totalTime : @"00:00"];
+    cell.taskTime.text = [self timeString:[task.totalTime isEqualToString:@""] ? task.totalTime : @"00:00"];
     cell.taskTime.textColor = textColor;
 
     cell.toggleButton.tag = task.id;
