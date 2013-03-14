@@ -417,4 +417,9 @@
     [tasksManager setTaskTime:task time:time];
 }
 
+- (void)closeTask:(Task *)task
+{
+    [tasksManager closeTask:task];
+}
+
 @end

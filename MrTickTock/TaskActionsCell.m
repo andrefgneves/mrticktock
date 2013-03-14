@@ -125,15 +125,29 @@
     [[[UIActionSheet alloc] initWithTitle:@"Task actions"
                                  delegate:self
                         cancelButtonTitle:@"Cancel"
-                   destructiveButtonTitle:@"Delete"
-                        otherButtonTitles:@"Hide", @"Close", nil] showInView:self];
+                   destructiveButtonTitle:@"Close"
+                        otherButtonTitles:@"Hide", nil] showInView:self];
 }
+
+#pragma mark UIActionSheetDelegate
 
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet
 {
     UIImage * background = [UIImage imageWithColor:[UIColor colorWithWhite:0 alpha:.7] andSize:CGSizeMake(1, 1)];
 
     [[actionSheet layer] setContents:(id)background.CGImage];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0: // close
+            if (self.delegate && [self.delegate respondsToSelector:@selector(closeTask:)]) {
+                [self.delegate closeTask:self.task];
+            }
+
+            break;
+    }
 }
 
 @end

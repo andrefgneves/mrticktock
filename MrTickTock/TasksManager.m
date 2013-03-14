@@ -317,6 +317,29 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
     }];
 }
 
+- (void)closeTask:(Task *)task {
+    [SVProgressHUD show];
+
+    NSMutableDictionary * params = [[NSMutableDictionary alloc] initWithDictionary:[[AFMrTickTockAPIClient sharedClient] authParams]];
+    [params setObject:[NSString stringWithFormat:@"%d", task.id] forKey:@"tasks"];
+
+    [[AFMrTickTockAPIClient sharedClient] postPath:@"close_tasks" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary * JSON) {
+        NSArray * errors = [JSON objectForKey:@"errors"];
+        if (errors.count) {
+            [self showError:[errors objectAtIndex:0]];
+
+            return;
+        }
+
+        LOG_EXPR(JSON);
+
+        [self sync];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self showError:error.description];
+    }];
+}
+
 - (Task *)taskById:(NSUInteger)taskId
 {
     NSMutableArray * allTasks = [[NSMutableArray alloc] init];

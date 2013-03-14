@@ -12,6 +12,7 @@
 @protocol TaskActionsCellDelegate <NSObject>
 
 - (void)setTaskTime:(Task *)task time:(NSString *)time;
+- (void)closeTask:(Task *)task;
 
 @end
 

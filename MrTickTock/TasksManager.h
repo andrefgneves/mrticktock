@@ -39,6 +39,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(TasksManager);
 - (void)toggleTask:(Task *)task sync:(BOOL)sync;
 
 - (void)setTaskTime:(Task *)task time:(NSString *)time;
+- (void)closeTask:(Task *)task;
 
 - (Task *)taskById:(NSUInteger)taskId;
 - (Task *)taskAtIndexPath:(NSIndexPath *)indexPath;

@@ -6,6 +6,7 @@ PODS:
 - CKRefreshControl (0.0.1)
 - FTAssetRenderer (0.1.1)
 - GetGravatar (1.1)
+- Kiwi (2.0.3)
 - LOG_EXPR (1.2)
 - MGImageUtilities (0.0.1)
 - NSDate+Helper (0.0.1)
@@ -21,6 +22,7 @@ DEPENDENCIES:
 - CKRefreshControl
 - FTAssetRenderer
 - GetGravatar
+- Kiwi
 - LOG_EXPR
 - MGImageUtilities
 - NSDate+Helper
@@ -30,7 +32,7 @@ DEPENDENCIES:
 - ViewDeck
 
 SPEC CHECKSUMS:
-  ACSimpleKeychain: bd3dc5db0df1da0b44c15e6e997d8b802682ac18
+  ACSimpleKeychain: 2b61422885d2c482e841be1573f9dfcc0d65b839
   AFNetworking: 0bce3ae41023e080e96b8a2e0d07c94709f72a81
   ActionSheetPicker: f47931cfb6bc65230b323326964fccb4ad339f37
   CKRefreshControl: a42dffcaf686f70f265e5ae99d970243abaaff6f
@@ -43,5 +45,6 @@ SPEC CHECKSUMS:
   TestFlightSDK: 29e194fb148e4861f92e4c1195b9697e1f3ad19a
   UIImage+PDF: cad9495618586e360f318d8a570a8f9a589a4573
   ViewDeck: c38895499ab96c9d69db724a1af489ee3a268682
+  Kiwi: 0b72ba92e1c394d1cbbc7b1df6dcda3e20791a9b
 
-COCOAPODS: 0.16.0
+COCOAPODS: 0.16.1
