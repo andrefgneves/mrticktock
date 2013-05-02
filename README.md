@@ -30,7 +30,6 @@ I'll be fixing bugs and adding features on a "when I feel like it" basis but fee
 * <a href="http://andreneves.info">andreneves.info</a>
 * <a href="mailto:andre@andreneves.info">andre [at] andreneves [dot] info</a>
 * <a href="mailto:andrefgneves@gmail.com">andrefgneves [at] gmail [dot] com</a>
-* <a href="mailto:afn@seegno.com">afn [at] seegno [dot] com</a>
 
 
 ### License
