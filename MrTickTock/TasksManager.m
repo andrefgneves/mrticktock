@@ -179,7 +179,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
                     _syncing = NO;
 
                     if (self.delegate && [self.delegate respondsToSelector:@selector(taskManagerDidFinishSyncing:)]) {
-                        [self.delegate taskManagerDidFinishSyncing:self];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.delegate taskManagerDidFinishSyncing:self];
+                        });
                     }
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {}];
@@ -220,7 +222,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
             [SVProgressHUD dismiss];
             
             if (self.delegate && [self.delegate respondsToSelector:@selector(taskManagerDidFinishSyncing:)]) {
-                [self.delegate taskManagerDidFinishSyncing:self];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate taskManagerDidFinishSyncing:self];
+                });
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [self showError:error.description];
@@ -330,8 +334,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(TasksManager);
 
             return;
         }
-
-        LOG_EXPR(JSON);
 
         [self sync];
 

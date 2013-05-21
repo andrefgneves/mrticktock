@@ -79,7 +79,7 @@
 
 - (void)setupNavBar
 {
-    self.titleLabel.text = @"My Tasks";
+    self.titleLabel.text = @"Tasks";
     self.titleLabel.textColor = UIColor.whiteColor;
     self.titleLabel.font = [UIFont fontWithName:@"ProximaNova-Bold" size:20];
 
@@ -323,6 +323,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return;
+
     if (actionsCellIndexPath && [indexPath isEqual:actionsCellIndexPath]) {
         return;
     }
