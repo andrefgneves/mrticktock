@@ -302,7 +302,7 @@
     cell.taskName.text = task.name;
     cell.taskName.textColor = textColor;
 
-    cell.taskTime.text = [self timeString:[task.totalTime isEqualToString:@""] ? task.totalTime : @"00:00"];
+    cell.taskTime.text = [self timeString:[task.totalTime isEqualToString:@""] ? @"00:00" : task.totalTime];
     cell.taskTime.textColor = textColor;
 
     cell.toggleButton.tag = task.id;
@@ -378,7 +378,7 @@
 
 - (NSString *)timeString:(NSString *)time
 {
-    NSDate * date = [NSDate dateFromString:[NSString stringWithFormat:@"2012-01-01 %@:00", time]];
+    NSDate * date = [NSDate dateFromString:[NSString stringWithFormat:@"2013-01-01 %@:00", time]];
     
     return [date stringWithFormat:@"HH:mm"];
 }
